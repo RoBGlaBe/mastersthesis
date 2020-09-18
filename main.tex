@@ -1,0 +1,119 @@
+%
+%   TeX File, um die Arbeit zusammenzusetzen
+%   und Kapitel zu texen und zu testen .
+%
+\documentclass[english,12pt,twoside,a4paper]{report}%{scrreprt}
+\usepackage{graphicx,caption,subcaption,float}
+\usepackage[english, ngerman]{babel,varioref}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{svg}
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{microtype}
+\usepackage{bbm}
+\usepackage{ellipsis}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage[section]{placeins}
+\usepackage{braket}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage[acronym,automake]{glossaries}
+\usepackage{lmodern}
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{pdfpages}
+\usepackage{setspace}
+\DeclareUnicodeCharacter{2009}{\,}
+\glstoctrue
+\makeatletter
+\makeatother
+
+%\usepackage{geometry,mflogo,xspace,texnames,path,booktabs,bm}
+%abbreviations:
+\newacronym{sm}{SM}{Standard Model}
+\newacronym{wimp}{WIMP}{weakly interacting massive particle}
+\newacronym{mond}{MOND}{modified Newtonian dynamics}
+\newacronym{cmb}{CMB}{cosmic microwave background}
+\newacronym{dm}{DM}{dark matter}
+\newacronym{lcdm}{$\Lambda$CDM}{Lambda cold dark matter}
+\newacronym{tpc}{TPC}{time projection chamber}
+\newacronym{lxe}{LXe}{liquid xenon}
+\newacronym{vuv}{VUV}{vacuum ultra-violet}
+\newacronym{pmt}{PMT}{photomultiplier tube}
+\newacronym{nr}{NR}{nuclear recoil}
+\newacronym{er}{ER}{electronic recoil}
+\newacronym{daq}{DAQ}{data acquisition}
+\newacronym{rd}{R\&D}{research \& development}
+\newacronym{ln2}{LN2}{liquid nitrogen}
+\usepackage{thumbpdf}
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%\pagestyle{myheadings}               % Seitenstil
+\pagestyle{headings}                 % Seitenstil
+\oddsidemargin0.8cm                  % linker Rand fuer ungerade Seiten bei \twoside
+\evensidemargin0.2cm                 % linker Rand fuer gerade Seiten (nur bei \twoside)
+\topmargin0.5cm                      % oberer Rand bis zur Oberseite Kopfzeile
+\textheight21cm                      % Texth"ohe auf einer Seite
+\textwidth15cm                       % Textbreite auf einer Seite
+\renewcommand{\topfraction}{0.75}    % Anteil der Gleitk"asten am Seitenanfang
+\renewcommand{\bottomfraction}{0.75} % Anteil der Gleitk"asten am Seitenende
+\parskip1ex  plus1ex minus0.5ex      % Abstand zwischen Abs"atzen
+\parindent0em                        % Einr"uckung der ersten Zeile eines Absatzes
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+%
+%\include{zeichen}                      %Sonderzeichen (selbst definiert)
+%\include{hyphen}
+%
+\title{"My Masterthesis' Title"}
+
+\author{\href{mailto:rgladebeucke@gmail.com}{Robin Glade-Beucke}}
+\date{30. November 2020}
+\makeglossaries
+\begin{document}
+\pagenumbering{Roman}
+%\maketitle
+\input{Chapters/cover}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\input{Chapters/abstract}
+\newpage
+\thispagestyle{empty} % empty
+\mbox{}
+\input{Chapters/kurzdarstellung}
+\newpage
+\thispagestyle{empty} % empty
+\mbox{}
+\tableofcontents
+\listoffigures
+\newpage
+\thispagestyle{empty} % empty
+\mbox{}
+\printglossary[type=\acronymtype,title=Abbreviations,nonumberlist]
+\pagenumbering{arabic}
+\input{Chapters/Introduction.tex}
+\input{Chapters/DarkMatter.tex}
+\newpage
+\thispagestyle{empty} % empty
+\mbox{}
+\input{Chapters/TPC}
+\newpage
+\thispagestyle{empty} % empty
+\mbox{}
+% \input{Chapters/Slowcontrol}  % doesnt exist
+% \input{Chapters/Developement} % doesnt exist
+% \input{Chapters/Application} % doesnt exist
+\input{Chapters/Conclusion}
+\bibliography{../bibliography/masterthesis}  % relative path to .bib file. sys-dependent
+\bibliographystyle{ieeetr}
+\includepdf[page={1}]{Chapters/erklaerung}
+\end{document}
+
+
