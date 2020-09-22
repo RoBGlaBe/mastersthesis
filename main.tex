@@ -79,15 +79,15 @@
 \begin{document}
 \pagenumbering{Roman}
 %\maketitle
-\input{Chapters/cover}
+\input{Chapters/other/cover}
 \newpage
 \thispagestyle{empty}
 \mbox{}
-\input{Chapters/abstract}
+\input{Chapters/other/abstract}
 \newpage
 \thispagestyle{empty} % empty
 \mbox{}
-\input{Chapters/kurzdarstellung}
+\input{Chapters/other/kurzdarstellung}
 \newpage
 \thispagestyle{empty} % empty
 \mbox{}
@@ -99,21 +99,17 @@
 \printglossary[type=\acronymtype,title=Abbreviations,nonumberlist]
 \pagenumbering{arabic}
 \input{Chapters/Introduction.tex}
-\input{Chapters/DarkMatter.tex}
 \newpage
 \thispagestyle{empty} % empty
 \mbox{}
-\input{Chapters/TPC}
+\input{Chapters/Analysis}
 \newpage
 \thispagestyle{empty} % empty
 \mbox{}
-% \input{Chapters/Slowcontrol}  % doesnt exist
-% \input{Chapters/Developement} % doesnt exist
-% \input{Chapters/Application} % doesnt exist
 \input{Chapters/Conclusion}
 \bibliography{../bibliography/masterthesis}  % relative path to .bib file. sys-dependent
 \bibliographystyle{ieeetr}
-\includepdf[page={1}]{Chapters/erklaerung}
+\includepdf[page={1}]{Chapters/other/erklaerung}
 \end{document}
 
 
