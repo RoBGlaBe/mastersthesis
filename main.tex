@@ -1,4 +1,4 @@
-%
+
 %   TeX File, um die Arbeit zusammenzusetzen
 %   und Kapitel zu texen und zu testen .
 %
@@ -19,7 +19,9 @@
 \usepackage{longtable}
 \usepackage{rotating}
 \usepackage[section]{placeins}
+\usepackage{placeins}
 \usepackage{braket}
+\usepackage{nicefrac}
 \usepackage{mathtools}
 \usepackage{tabularx}
 \usepackage{siunitx}
@@ -65,7 +67,7 @@
 \renewcommand{\topfraction}{0.75}    % Anteil der Gleitk"asten am Seitenanfang
 \renewcommand{\bottomfraction}{0.75} % Anteil der Gleitk"asten am Seitenende
 \parskip1ex  plus1ex minus0.5ex      % Abstand zwischen Abs"atzen
-\parindent0em                        % Einr"uckung der ersten Zeile eines Absatzes
+% \parindent0em                        % Einr"uckung der ersten Zeile eines Absatzes
 \newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
 %
 %\include{zeichen}                      %Sonderzeichen (selbst definiert)
@@ -107,7 +109,7 @@
 \thispagestyle{empty} % empty
 \mbox{}
 \input{Chapters/Conclusion}
-\bibliography{../bibliography/masterthesis}  % relative path to .bib file. sys-dependent
+\bibliography{../bibliography/masterthesis.bib}  % relative path to .bib file. sys-dependent
 \bibliographystyle{ieeetr}
 \includepdf[page={1}]{Chapters/other/erklaerung}
 \end{document}

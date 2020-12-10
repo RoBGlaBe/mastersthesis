@@ -1,7 +1,122 @@
 
-
-
+\FloatBarrier
 \subsection{tagging}
 \label{ssec:tagging}
+\FloatBarrier
+
+
+For work with Krypton data we record dedicated Krypton runs.
+In a Krypton run we fill the \gls{tpc} with a certain amount of Krypton so that the rate is low enough to distinguish single interactions.
+One minute after starting the filling process of Krypton it reaches the inner part of the \gls{tpc}.
+After a total of five minutes we assume that the Krypton dispersed homogeneously within the \gls{tpc}.
+We can confirm this assumption by observation.
+Our Krypton runs are three minute recordings.
+
+
+All following Krypton analyses require a selection of Krypton events to remove other interactions, dark counts, noise and misreconstructed events.
+A clean Krypton sample is one that is dominated by Krypton without biasing the selection by favouring one certain subpopulation.
+We will introduce a couple of cuts to accomplish this.
+
+
+Although the two Krypton decays are separate interactions, they are reconstructed into the same event as the second decay has such a small decay time.
+This means that we expect the largest S1 in an event to belong to the \SI{32}{\kilo\eV} decay, whereas the second largest S1 belongs to the \SI{9}{\kilo\eV}.
+However, the respective S2 signals are so broad that their waveforms overlap in almost all cases.
+We thus see the two S2 signals as one combined S2 peak and cannot extract information about just one of them.
+This can directly be translated in our first necessary cut condition.
+We demand that the main and second largest S1, as well as the main S2 have an area greater than zero.
+On the one hand, this removes all events that don't have the respective peak, e.g. no S2 peak.
+On the other hand, this also removes events where the respective peak is present, but its waveform has such a shape that it integrates to a non-positive area.
+The second part of this condition is to demand that the larger S1 occurs before the other one.
+For this we define the time difference between them as $t_{diff} = t_{S1_2} - t_{S1_1}$.
+We demand that $t_{diff}$ is positive.
+It is worth noting that $t_{diff}$ is the decay time of the event which we will use later again.
+We purposely do not demand a proportion of $ \nicefrac{32}{9} $ between the areas of the two S1s.
+This condition requires stronger assumptions.
+Therefore, we do not want to enforce this condition here, but remove such misreconstructions later otherwise.
+
+
+We chose a defined part of the central drift volume as the fiducial volume and only allow events in this region for our analyses.
+\emph{Fiducialization} is the self shielding property of liquid Xenon.
+Almost all background events from \gls{tpc} walls and the electrode meshes are thereby excluded.
+In large scale \gls{tpc} with science goals these areas are selected very carefully minimize the background while achieving maximum exposure to reach higher statistics or alternatively stronger exclusion limits.
+These fiducial volumes are typically described by higher order polynomials on the basis of Monte-Carlo simulations.
+This kind of effort cannot be justified for the goals of this analysis.
+Therefore, the description is not optimized for high exposure, but only for background exclusion.
+At the same time, this justifies an easier modeling of the fiducial volume.
+We define a cylindrical volume by a maximal and minimal value for the height $z$ and a maximal radius $r = \SI{23}{\milli\m}$.
+While the $z$ cut of $z_{min}= \SI{-68}{mm}$ and $z_{max}= \SI{-8}{mm}$ is chosen based on data as shown in fig.~\ref{fig:fid-z-cut}  and has only the goal of just mentioned background exclusion, we have further restrictions for the radius.
+The position reconstructed by the neural net is only accurate within this radial limit \cite{ABism}.
+
+
+% Z-Cut
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/z-cut.png}
+    \caption[Fiducial z-cut]{Histogram of the event z positions of all events of an example Krypton run.
+                             All events missing either S1s or S2s effectivly reconstruct to a z-position of zero explaining the high overshoot at this position.
+                             The second bump is at the gate position of $ z = \SI{-2.5}{mm}$ and background events originating there.
+                             These events are supressed by a fiducial cut at $ z = \SI{-8}{mm}$ indicated by the red dotted line on the right.
+                             The dotted red line on the left side indicates the lower $z$ cut at $ z = \SI{-68}{mm}$ preventing similar background contributions from the cathode grid,
+                             even though they are not as dominantly visible.
+                             The sudden drop-off at below $ z = \SI{-70}{mm}$ indicates the maximum drift length of the \gls{tpc}.
+                             }
+\label{fig:fid-z-cut}
+\end{figure}
+
+
+% Area-Width after fid.
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/oterhS1_area_width_after_fid.png}
+\caption[Area-Width Histogram after Fid. Cut]{
+        Sample Text.
+        Sample Text..
+        Sample Text...
+    }
+\label{fig:other_s1_area_width}
+\end{figure}
+
+In fig.~\ref{fig:other_s1_area_width} we see the second largest S1 area-width histogram of events that satisfy all previous selection criteria.
+Although, we expect a single population due to the monoenergetic decay of Krypton we see two separate populations in the plot.
+One population has both lower width and lower areas than the other.
+The $50\,\%$ central area quantile of about \SI{10}{\nano\s} corresponds to waveforms which have most of their area in one sample which is less then what we expect from real S1s.
+Also, the area of to \numrange{3}{20} is less than what we expect from simulations.
+Both statements disqualify the just mentioned population which we thus exclude with the following cuts based on figs.~\ref{fig:other_s1_area_cut},~\ref{fig:other_s1_width_cut}.
+With the slightly conservative cuts at $30\,\mathrm{PE}$ area and \SI{24}{\nano\s} width of the second largest S1 we remove most mismatches.
+To further clean up the Krypton selection we investigate other dimensions (better word?).
+
+
+% Area Hist Cut
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/oterhS1_area_hist_cut.png}
+\caption[Other S1 Area Histogram Cut]{
+        Sample Text.
+        Sample Text..
+        Sample Text...
+    }
+\label{fig:other_s1_area_cut}
+\end{figure}
+
+
+% Width Hist Cut
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/oterhS1_width_hist_cut.png}
+\caption[Other S1 Width Histogram Cut]{
+        Sample Text.
+        Sample Text..
+        Sample Text...
+    }
+\label{fig:other_s1_width_cut}
+\end{figure}
+
+
+
+
+\FloatBarrier
+
+
+
 
 
