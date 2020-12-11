@@ -5,14 +5,6 @@
 \FloatBarrier
 
 
-For work with Krypton data we record dedicated Krypton runs.
-In a Krypton run we fill the \gls{tpc} with a certain amount of Krypton so that the rate is low enough to distinguish single interactions.
-One minute after starting the filling process of Krypton it reaches the inner part of the \gls{tpc}.
-After a total of five minutes we assume that the Krypton dispersed homogeneously within the \gls{tpc}.
-We can confirm this assumption by observation.
-Our Krypton runs are three minute recordings.
-
-
 All following Krypton analyses require a selection of Krypton events to remove other interactions, dark counts, noise and misreconstructed events.
 A clean Krypton sample is one that is dominated by Krypton without biasing the selection by favouring one certain subpopulation.
 We will introduce a couple of cuts to accomplish this.
@@ -27,9 +19,9 @@ We demand that the main and second largest S1, as well as the main S2 have an ar
 On the one hand, this removes all events that don't have the respective peak, e.g. no S2 peak.
 On the other hand, this also removes events where the respective peak is present, but its waveform has such a shape that it integrates to a non-positive area.
 The second part of this condition is to demand that the larger S1 occurs before the other one.
-For this we define the time difference between them as $t_{diff} = t_{S1_2} - t_{S1_1}$.
-We demand that $t_{diff}$ is positive.
-It is worth noting that $t_{diff}$ is the decay time of the event which we will use later again.
+For this we define the time difference between them as $t_\mathrm{diff} = t_{\mathrm{S}1_\mathrm{b}} - t_{\mathrm{S}1_\mathrm{a}}$.
+We demand that $t_\mathrm{diff}$ is positive.
+It is worth noting that $t_\mathrm{diff}$ is the decay time of the event which we will use later again.
 We purposely do not demand a proportion of $ \nicefrac{32}{9} $ between the areas of the two S1s.
 This condition requires stronger assumptions.
 Therefore, we do not want to enforce this condition here, but remove such misreconstructions later otherwise.
@@ -43,8 +35,8 @@ These fiducial volumes are typically described by higher order polynomials on th
 This kind of effort cannot be justified for the goals of this analysis.
 Therefore, the description is not optimized for high exposure, but only for background exclusion.
 At the same time, this justifies an easier modeling of the fiducial volume.
-We define a cylindrical volume by a maximal and minimal value for the height $z$ and a maximal radius $r = \SI{23}{\milli\m}$.
-While the $z$ cut of $z_{min}= \SI{-68}{mm}$ and $z_{max}= \SI{-8}{mm}$ is chosen based on data as shown in fig.~\ref{fig:fid-z-cut}  and has only the goal of just mentioned background exclusion, we have further restrictions for the radius.
+We define a cylindrical volume by a maximal and minimal value for the height $z$ and a maximal radius $r_\mathrm{max} = \SI{23}{\milli\m}$.
+While the $z$ cut of $z_\mathrm{min}= \SI{-68}{mm}$ and $z_\mathrm{max}= \SI{-8}{mm}$ is chosen based on data as shown in fig.~\ref{fig:fid-z-cut}  and has only the goal of just mentioned background exclusion, we have further restrictions for the radius.
 The position reconstructed by the neural net is only accurate within this radial limit \cite{ABism}.
 
 
