@@ -30,6 +30,7 @@ The flow can be lead through the reservoir or parallel to it without contact to 
 When the flow follows the line that goes through the reservoir the gaseous \isotope[83m2]{Kr} that stems from the Rubidium decay is carried along with the Xenon into the \gls{tpc}.
 There, it disperses and is spread homogeneously within approximately a minute.
 Once it decays, the second decay takes place virtually immediately respectively resulting in \gls{lxe} scintillation, sec.~\ref{sec:Xebra}.
+Fig.~\ref{fig:waveform_kr} shows a sample waveform of this process.
 The different channels of both decays - even though the energy is the same - result in slightly different light and electron responses in the scintillation process. (TODO: scint response too slangy?)
 This is shown in fig.~\ref{fig:scint_response_nest}.
 We are not able to resolve these subtle differences with other statistical effects limiting us.
@@ -37,6 +38,15 @@ It will, however, contribute to the broadening of the energy resolution. (TODO: 
 As the final decay product is \isotope[83]{Kr}, a stable Noble gas, we do not get unwanted effects when leaving it in the Xenon.
 A very conservatively estimated \SI{50000}{} atoms per filling and the Avogadro constant $ \mathrm{N}_\mathrm{A} \approx 6.02\cdot10^{23}\,\mathrm{mol}^{-1} $ yields a sub femto mol level after 1000 fillings.
 At this level the macroscopic properties of Xenon are not altered by the remaining Krypton.
+
+
+% Kr sample waveform
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/waveform_kr.png} TODO make this plot and save it to figs-dir
+    \caption[Waveform Krypton]{sample waveform of krm2 to krm1 and krm1 to kr. s1, s2... etc.}
+    \label{fig:waveform_kr}
+\end{figure}
 
 
 % Nest scint response
@@ -52,14 +62,8 @@ With the \SI{50000}{} initial radioactive nuclei of Krypton, after 7 half-lives 
 This corresponds to a sub-percent level after less than \SI{13}{\hour}. \footnote{TODO: Sounds weird to mention half-life in the same sentence as half-lifes and hours in the same sentences as per-cent-level, but I don't want to sound stupid by saying sub-percent corresponding to 400 nuclei. this is the true value after 7 half-lives, but doesnt correspond to the percent level, which seems to be what I'm implying then. on the other hand I want to make clear, that we always have a sub-percent level after 7 half-lives, that doesnt depend on the half-life. ideas? or maybe just leave like that?}
 After a day we can thus easily take data without a noticeable amount of Krypton decays occurring.
 
-
-
-
-
-\dots
-
-AT THE END:
-
+% TODO the following has been written before the text above. it might need to be worked on again in order to not repeat to much.
+% also the desired rate is calculated differently. needs to be changed.
 \paragraph{Krypton runs} are what we henceforth call runs we filled \gls{tpc} with the metastable Krypton Isotope \isotope[83m2][36]{Kr} for.
 We aim to record a maximum number of these Krypton decays in the \SI{3}{\min} recordings.
 The signals of two or more interactions at the same time - meaning an interaction happened before or just at the same time as the previous \st~ is registered - cannot unambiguously assigned to its correct physical counterpart.
