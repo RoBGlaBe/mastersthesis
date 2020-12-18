@@ -1,7 +1,57 @@
 
-
-
-\subsection{lce}
+\FloatBarrier
+\subsection{Light Collection Efficiency}
 \label{ssec:lce}
+\FloatBarrier
+
+
+
+% LCE definition
+\paragraph{The \gls{lce} is defined as} the probability of a photon to arrive at a photo cathode of an \gls{pmt}.
+This quantity is a function of the photons initial position x,y and z inside the \gls{tpc}.
+For many initial photons this is all photons arriving at a photo cathode over the total number of photons.
+The \gls{lce} can thus not be measured directly, because of intrinsic \gls{pmt} efficiencies, the \gls{qe} and \gls{ce}.
+Therefore, when working with measured data it is more convenient to work with a quantity including \gls{qe} and \gls{ce}.
+For simplicity and to avoid ambigouities we define the \gls{de} as
+
+
+\begin{equation}
+    DE\left(\mathrm{x}, \mathrm{y}, \mathrm{y}\right) =  LCE\left(\mathrm{x}, \mathrm{y}, \mathrm{y}\right) \cdot QE \cdot CE
+\end{equation}
+
+where are vary for different \gls{pmt} types.
+They can also vary rather significantly with among \gls{pmt}s of the same type.
+
+% contributors (not resolvable which contr. contributes how much to lce)
+\paragraph{There are different effects} contributing to the collective quantity \gls{lce}.
+The results of these effects on the \gls{lce} are not disjunct.
+This means we cannot infer the contributions of a single effect from the measured \gls{lce} or rather \gls{de}.
+
+\emph{Light attenuation} is the loss of photons per unit length traveled in material following an exponential decay.
+In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $ and $ \mathrm{H}_2\mathrm{O} $.
+The attenuation length of $ \lambda_\mathrm{LXe} = \SI{50}{\m} $ was measured in \oneton\cite{}.  % TODO: find paper where this was measured. Fabian told me this number. Was it in 1T?
+[TODO: Check where these 50m come from because alex assumed 100cm which is from a xenon papter. worse values have been measured before. i've we are arround 10cm, we'd loose over 50\% of the light within one(!!) drift length. this is not negligible anymore, compared to the ~1\% loss we assumed before.]
+
+\emph{Light attenuation} is the loss of photons per unit length traveled in material following an exponential decay.
+In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $ and $ \mathrm{H}_2\mathrm{O} $.
+An attenuation length of $ \lambda_\mathrm{LXe} \gt \SI{100}{\centi\m} $ has been measured in similar setups\cite{}.  % TODO: Cite! (A.Baldini at al., NIM A 545 (2005))
+Assuming $ \lambda_\mathrm{LXe} = \SI{100}{\centi\m} $, \SI{25}{\%} of the light is lost over \SI{30}{\centi\m}, corresponding to approximately 4 drift lengths.
+% TODO continue here!! :) auf geht's!! reiß was ab!
+
+% z-dependence
+
+
+% r-dependence
+
+
+% correction of S1-LCE
+
+
+% area hist: compare csi to si
+
+
+% vgl. Monte Carlo?
+
+
 
 
