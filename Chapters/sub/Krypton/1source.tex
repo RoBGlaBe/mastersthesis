@@ -8,7 +8,52 @@
 describe how we can fill the tpc with krypton here.. whole cycle: rubidium, gas system, etc..
 
 
-% TODO continue here
+Rubidium \isotope[83][37]{Rb} decays via two metastable excitations to the stable \isotope[83][36]{Kr} Krypton isotope.
+It first transitions via electron capture to \isotope[83m2]{Kr}.
+This state has a half-life of \SI{1.83}{\hour} and decays with an energy emission of \SI{32.1}{\kilo\electronvolt}, see fig.~\ref{fig:scheme_kr}.
+Under the emission of an electron from internal conversion and subsequent emission of auger electrons and small amounts of X-rays its core is transfered to another exited state \isotope[83m1]{Kr}.
+The de-excitation to the stable \isotope[83]{Kr} is mostly via internal conversion and in small amounts via gamma-rays.
+The half-life here is \SI{154}{\nano\s} and the decay energy is \SI{9.4}{\kilo\electronvolt}.
+
+
+% Krypton Decay Scheme
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/scheme_kr_decay.png}
+    \caption[Decay Scheme Krypton]{Kr-decay scheme\cite{kr_scheme}.}
+    \label{fig:scheme_kr}
+\end{figure}
+
+% want kr inside tpc
+The solid Rubidium source is placed in a reservoir inside the gas system.
+The flow can be lead through the reservoir or parallel to it without contact to it.
+When the flow follows the line that goes through the reservoir the gaseous \isotope[83m2]{Kr} that stems from the Rubidium decay is carried along with the Xenon into the \gls{tpc}.
+There, it disperses and is spread homogeneously within approximately a minute.
+Once it decays, the second decay takes place virtually immediately respectively resulting in \gls{lxe} scintillation, sec.~\ref{sec:Xebra}.
+The different channels of both decays - even though the energy is the same - result in slightly different light and electron responses in the scintillation process. (TODO: scint response too slangy?)
+This is shown in fig.~\ref{fig:scint_response_nest}.
+We are not able to resolve these subtle differences with other statistical effects limiting us.
+It will, however, contribute to the broadening of the energy resolution. (TODO: energy resolution too slangy?)
+As the final decay product is \isotope[83]{Kr}, a stable Noble gas, we do not get unwanted effects when leaving it in the Xenon.
+A very conservatively estimated \SI{50000}{} atoms per filling and the Avogadro constant $ \mathrm{N}_\mathrm{A} \approx 6.02\cdot10^{23}\,\mathrm{mol}^{-1} $ yields a sub femto mol level after 1000 fillings.
+At this level the macroscopic properties of Xenon are not altered by the remaining Krypton.
+
+
+% Nest scint response
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/nest_scint_response.png}
+    \caption[Nest scint response]{Nest scint response\cite{}.} % TODO cite nest paper and write subbing
+    \label{fig:scint_response_nest}
+\end{figure}
+
+
+With the \SI{50000}{} initial radioactive nuclei of Krypton, after 7 half-lives less than 400 nuclei that have not decayed yet are left.
+This corresponds to a sub-percent level after less than \SI{13}{\hour}. \footnote{TODO: Sounds weird to mention half-life in the same sentence as half-lifes and hours in the same sentences as per-cent-level, but I don't want to sound stupid by saying sub-percent corresponding to 400 nuclei. this is the true value after 7 half-lives, but doesnt correspond to the percent level, which seems to be what I'm implying then. on the other hand I want to make clear, that we always have a sub-percent level after 7 half-lives, that doesnt depend on the half-life. ideas? or maybe just leave like that?}
+After a day we can thus easily take data without a noticeable amount of Krypton decays occurring.
+
+
+
 
 
 \dots
