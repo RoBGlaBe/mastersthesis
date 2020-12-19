@@ -27,16 +27,48 @@ They can also vary rather significantly with among \gls{pmt}s of the same type.
 The results of these effects on the \gls{lce} are not disjunct.
 This means we cannot infer the contributions of a single effect from the measured \gls{lce} or rather \gls{de}.
 
-\emph{Light attenuation} is the loss of photons per unit length traveled in material following an exponential decay.
+\emph{Light attenuation v1} is the loss of photons per unit length traveled in material following an exponential decay.
 In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $ and $ \mathrm{H}_2\mathrm{O} $.
 The attenuation length of $ \lambda_\mathrm{LXe} = \SI{50}{\m} $ was measured in \oneton\cite{}.  % TODO: find paper where this was measured. Fabian told me this number. Was it in 1T?
-[TODO: Check where these 50m come from because alex assumed 100cm which is from a xenon papter. worse values have been measured before. i've we are arround 10cm, we'd loose over 50\% of the light within one(!!) drift length. this is not negligible anymore, compared to the ~1\% loss we assumed before.]
+\footnote{[TODO: Check where these 50m come from because alex assumed 100cm which is from a xenon papter. worse values have been measured before. i've we are arround 10cm, we'd loose over 50\% of the light within one(!!) drift length. this is not negligible anymore, compared to the ~1\% loss we assumed before.]}
 
-\emph{Light attenuation} is the loss of photons per unit length traveled in material following an exponential decay.
+\emph{Light attenuation v2} is the loss of photons per unit length traveled in material following an exponential decay.
 In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $ and $ \mathrm{H}_2\mathrm{O} $.
-An attenuation length of $ \lambda_\mathrm{LXe} \gt \SI{100}{\centi\m} $ has been measured in similar setups\cite{}.  % TODO: Cite! (A.Baldini at al., NIM A 545 (2005))
+An attenuation length of $ \lambda_\mathrm{LXe} > \SI{100}{\centi\m} $ has been measured in similar setups\cite{}.  % TODO: Cite! (A.Baldini at al., NIM A 545 (2005))
 Assuming $ \lambda_\mathrm{LXe} = \SI{100}{\centi\m} $, \SI{25}{\%} of the light is lost over \SI{30}{\centi\m}, corresponding to approximately 4 drift lengths.
-% TODO continue here!! :) auf geht's!! reiß was ab!
+
+
+\emph{The reflectivity of \gls{ptfe}} surfaces, here mainly the \gls{ptfe} reflectors, is with arround \SI{98}{\%} high for light with the \gls{lxe} scintillation wavelength.
+The exact value depends on the quality of the surface treatment.
+With special treatment as in \oneton a reflectivity of \SI{99}{\%} can be achieved\cite{}. % TODO cite resp. paper
+Light is typically not only reflected once, but several times increasing the impact of the parameter.
+
+
+\emph{The mesh's optical opacity} ($ O $) indicates which fraction of the light is lost on the transit through one of the electrode grids.
+This value is well approximated by the geometrical coverage of the plane by the grid and thus computes to $ O = \SI{5}{\%} $.
+
+
+\emph{The optical reflectivity at the \gls{lxe} surface} depends on refractive indices of gaseous and liquid Xenon, the incident angle of the light.
+Reflected light, on the one hand, travels further until it hits the \gls{pmt} cathode when the light comes from the drift field region and eventually arrives at the bottom \gls{pmt}.
+On the other hand, it travels less far originating in the gaseous xenon and is reflected back to the top array.
+Greater travel distances have the trend to have more light absorbed from attenuation and mesh opacity.
+With $ n_1 $ and $ n_2 $ the refraction indices and $ \alpha $ and $ \beta $ the angle of incident and reflection as shown in fig.~% \ref{fig:phase_transion_sketch}.  % TODO sketch einfügen
+the reflectivity is given by
+
+\begin{alignat}{2}
+    R_\perp &= \left( \frac{ n_1 \cos{\alpha} - n_2 \cos{\beta} }{ n_1 \cos{\alpha} + n_2 \cos{\beta} } \right)^2 &
+            &=  \left( \frac{ \sin{\left( \alpha-\beta \right)}}{ \sin{\left( \alpha+\beta \right)} } \right)^2 \\
+    R_\parallel &= \left( \frac{ n_2 \cos{\alpha} - n_1 \cos{\beta} }{ n_2 \cos{\alpha} + n_1 \cos{\beta} } \right)^2 &
+                &=  \left( \frac{ \tan{\left( \alpha-\beta \right)}}{ \tan{\left( \alpha+\beta \right)} } \right)^2,
+\end{alignat}
+
+where $ \beta $ is given via Snellius as $ \beta = \arcsin{\nicefrac{n_1}{n_2} \sin{\alpha} } $.
+% TODO continue here
+With the refraction indices fixed $ n_\mathrm{LXe} = XX \approx 2 $ and $ n_\mathrm{GXe} = XX \approx 1 $ the reflectivity can be calculated as
+
+
+\emph{Reflectivity of \gls{pmt} quartz window}
+
 
 % z-dependence
 
