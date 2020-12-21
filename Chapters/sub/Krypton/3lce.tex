@@ -37,6 +37,9 @@ In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with lar
 An attenuation length of $ \lambda_\mathrm{LXe} > \SI{100}{\centi\m} $ has been measured in similar setups\cite{}.  % TODO: Cite! (A.Baldini at al., NIM A 545 (2005))
 Assuming $ \lambda_\mathrm{LXe} = \SI{100}{\centi\m} $, \SI{25}{\%} of the light is lost over \SI{30}{\centi\m}, corresponding to approximately 4 drift lengths.
 
+% in light atten reinpacken
+Where the scattering length is not experimentally determant but expected to be on the oder of meters and therefore light atten. in the liq becomes neglict. compared to losses on surfaces.
+
 
 \emph{The reflectivity of \gls{ptfe}} surfaces, here mainly the \gls{ptfe} reflectors, is with arround \SI{98}{\%} high for light with the \gls{lxe} scintillation wavelength.
 The exact value depends on the quality of the surface treatment.
@@ -54,23 +57,27 @@ On the other hand, it travels less far originating in the gaseous xenon and is r
 Greater travel distances have the trend to have more light absorbed from attenuation and mesh opacity.
 With $ n_1 $ and $ n_2 $ the refraction indices and $ \alpha $ and $ \beta $ the angle of incident and reflection as shown in fig.~% \ref{fig:phase_transion_sketch}.  % TODO sketch einfügen
 the reflectivity is given by
-
 \begin{alignat}{2}
+    \label{eq:reflectivityA}
     R_\perp &= \left( \frac{ n_1 \cos{\alpha} - n_2 \cos{\beta} }{ n_1 \cos{\alpha} + n_2 \cos{\beta} } \right)^2 &
             &=  \left( \frac{ \sin{\left( \alpha-\beta \right)}}{ \sin{\left( \alpha+\beta \right)} } \right)^2 \\
     R_\parallel &= \left( \frac{ n_2 \cos{\alpha} - n_1 \cos{\beta} }{ n_2 \cos{\alpha} + n_1 \cos{\beta} } \right)^2 &
                 &=  \left( \frac{ \tan{\left( \alpha-\beta \right)}}{ \tan{\left( \alpha+\beta \right)} } \right)^2,
+    \label{eq:reflectivityB}
 \end{alignat}
-
 where $ \beta $ is given via Snellius as $ \beta = \arcsin{\nicefrac{n_1}{n_2} \sin{\alpha} } $.
-% TODO continue here
-With the refraction indices fixed $ n_\mathrm{LXe} = XX \approx 2 $ and $ n_\mathrm{GXe} = XX \approx 1 $ the reflectivity can be calculated as
+And the refraction indices $ n_1 $, $ n_2 $ are $ n_\mathrm{LXe} = XX \approx 2 $ and $ n_\mathrm{GXe} = XX \approx 1 $, depending on the light's direction through the surface.
 
 
-\emph{Reflectivity of \gls{pmt} quartz window}
+\emph{The reflectivity of \gls{pmt} quartz window} reduces the light collected. With the refraction index of $ n_\mathrm{quartz} = 1.56 $ the amount of light lost is larger in the gas phase than in the liquid phase. The reflectivity is calculated with eq.~(\ref{eq:reflectivityA}, \ref{eq:reflectivityB}) depending on the incident angle and the materials refraction indices.
 
 
 % z-dependence
+\paragraph{The \emph{z} dependence} of the \gls{LCE} is the dominating the overall behaviour.
+With the meshes and liquid surfaces laying in the $ x-y $ plane the respective effects have most impact on the perpendicular $ z $-direction.
+Additionally, the \gls{pmt} types, \gls{qe} and \gls{ce}, surrounding media and \gls{pmt} area coverage on the top side differ from the bottom side.
+
+
 
 
 % r-dependence
