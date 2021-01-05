@@ -1,7 +1,51 @@
 
-
-
+\FloatBarrier
 \subsection{e-lifetime}
 \label{ssec:e-lifetime}
+\FloatBarrier
+
+
+Electrons have a certain probability to be captured by impurities like $ \mathrm{O}_2 $ per unit length drifted.
+For a fixed drift velocity this relates directly to a probability per unit time.
+An initial quantity of $ N_0 $ electrons in an electron cloud at the point of interaction is reduced to
+\begin{equation}
+    N_{t_\mathrm{drift}} = N_0 \cdot \mathrm{e}^{ \left( \nicefrac{-t_\mathrm{drift}}{\tau} \right)}
+    \label{eq:e-lifetime}
+\end{equation}
+electrons in the gas gap.
+Therefore, the S2 area declines with greater depth in the \gls{tpc} as shown in fig.~\ref{fig:s2-vs-t}.
+$ \tau $ is called the \emph{electron lifetime}.
+We can improve (greater $ \tau $) the electron lifetime by reducing the amount of impurities inside the \gls{lxe} by cycling through the getter as described in % TODO Referenz auf getter/gassystem...: \ref{sec:}
+
+Electron lifetime has a large impact on the quality of our data.
+The fewer electrons are in a S2 signal the more we are dominated by statistical effects raising the relative width of any interaction investigated.
+With low lifetimes below XX electrons clouds originating towards the bottom of the \gls{tpc} can become so small that they are not recognized as S2s anymore.  % TODO add lifetime threshold  --> vllt mit einem plot wie von patrick elt vs. run-nr von kr runs --> dann auch plot und ref hinzufügen
+These peaks can thus not be reconstructed into an event and are lost for most analysis purposes.
+% lone hits!!
+Impurities that capture an electron can be photoionized by light from an S1 or S2 releasing an electron as described in SINGLE ELECTRONS.  % ref auf sec:single_electrons
+With smaller electron lifetimes we thus also observe higher \gls{se} rates and therefore have a higher probability of coinciding \gls{se}s.
+These mimic S2s from low energy interactions, e.g. the dark matter sector - another reason to invest effort into purification of \gls{lxe} in large scale experiments with ambitious science goals.
+
+To correct for electron lifetime we fit the S2 area over $ t $ of a Krypton run with eq.~\ref{eq:e-lifetime}.
+For every run with the same purity we can calculate the lifetime corrected S2, $ \mathrm{S2_\mathrm{e_\tau c}} $, using the best fit parameters $ \tau_\mathrm{opt} $ and $ N_0 $ with
+
+\begin{equation}
+    \mathrm{S2_\mathrm{e_\tau c}} = \frac{ \overline{\mathrm{S2_{Kr}}} \cdot \mathrm{S2} }{ N_0 \cdot \mathrm{e}^{ \left( \nicefrac{-t_\mathrm{drift}}{\tau_\mathrm{opt}} \right)} }.  %
+\end{equation}
+
+As apposed to the number of electrons reaching the gas gap we now have a measure of the number of electrons at the point of interaction.
+For a set field configuration the number of electrons created in an interaction of a certain energy is constant.
+This gives a narrower distribution of the respective S2 areas as shown in fig.~\ref{fig:s2-area-hist-after-eltc} in the case of our monoenergetic Krypton source.
+
+
+% S2 area hist after e-lifetime corr
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % TODO bild einfügen
+    \caption[S2 area]{
+        Bla bla bla.
+    }
+    \label{fig:s2-area-hist-after-eltc}
+\end{figure}
 
 
