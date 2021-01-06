@@ -7,12 +7,42 @@
 
 While \gls{elt} is a vertical effect, there are two main effects altering the S2 area in the horizontal plane.
 As shown in sec.~\ref{sec:xebra}, the light is produced in the gas gap by proportional scintillation.
-Since the region is narrow and close to the top \gls{pmt}s, the \gls{lce} is higher directly under a \gls{pmt} and therefore describes a pattern in the x-y plane as shown in fig.~\ref{fig:lce-xy-sim-alex}.
+Since the region is narrow and close to the top \gls{pmt}s, the \gls{lce} is higher directly under a \gls{pmt} and therefore describes a pattern in the x-y plane as shown in fig.~\ref{fig:lce-xy-sim-alex} from simulations.
 The interaction depth, however, does not influence the \gls{lce}.
+
+We compare the simulation prediction to our Krypton data in fig.~\ref{fig:S2-lce-x-y-krypton}.  % TODO add plot
+The data does not follow the same trend as the simulation.
+This can either be due to too simplistic simulations or we can not explain the trend just by \gls{lce}.
+Since the data does not reflect the symmetry of the \gls{tpc} setting it is more likely that the discrepancy does not stem from \gls{lce}\footnote{symmetry gutes argument?}.
+
 Beside \gls{lce}, the other effect that influences the light measured of an S2 signal are local differences in the scintillation process.
-% TODO hier weiter: deformation --> field, auch gas pressure.......
+The number of photons produced per electron depends on the gas pressure, the voltage between gate and anode and the extent of the gas- as well as the liquid gap.
+While the gas pressure and the voltage cannot change locally, the gap sizes can due to electrostatic sagging or buckling or mechanical stress.
+A \emph{larger distance} between the two grids lower the field strength.
+With a lower field, the electrons are less energetic and produce less light, on the one hand.
+However, on the other hand the scintillation length is longer, raising the probability for scattering and thus scintillation.
+This counteracts the lower light yield due the lower field and at the same time raising the peaks width due to the longer scintillation time of one electron.
+A \emph{smaller distance} between the two grids raise the field strength.
+The higher energetic electrons produce more light in scintillation and the peak has a smaller width due to the smaller gap.
+The Krypton S2 peaks which also overlap are too broad to see the differences in width\footnote{müsste ich belegen. stimmt das überhaupt?}.
+Formel oder so? siehe xenon note... könnte rein.
 
-Although, the effect of \gls{lce} can not be distinguished by data from s
+Although, the effect of \gls{lce} can not be distinguished from scintillation inhomogeneities by data, we can correct for both at the same time.
+These corrections can then only be applied for runs with the same fields.
+\gls{lce} is a detector parameter and does not change with different fields.
+We could apply the correction for \gls{lce} to all runs.
+For the scintillation, however, this is not the case.
 
+
+
+% TODO:
+TODO: verschiedene data driven models gegen die daten checken und beschreiben, worum es sich handeln kann. warum nicht vereinbar mit einfacher r-dependence?
+
+
+
+
+
+% TODO:
+Hier die erklären, wie die correction vorgenommen wird? entweder fit oder direkt gebinnte daten als map speichern und beim laden interpolieren. denke hier ist die richtige stelle dafür. um es im strax kapitel zu erklären, hat man zu wenig hintergrund wissen..
 
 
