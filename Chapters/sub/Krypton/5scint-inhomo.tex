@@ -8,6 +8,8 @@
 While \gls{elt} is a vertical effect, there are two main effects altering the S2 area in the horizontal plane.
 As shown in sec.~\ref{sec:xebra}, the light is produced in the gas gap by proportional scintillation.
 Since the region is narrow and close to the top \gls{pmt}s, the \gls{lce} is higher directly under a \gls{pmt} and therefore describes a pattern in the x-y plane as shown in fig.~\ref{fig:lce-xy-sim-alex} from simulations.
+In the simplest case of a radial symmetric behaviour, the effect can be described in one dimension.
+As this is not the case here we use the x and y coordinate to describe the effect entirely.
 The interaction depth, however, does not influence the \gls{lce}.
 
 We compare the simulation prediction to our Krypton data in fig.~\ref{fig:S2-lce-x-y-krypton}.  % TODO add plot
@@ -35,14 +37,37 @@ For the scintillation, however, this is not the case.
 
 
 
+
+\emph{Pure sagging or buckling} of the electrode grids can be described by a radial symmetric $ r^2 $ trend which describes the actual $ cosh\left( r \right) $ well with some advantage with regard to the computing power.
+It is however possible that the center of the sagging does not coincide with the center of the \gls{tpc}.
+In this case a transformation to radii with respect to another center or a description in two dimensions must be chosen.
+The latter has the advantage of easy combination with other models of other effects like an additional tilt.
+TODO hier Gleichung des Modells einfügen
+
+\emph{Pure tilt} of the electrode grids is described by a two dimensional linear progression(wort ok?).
+TODO hier Gleichung des Modells einfügen
+
+Whenever we are unable to describe the trend of our data analytically as a fit to these models a purely data driven correction is to be chosen.
+We take the mean of the S2 area per x-y-bin.
+In each bin we want its center to be closer to each point inside the bin than to the surrounding centers.
+Ideally, we would choose round bins then but they provide overlaps or areas that are not covered.
+The optimal bin shape is a hexagon, for these two reasons.
+
 % TODO:
-TODO: verschiedene data driven models gegen die daten checken und beschreiben, worum es sich handeln kann. warum nicht vereinbar mit einfacher r-dependence?
-
-
-
+TODO: verschiedene data driven models gegen die daten checken und beschreiben, worum es sich handeln kann.
 
 
 % TODO:
-Hier die erklären, wie die correction vorgenommen wird? entweder fit oder direkt gebinnte daten als map speichern und beim laden interpolieren. denke hier ist die richtige stelle dafür. um es im strax kapitel zu erklären, hat man zu wenig hintergrund wissen..
+Hier erklären, wie die correction vorgenommen wird? entweder fit oder direkt gebinnte daten als map speichern und beim laden interpolieren. denke hier ist die richtige stelle dafür. um es im strax kapitel zu erklären, hat man zu wenig hintergrund wissen..
+
+When we choose to correct based on a fit to a certain model $ g\left( x,y \right) $ the correction is applied in the same manner as previously:
+
+\begin{equation} % TODO formel nicht fertig, bisher nur kopiert aus kr sub-chap 4
+    \mathrm{cS2} = \mathrm{S2_\mathrm{e_\tau c}} \cdot g\left( x,y; \mathbf{p} \right)^{-1}
+    \label{eq:cs2}
+\end{equation}
+
+In the case of the purely \emph{data driven} model, however, the values and position of each bin is saved.
+The correction value of a certain event is retrieved by interpolating between the values of the closest bins to the event position\footnote{sketch oder mathem. ausführen?}.
 
 
