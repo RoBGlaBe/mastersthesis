@@ -3,24 +3,32 @@
 
 Intro Chap.-Intro
 
+\FloatBarrier
 \section{Dark Matter}
 \label{sec:DarkMatter}
+\FloatBarrier
 
 Dark Matter:(see also other thesises) \\
 * Evidence for DM \\
 * direct detection
 
 
+\newpage
+\FloatBarrier
 \section{Darwin}
 \label{sec:Darwin}
+\FloatBarrier
 
 * Xenon evolution from 100 to nT to Darwin \\
 * Why Darwin \\
 * Why ultimate
 
 
+\newpage
+\FloatBarrier
 \section{Research \& Development}
 \label{sec:RnD}
+\FloatBarrier
 
 * What changes wrt XENONnT have to be made \\
 * Challanges \\
@@ -30,8 +38,11 @@ Dark Matter:(see also other thesises) \\
 * Then we can compare singlephase and hermetic to that
 
 
+\newpage
+\FloatBarrier
 \section{Xebra}
 \label{sec:Xebra}
+\FloatBarrier
 
 Notes: \\
 * Xebra (is not the TPC) \\
@@ -40,8 +51,107 @@ Notes: \\
 * Hermetic \\
 * DAQ
 
+\gls{xebra} is the Freiburg based \darwin R\&D platform for small scale \gls{tpc}s.
+With it technical innovations are tested.
+One being the hermetic \gls{tpc} where different \gls{lxe} volumes are separated to reduce background interactions that originate inside the \gls{tpc}.
+Another one is the single phase \gls{tpc} where the gas phase is abandoned and the secondary scintillation of electrons takes place in the liquid phase which requires stronger fields.
+As a benchmark a dual phase \gls{tpc} without inovations is employed first.
+In this work we investigate this benchmark \gls{tpc}.
+
+%%%%% TPC
+The working principle of a \gls{tpc} is to have a scintillation material - in this case \gls{lxe}.
+A scintillation process via excimers as shown in fig.~\ref{fig:xe-scint-process} yields UVU photons as well as electrons.  % TODO add plot!!
+While the photons are detected instantly (S1 signal) the electrons drift towards the the top of the \gls{tpc} due to the drift field.
+The drift field is established by electrode grids - the cathode at the bottom of the \gls{tpc}, the anode at the top and the gate \SI{5}{\milli\m} under the anode.
+Once the electrons pass the gate, it enters the region of higher drift field.
+In the middle between gate and anode the phase changes from \gls{lxe} to \gls{gxe}.
+The electrons arriving at the interface have a certain probability to be extracted into the gaseous phase, where they eventually undergo proportional scintillation.
+This effectively amplifies them to an average fix amount of photons per electron extracted (S2 signal).
+The timing information between S1 and S2 signal combined with the known drift time that depends on the drift field is further converted to a vertical position ($ z $) information giving the \emph{time projection chamber} its name.
+
+
+% XE scintillation excimers
+\begin{figure}
+\centering
+\includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/xe-scint.png}
+\caption[Xenon Scintilltion Process]{
+
+    }
+\label{fig:xe-scint-process}
+\end{figure}
+
+
+\paragraph{The light detection} is realized by the \gls{pmt}s that are mounted under the cathode (bottom \gls{pmt}) as well as above the anode (top \gls{pmt}s).
+We are using one single $ 3\," $ Hamamatsu R114~10-21 \gls{pmt} as the bottom \gls{pmt} and 7 $ 1\," $ Hamamatsu R85~20-406 \gls{pmt}s.
+The positions of the top \gls{pmt}s is shown in fig.~\ref{fig:top-pmt-array}.  % TODO add plot
+\gls{ptfe} reflectors mark the outside of the sensible scintillation volume in order to redirect as much light as possible towards the \gls{pmt}s.
+The mentioned parts are hold in place by a support structure out of steel.
+The choices of material are made such the intrinsic radiation and thus the background is reduced.
+
+% top pmt array
+\begin{figure}
+\centering
+\includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/top_pmt_array.png}
+\caption[Top PMT array positions]{
+
+    }
+\label{fig:top-pmt-array}
+\end{figure}
+
+
+%%%%% DAQ
+\paragraph{The \gls{daq}:} The read-out of the \gls{pmt}s is realized via an optional 10x~amplifier
+As sketched in fig.~\ref{fig:daq} the analogue \gls{pmt} output is read-out by a CAEN V1724 $ 8\;\mathrm{Channel} $ $ 14\,\mathrm{bit]} $ \gls{adc} through an optional Phillips Scientific model 776 $ 16\;\mathrm{Channel} $ 10x~pmt preamplifier.  % TODO add mca and amp specifications
+Along with metadata and timing information this data is then saved to disk for further software processing.
+
+
+% daq sketch
+\begin{figure}
+\centering
+\includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/daq.png}
+\caption[DAQ Sketch]{
+
+    }
+\label{fig:daq}
+\end{figure}
+
+
+
+%%%%% GAS SYSTEM
+\paragraph{An external gas system} is used to fill the \gls{tpc} with xenon.
+Next to pumps and a key component of the gas system is the hot metal gas purifier or getter.
+The getter is passed by the Xenon in the filling process in order to be cleaned from impurities such as water and Oxygen.
+While the experiment is running, Xenon is constantly taken out of the \gls{tpc} and lead through the getter before it is lead back inside.
+We call this process cycling.
+Every time the \gls{gxe} has to be cooled in order to become liquid.
+The cooling has to be done without particle exchange.
+Therefore, a liquid nitrogen cooled metal cavity filled from the top is energetically coupled to the top of the inside of the inner cryostat called the coldfinger.  % mention cryostat above. explain outside structure in general!!
+The inflow stream of \gls{gxe} is directed against the coldfinger cooling and liquefying the Xenon.
+The complete gas system used is sketched in fig.~\ref{fig:gas-system}.
+
+
+% gas system sketch
+\begin{figure}
+\centering
+\includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/gassystem.png}
+\caption[Gas System Sketch]{
+
+    }
+\label{fig:gas-system}
+\end{figure}
+
+
+%%%%% SLOW CONTROL
+\paragraph{The slow control} system Doberman \cite{} monitors critical parameters of the experiment and sends alarms once a parameter defines a predefined alarm region.
+Some of the monitored parameters are pressures in the \gls{tpc}, gas system and cryostat, temperatures at different points inside the \gls{tpc} heater power consumption and levelmeters read-outs from inside the \gls{tpc} and in the nitrogen storage.
+
+
+
+\newpage
+\FloatBarrier
 \section{Strax}
 \label{sec:Strax}
+\FloatBarrier
 
 * DAQ \\
 * Straxbra / Strax \\
