@@ -161,4 +161,40 @@ Some of the monitored parameters are pressures in the \gls{tpc}, gas system and 
 
 
 
+\paragraph{Strax,} the \emph{stream analysis for xenon TPCs} encloses the essential software tools to process the data stored on disk by the \gls{daq}.  % TODO add github cite
+It is complemented by an experiment specific package that uses the tools from strax.
+In the case of \oneton~and \nton~the package is straxen - \emph{streaming analysis for \textsc{Xenon}}.  % TODO add github cite
+For the \xebra platform we use straxbra.  % TODO add github cite
+
+Startig at the lowest level of \emph{raw records} the data processing structure follows a hieracial order as shown in fig.~\ref{fig:data-structure}.
+We call \emph{events}, \emph{peaks}, \emph{records} and \emph{raw records} the \emph{data kinds} in straxbra, which - in a processing sence - require one another in the mentioned order.
+Data kinds represent different abstraction layers and are usually constituated of several separatly loadable parts e.g. \emph{peak positions}.
+All these parts are built by so called \emph{plug-ins} which are realized as python classes that inherit from a strax class \emph{plugin}.
+In the plug-ins the processing of the data is specified.
+To allow traceable changes to plug-ins, every plug-in can be assigned any number of \emph{strax-options}.
+Strax options have a default value that can optionally be run dependant and is by default \emph{traced}.
+This trace is an essential part of strax that is assigned to data that has been cached and stored.
+The tace is a hash that is created out of the value of every strax-option the plug-in is assigned to, the current plug-in's version and the plug-ins it requires data from.
+Like this, upon loading data of a plug-in strax automatically knows if any dependency changes by comparing the traces and can reprocess only the necessary data.
+% TODO hier weiterschreiben!! ;)
+% strax options
+
+
+% data hierarchie
+\begin{figure}
+\centering
+\includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/data_structure.png}
+\caption[Data Hierarchie in Straxbra]{
+
+    }
+\label{fig:gas-system}
+\end{figure}
+
+
+
+
+
+
+
+
 Strax: ordering of S1 and S2 peaks in an event
