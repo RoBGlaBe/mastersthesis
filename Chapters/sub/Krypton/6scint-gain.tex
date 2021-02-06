@@ -5,24 +5,24 @@
 \FloatBarrier
 
 
-On average the energy $ W = \SI{13.7}{\electronvolt} $ is needed for a primary scintillation quantum, photon or electron.
-Based on the energy deposited in the interaction a certain number of quanta $ n = n_\gamma + n_\mathrm{e} $ is thus released.
-The ratio $ \nicefrac{n_\gamma}{n_\mathrm{e}} $ can varies depending on the drift field strength and energy of the interacting particle.
-We can extract the scintillation gains $ g_1 $ (primary) and $ g_2 $ (secondary) using the ratios at different energies by introducing $ n_\mathrm{i} = \nicefrac{\mathrm{cSi}}{g_\mathrm{i}} $ to express
+To free a photon or electron as a primary scintillation quantum, an average energy of $ W = \SI{13.7}{\electronvolt} $ is required.
+We therefore get a fix number of quanta $ n = n_\gamma + n_\mathrm{e} $ in the scintillation process based on the total energy deposited in an interaction.
+The ratio $ \nicefrac{n_\gamma}{n_\mathrm{e}} $ varies depending on the drift field strength and energy of the interacting particle.
+We can extract the scintillation gains $ g_1 $ (primary) and $ g_2 $ (secondary) using the ratios at different energies by introducing $ n_\mathrm{\gamma} = \nicefrac{\mathrm{cS1}}{g_\mathrm{1}} $ and $ n_\mathrm{e} = \nicefrac{\mathrm{cS2}}{g_\mathrm{2}} $ to express
 
 \begin{equation}
-    E = W \left( n_\gamma + n_\mathrm{e} \right) = W \left( \frac{\mathrm{cS1}}{g_1} + \frac{\mathrm{cS2}}{g_2} \right)
+    E = W \left( n_\gamma + n_\mathrm{e} \right) = W \left( \frac{\mathrm{cS1}}{g_1} + \frac{\mathrm{cS2}}{g_2} \right).
     \label{eq:energy-correction}
 \end{equation}
 
-$ g_1 $ and $ g_2 $ are purely detector dependent quantities that we use to compare detectors to one another.
-They measure how many $ PE $ we detect per initial photon or electron, respectively.
+$ g_1 $ and $ g_2 $ are purely detector dependent quantities that are used to compare detectors to one another.
+They measure how many \gls{pe} we detect per initial photon or electron, respectively.
 In the case of $ g_2 $, the amplification of the proportional scintillation in the gas gap, as well as the associated extraction efficiency is also contained.
-In our case, the comparison to the hermetic \gls{tpc}, the single phase \gls{tpc}, as well as large scale \gls{tpc}s like \nton is of interest.
-As cS1 and cS2 are corrected relative to the mean or maximum the measured areas or the theoretically expected absolute, the meaning and values of $ g_{1,2} $ do change.
+We are interessted in the comparison to the hermetic \gls{tpc}, the single phase \gls{tpc}, as well as large scale \glspl{tpc} like \nton.
+When cS1 and cS2 are corrected relative to the mean or maximum of their measured areas or the theoretically expected absolute, the meaning and values of $ g_{1,2} $ do change.
 Therefore, it is important to give this reference.
 In this work we correct the electron lifetime to the light of the interpolated number of initial electrons.
-All other effects we correct relative to the mean of the used areas as this yields a more stable value.
+We correct all other effects relative to the mean of the used areas as this yields a more stable value.
 
 To extract $ g_1 $ and $ g_2 $ from measurements, we reformulate eq.~\ref{eq:doke-fit} with $ \mathit{QY} = \frac{cS2}{E} $ and $ \mathit{LY} = \frac{cS1}{E} $ to
 
@@ -31,8 +31,8 @@ To extract $ g_1 $ and $ g_2 $ from measurements, we reformulate eq.~\ref{eq:dok
     \label{eq:doke-fit}
 \end{equation}
 
-With this we can fit the doke plot shown in fig.~\ref{fig:doke} linearly where $ m = - \nicefrac{g_2}{g_1} $ and $ c = \nicefrac{g_2}{W} $.  % TODO add plot
-Although more than one mono energetic calibration source is necessary to use this method, we can use different field configurations to obtain a good measure of the correct scintillation gains.
+By means of this correlation, we can fit the doke plot in fig.~\ref{fig:doke} linearly with $ m = - \nicefrac{g_2}{g_1} $ and $ c = \nicefrac{g_2}{W} $.  % TODO add plot
+Although, more than one mono energetic calibration source is necessary to use this method, we can use different field configurations to obtain a good measure of the correct scintillation gains.
 
 % DOKE
 \begin{figure}

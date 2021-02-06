@@ -90,29 +90,78 @@
 \newacronym{rd}{R\&D}{research \& development}
 \newacronym{nest}{NEST}{Noble Element Simulation Technique}
 % hardware
-\newacronym{tpc}{TPC}{time projection chamber}
+\newglossaryentry{tpc}
+    {
+        name={TPC},
+        description={time projection chamber},
+        first={\glsentrydesc{tpc} (\glsentrytext{tpc})},
+        plural={TPCs},
+        descriptionplural={time projection chambers},
+        firstplural={\glsentrydescplural{tpc} (\glsentryplural{tpc})}
+    }
 \newacronym{vuv}{VUV}{vacuum ultra-violet}
-\newacronym{pmt}{PMT}{photomultiplier tube}
+\newglossaryentry{pmt}
+    {
+        name={PMT},
+        description={photomultiplier tube},
+        first={\glsentrydesc{pmt} (\glsentrytext{pmt})},
+        plural={PMTs},
+        descriptionplural={photomultiplier tubes},
+        firstplural={\glsentrydescplural{pmt} (\glsentryplural{pmt})}
+    }
 \newacronym{daq}{DAQ}{data acquisition}
 \newacronym{ptfe}{PTFE}{Polytetrafluorethylen}
 \newacronym{adc}{ADC}{analogue to digital converter}
 \newacronym{xebra}{Xe\textsc{bra}}{Xenon Based Research Apparatus}
 % software/analyse
-\newacronym{strax}{strax}{stream analysis for xenon TPCs}
-\newacronym{se}{single electron}{SE}
+\newacronym{strax}{strax}{stream analysis for Xenon TPCs}
+\newglossaryentry{se}
+    {
+        name={SE},
+        description={single electron},
+        first={\glsentrydesc{se} (\glsentrytext{se})},
+        plural={SEs},
+        descriptionplural={single electrons},
+        firstplural={\glsentrydescplural{se} (\glsentryplural{se})}
+    }
 \newacronym{s1a}{$\mathrm{S}1_\mathrm{a}$}{main S1}
 \newacronym{s1b}{$\mathrm{S}1_\mathrm{b}$}{second largest S1}
 \newacronym{s2a}{$\mathrm{S}2_\mathrm{a}$}{main S2}
 \newacronym{s2b}{$\mathrm{S}2_\mathrm{b}$}{second largest S2}
-\newacronym{cs1}{cS1}{\textbf{this acronym needs a description}}
+\newacronym{cs1}{cS1}{corrected S1 area}
+\newacronym{cs2}{cS2}{corrected S2 area}
 \newacronym{lce}{\textit{LCE}}{light collection efficiency}
 \newacronym{elt}{$ \tau_{e^-} $}{electron lifetime}
-\newacronym{qe}{\textit{QE}}{quantum efficiency}
-\newacronym{ce}{\textit{CE}}{collection efficiency}
+\newglossaryentry{qe}
+    {
+        name={\textit{QE}},
+        description={quantum efficiency},
+        first={\glsentrydesc{qe} (\glsentrytext{qe})},
+        plural={\textit{QEs}},
+        descriptionplural={quantum efficiencies},
+        firstplural={\glsentrydescplural{qe} (\glsentryplural{qe})}
+    }
+\newglossaryentry{ce}
+    {
+        name={\textit{CE}},
+        description={collection efficiency},
+        first={\glsentrydesc{ce} (\glsentrytext{ce})},
+        plural={\textit{CEs}},
+        descriptionplural={collection efficiencies},
+        firstplural={\glsentrydescplural{ce} (\glsentryplural{ce})}
+    }
 \newacronym{de}{\textit{DE}}{detection efficiency}
 \newacronym{nr}{NR}{nuclear recoil}
 \newacronym{er}{ER}{electronic recoil}
-\newacronym{aft}{\textit{AFT}}{area-fraction top}
+\newglossaryentry{aft}
+    {
+        name={\textit{AFT}},
+        description={area-fraction top},
+        first={\glsentrydesc{aft} (\glsentrytext{aft})},
+        plural={\textit{AFTs}},
+        descriptionplural={area-fractions top},
+        firstplural={\glsentrydescplural{aft} (\glsentryplural{aft})}
+    }
 \newacronym{pe}{PE}{photo electrons}
 %%%%%     %%%%%
 
@@ -122,7 +171,7 @@
 \newcommand\nton{\textsc{Xenon}n\textsc{t}}
 \newcommand\oneton{\textsc{Xenon1t}}
 \newcommand\darwin{\textsc{Darwin}}
-\newcommand\xebra{Xe\textsc{BRA}}
+% \newcommand\xebra{Xe\textsc{BRA}}
 
 \newcommand\ar{\textit{area}}
 \newcommand\figw{0.95}

@@ -51,24 +51,23 @@ Notes: \\
 * Hermetic \\
 * DAQ
 
-\gls{xebra} is the Freiburg based \darwin R\&D platform for small scale \gls{tpc}s.
-With it technical innovations are tested.
-One being the hermetic \gls{tpc} where different \gls{lxe} volumes are separated to reduce background interactions that originate inside the \gls{tpc}.
+\gls{xebra} is the Freiburg based \darwin~R\&D platform for small scale \glspl{tpc}.
+With \gls{xebra}, technical innovations are tested.
+One being the hermetic \gls{tpc} where the \gls{lxe} at the outside of the sensible volume of the \gls{tpc} is isolated from the sensible part to reduce background interactions that originate inside the \gls{tpc}.
 Another one is the single phase \gls{tpc} where the gas phase is abandoned and the secondary scintillation of electrons takes place in the liquid phase which requires stronger fields.
-As a benchmark a dual phase \gls{tpc} without inovations is employed first.
+As a benchmark, a dual phase \gls{tpc} without innovations is employed first.
 In this work we investigate this benchmark \gls{tpc}.
 
 %%%%% TPC
 The working principle of a \gls{tpc} is to have a scintillation material - in this case \gls{lxe}.
-A scintillation process via excimers as shown in fig.~\ref{fig:xe-scint-process} yields UVU photons as well as electrons.  % TODO add plot!!
-While the photons are detected instantly (S1 signal) the electrons drift towards the the top of the \gls{tpc} due to the drift field.
+A scintillation process via excimers as shown in fig.~\ref{fig:xe-scint-process} yields \gls{vuv} photons with a wavelength $ \lambda_\mathrm{scint} = \SI{178}{\nano\meter} $ as well as electrons.  % TODO add plot!!
+While the photons are detected instantly (S1 signal) the electrons drift towards the top of the \gls{tpc} due to the drift field applied.
 The drift field is established by electrode grids - the cathode at the bottom of the \gls{tpc}, the anode at the top and the gate \SI{5}{\milli\m} under the anode.
-Once the electrons pass the gate, it enters the region of higher drift field.
+Once the electrons pass the gate, they enter the region of higher field.
 In the middle between gate and anode the phase changes from \gls{lxe} to \gls{gxe}.
-The electrons arriving at the interface have a certain probability to be extracted into the gaseous phase, where they eventually undergo proportional scintillation.
+The electrons arriving at the interface have a certain probability to be extracted into the gas phase, where they eventually undergo proportional scintillation.
 This effectively amplifies them to an average fix amount of photons per electron extracted (S2 signal).
-The timing information between S1 and S2 signal combined with the known drift time that depends on the drift field is further converted to a vertical position ($ z $) information giving the \emph{time projection chamber} its name.
-
+The timing information between S1 and S2 signal combined with the known drift velocity that depends on the drift field is further converted to a vertical position $ z $ information giving the \emph{\glsentrydesc{tpc}} its name.
 
 % XE scintillation excimers
 \begin{figure}
@@ -81,10 +80,11 @@ The timing information between S1 and S2 signal combined with the known drift ti
 \end{figure}
 
 
-\paragraph{The light detection} is realized by the \gls{pmt}s that are mounted under the cathode (bottom \gls{pmt}) as well as above the anode (top \gls{pmt}s).
-We are using one single $ 3\," $ Hamamatsu R114~10-21 \gls{pmt} as the bottom \gls{pmt} and 7 $ 1\," $ Hamamatsu R85~20-406 \gls{pmt}s.
-The positions of the top \gls{pmt}s is shown in fig.~\ref{fig:top-pmt-array}.  % TODO add plot
-\gls{ptfe} reflectors mark the outside of the sensible scintillation volume in order to redirect as much light as possible towards the \gls{pmt}s.
+\paragraph{The light detection} is realized by the \glspl{pmt} that are mounted under the cathode (bottom \gls{pmt}) as well as above the anode (top \glspl{pmt}).
+We are using one single $ 3\," $ Hamamatsu R114~10-21 \gls{pmt} as the bottom \gls{pmt} and seven $ 1\," $ Hamamatsu R85~20-406 \glspl{pmt}.
+The positions of the top \glspl{pmt} is shown in fig.~\ref{fig:top-pmt-array}.  % TODO add plot
+\gls{ptfe} reflectors mark the outside of the sensible scintillation volume.
+They are supposed to redirect as much light as possible towards the \glspl{pmt}.
 The mentioned parts are hold in place by a support structure out of steel.
 The choices of material are made such the intrinsic radiation and thus the background is reduced.
 
@@ -100,8 +100,8 @@ The choices of material are made such the intrinsic radiation and thus the backg
 
 
 %%%%% DAQ
-\paragraph{The \gls{daq}:} The read-out of the \gls{pmt}s is realized via an optional 10x~amplifier
-As sketched in fig.~\ref{fig:daq} the analogue \gls{pmt} output is read-out by a CAEN V1724 $ 8\;\mathrm{Channel} $ $ 14\,\mathrm{bit]} $ \gls{adc} through an optional Phillips Scientific model 776 $ 16\;\mathrm{Channel} $ 10x~pmt preamplifier.  % TODO add mca and amp specifications
+\paragraph{The \gls{daq}:} The read-out of the \glspl{pmt} is realized via an optional 10x~amplifier.
+As sketched in fig.~\ref{fig:daq}, the analogue \gls{pmt} output is read-out by a CAEN V1724 $ 8\;\mathrm{Channel} $ $ 14\,\mathrm{bit} $ \gls{adc} through an optional Phillips Scientific model 776 $ 16\;\mathrm{Channel} $ 10x~\gls{pmt} preamplifier.  % TODO add mca and amp specifications
 Along with metadata and timing information this data is then saved to disk for further software processing.
 
 
@@ -118,14 +118,14 @@ Along with metadata and timing information this data is then saved to disk for f
 
 
 %%%%% GAS SYSTEM
-\paragraph{An external gas system} is used to fill the \gls{tpc} with xenon.
-Next to pumps and a key component of the gas system is the hot metal gas purifier or getter.
-The getter is passed by the Xenon in the filling process in order to be cleaned from impurities such as water and Oxygen.
-While the experiment is running, Xenon is constantly taken out of the \gls{tpc} and lead through the getter before it is lead back inside.
-We call this process cycling.
-Every time the \gls{gxe} has to be cooled in order to become liquid.
-The cooling has to be done without particle exchange.
-Therefore, a liquid nitrogen cooled metal cavity filled from the top is energetically coupled to the top of the inside of the inner cryostat called the coldfinger.  % mention cryostat above. explain outside structure in general!!
+\paragraph{An external gas system} is used to fill the \gls{tpc} with Xenon.
+Next to pumps, and a key component of the gas system is the hot metal gas purifier or getter.
+We pass Xenon through the getter in the filling process in order to clean it from impurities such as water and Oxygen.
+While the experiment is running, Xenon is constantly taken out of the \gls{tpc} and lead through the getter before it is lead back inside for continous cleaning.
+We call this process \emph{cycling}.
+Every time the \gls{gxe} is lead back, it has to be cooled in order to become liquid.
+As the cooling happens inside the \gls{tpc}, it has to be conducted without particle exchange.
+Therefore, a liquid nitrogen cooled metal cavity filled from the top is energetically coupled to the top of the inside of the inner cryostat, called the coldfinger.  % mention cryostat above. explain outside structure in general!!
 The inflow stream of \gls{gxe} is directed against the coldfinger cooling and liquefying the Xenon.
 The complete gas system used is sketched in fig.~\ref{fig:gas-system}.
 
@@ -142,8 +142,8 @@ The complete gas system used is sketched in fig.~\ref{fig:gas-system}.
 
 
 %%%%% SLOW CONTROL
-\paragraph{The slow control} system Doberman \cite{} monitors critical parameters of the experiment and sends alarms once a parameter defines a predefined alarm region.
-Some of the monitored parameters are pressures in the \gls{tpc}, gas system and cryostat, temperatures at different points inside the \gls{tpc} heater power consumption and levelmeters read-outs from inside the \gls{tpc} and in the nitrogen storage.
+\paragraph{The slow control} system Doberman \cite{} monitors critical parameters of the experiment and sends alarms to shifters once a parameter enters a predefined alarm region.
+Examples of the monitored parameters are pressures in the \gls{tpc}, gas system and cryostat, temperatures at different points inside the \gls{tpc}, the heater's power consumption and the levelmeters' read-outs inside the \gls{tpc} and in the nitrogen storage.
 
 
 
@@ -161,10 +161,10 @@ Some of the monitored parameters are pressures in the \gls{tpc}, gas system and 
 
 
 
-The \gls{strax} encloses the essential software tools to process the data stored on disk by the \gls{daq}.  % TODO add github cite
-It is complemented by an experiment specific package that uses the tools from strax.
+The \gls{strax} encloses the essential software tools to process data stored on disk by the \gls{daq}.  % TODO add github cite
+It is complemented by an experiment specific software package that uses the tools from strax.
 In the case of \oneton~and \nton~the package is straxen - \emph{streaming analysis for \textsc{Xenon}}.  % TODO add github cite
-For the \xebra platform we use straxbra.  % TODO add github cite
+For the \gls{xebra} platform we use \emph{straxbra}.  % TODO add github cite
 
 % straxbra data structure
 \begin{figure}
@@ -177,19 +177,19 @@ For the \xebra platform we use straxbra.  % TODO add github cite
 \end{figure}
 
 
-Starting at the lowest level of \emph{raw records} the data processing structure in straxbra follows a hierarchical order as shown in fig.~\ref{fig:data-structure}.
+Starting at the lowest level \emph{raw records}, the data processing structure in straxbra follows a hierarchical order as shown in fig.~\ref{fig:data-structure}.
 We call \emph{events}, \emph{peaks}, \emph{records} and \emph{raw records} the \emph{data kinds} (colors in fig.~\ref{fig:data-structure}), which - in a processing sense - require one another in the mentioned order.
 Data kinds describe different physical entities.
 The records, e.g., are a list of data, each of them representing a \emph{record} which is a pulse of a single \gls{pmt} containing all the information there is about this record.
-From records we can produce peaks, which means grouping all records - or actually \emph{hits} which is an internal, hidden data kind\footnote{Anmerkung raus?} - that belong to one physical signal.
+From records we can produce peaks, which groups all records - or actually \emph{hits} which is an internal, hidden data kind\footnote{Anmerkung raus?} - that belong to one physical signal.
 Due to the grouping there is new information accessible such as the classification into S1 and S2 signal, the position of S2 signals or the total light seen per peak.
-Eventually the peaks are grouped to form events which in a physical sense corresponds to an interaction.
-When peaks are detected within about one maximal drift length they can be correlated, i.e. belong to the same interaction.
+Eventually, the peaks are grouped to form events which, in a physical sense, corresponds to an interaction.
+When peaks are detected within about one maximal drift length, they can be correlated, i.e. belong to the same interaction.
 An event usually contains at least one S1 and one S2 which lets us reconstruct e.g. the $ z $ position.
 
-Data kinds are usually constituted of several, separately loadable parts e.g. \emph{peak positions}, \emph{peak classification}; see fig.~\ref{fig:data-structure}.
-All these parts are built by so called \emph{plug-ins} which are realized as python classes that inherit from a strax class \emph{plugin}.
-In the plug-ins the processing of the data is specified.
+Data kinds are usually constituted of several, separately loadable parts e.g. \emph{peak~positions}, \emph{peak~classification}; see fig.~\ref{fig:data-structure}.
+All these parts are built by so called \emph{plug-ins} which are realized as python classes that inherit from the strax class \emph{plugin}.
+The processing instructions of the data are specified in the plug-ins.
 Every plug-in can provide several \emph{fields} holding information about every entry.
 For example, the plug-in \emph{peaks} provids the following fields:
 \begin{AutoMultiColItemize}
@@ -212,93 +212,93 @@ This trace is an essential part of strax and is assigned to data that has been c
 The trace is a hash that is created out of the value of every strax-option the plug-in is assigned, the current plug-in's version and the plug-ins it requires data from.
 Like this, upon loading data of a plug-in, strax automatically knows if any dependency changed by comparing the traces and can reprocess only the necessary data.
 
-\paragraph{A \emph{context},} used to load data, holds all the specific information about what and how data is loaded.
-The specifications include strax-options - when another than the default value is used - other, constant parameters, the storage location, database informations and which plug-ins belong.
-Thereby, for different \gls{tpc}s and different analyses we can create dedicated contexts, which is more secure than changing all the options by hand every time for several reasons.
-Naturally, the strax-options can and are supposed to change even within a context, since optimizing these parameters is an iterative process - parameter tuning.
-Addintional to the dual phase context, we thus created a context for the hermetic \gls{tpc} as well as one for the single phase \gls{tpc}.
+\paragraph{A \emph{context},} used to load data, holds all the specific information about what data and how the data is loaded.
+The specifications include strax-options - when any other than the default value is used - other, constant parameters, the storage location, database informations and which plug-ins are loadable.
+Thereby, for different \glspl{tpc} and different analyses we can create dedicated contexts, which is more secure than changing all the options by hand every time for several reasons.
+Naturally, the strax-options can and are supposed to change even within a context, since optimizing these parameters is an iterative process (parameter tuning).
+Additional to the dual phase context, we thus created a context for the hermetic \gls{tpc} as well as one for the single phase \gls{tpc}.
 
 %%% explain data
 In the following we introduce the most used fields.
 
 % data - waveform
 \paragraph{The waveform} is labeled \emph{data} and shows the sampled \gls{pmt} output directly.
-A lot of information is encoded there, that we aim to extract.
-Per sample the number of photo electrons detected is shown for an entire peak, example shown in fig.~\ref{fig:waveform}.
+All the information is encoded and is extracted directly or indirectly from the  waveforms.
+The waveform of a peak can therefore be plotted as the number of \gls{pe} detected per sample against samples, an example is shown in fig.~\ref{fig:waveform}.
 Since we fixed the number of samples saved to 220 and the \gls{adc} samples every \SI{10}{\nano\second}, we would be limited to a peak length of \SI{2.2}{\micro\second}.
 S2 signals can extend a lot longer than that.
-Therefore, the waveforms are downsampled to a sample size of an integer multiple of \SI{10}{\nano\second} until the waveform is smaller than 221 samples.
+Therefore, the waveforms are downsampled to a sample size of an integer multiple of \SI{10}{\nano\second} until the peak fits in less than 221 samples.
 
-\paragraph{The Area,} as visualized in fig.\ref{fig:area} is the integral or  rather the sum of the sample of a waveform and thus the area under the curve.
-Thus it is proportional to the amount of light seen by the \gls{pmt}s - or by one \gls{pmt} depending on what the data kind specifies.
+\paragraph{The Area,} as visualized in fig.\ref{fig:area}, is the integral or  rather the sum of the sample of a waveform and thus the area under the curve.
+Hence, it is proportional to the amount of light seen by the \glspl{pmt} - or by one \gls{pmt} depending on what the data kind specifies.
 The amount of light seen by a \gls{pmt} yields a proportional current, which is sampled with \SI{100}{\mega S\per\second} by the \gls{adc} into a $ 14\,\mathrm{bit} $ range.
-The unit we measure the amount of light seen in, has thus changed from a unit of current to \gls{adc}-units.
+The unit we measure the amount of light seen in has thus changed from a unit of current to \gls{adc}-units.
 We use a single-photon light source to calibrate the \gls{pmt}-gains.
 The gain of a \gls{pmt} determines the number of \gls{adc}-units measured with the respective \gls{pmt} for an average photon.
 With the gains we convert to the physically more meaningful unit \gls{pe}.
 On average, \SI{1}{PE} corresponds to one detected photon.
 In peaks and events we use \gls{pe} units.
-\emph{Area per channel} is integrating the \gls{pmt}s individually and yields one value per \gls{pmt}.
+\emph{Area per channel} is integrating the \glspl{pmt} individually and yields one value per \gls{pmt}.
 
 % width
 \paragraph{The Width} of a peak is the extension of the central \SI{50}{\%} area quantile.
-The center of the peak is the interpolated point where \SI{50}{\%} of the area of the peak is reached.
-The central $ x\,\% $ area quantile thus starts at the point where $ \nicefrac{x}{2}\,\% $ of the area is covered when integrating from the center to the left\footnote{technisch fehlt da ein vorzeichen. macht das was?}
-The quantile ends at the point when the same is done, but integrating to the right.
+The center of the peak is the interpolated point where \SI{50}{\%} of the peak's area is reached.
+The central $ x\,\% $ area quantile thus starts at the point where $ \nicefrac{x}{2}\,\% $ of the area is covered when integrating from the center to the left\footnote{technisch fehlt da ein vorzeichen. macht das was?}.
+The quantile ends at the point where $ \nicefrac{x}{2}\,\% $ is covered integrating from the center to the right.
 The time the quantile spans is the central $ x\,\% $ area quantile.
 
 % aft
-\paragraph{The \gls{aft}} specifies the fraction of area that the top \gls{pmt} array contributes to a peak.
+\paragraph{The \gls{aft}} specifies the fraction of area the top \gls{pmt} array contributes to a peak.
 For example, \gls{aft} $ = 0 $ is peak only seen in the bottom \gls{pmt}, wheres \gls{aft} $ = 1 $ is only seen in the top \gls{pmt}-array.
 The \gls{aft} is strongly dependent on the incident position.
-A Monote-Carlo simulation shows the trend in \gls{xebra} in fig.~\ref{fig:aft-mc}. % TODO cite alex
-It can be interpreted as the probability that a photon of an interaction at this point is seen in the top \gls{pmt}-array.
-As S2 signals are produced in a thin slab they have a narrow \gls{aft}s\footnote{spezifizieren, nehme ich an... :(. soll ich den satz einfach weg lassen?}
+A Monte-Carlo simulation shows the trend in \gls{xebra} in fig.~\ref{fig:aft-mc}. % TODO cite alex
+The \gls{aft} can be interpreted as the probability that a photon of an interaction at this point is seen in the top \gls{pmt}-array.
+As S2 signals are produced in a thin slab they have a specific \gls{aft}\footnote{spezifizieren, nehme ich an... :(. soll ich den satz einfach weg lassen?}
 
 % length (samples)
-\paragraph{The length} is the number of samples belonging to a peak.
-A waveform is always \SI{220}{samples} long for computational reasons.
-Couting from the first (or programming counting zeroth), the length states how many of the \SI{220}{samples} do actually belong to the peak.
+\paragraph{The length} is the number of samples a peak consists of.
+A waveform always has \SI{220}{samples} for computational reasons.
+Counting from the first (or programming counting zeroth), the length states how many of the \SI{220}{samples} do actually belong to the peak.
 
 % dt - vllt zu length dazu... nee, doch nicht
-\paragraph{dt or rather $ \mathbf{\Delta t}$} is the time resolution of a sample.
+\paragraph{dt or rather $ \mathbf{\Delta t}$} is the time resolution of the samples in a peak.
 The \gls{adc} samples incoming currents with \SI{100}{\mega S\per\second}.
 That translates to a sample every \SI{10}{\nano\second}.
-As peaks area created out of records a waveform can be downsampled.
+As peaks are created out of records a waveform can be downsampled.
 For computational reasons we want a peak to have a constant number of samples in a waveform, 220.
 For larger peaks we can give up time resolution and settle with a constant relative time resolution of a peak.
 This does not change the general shape of the peak significantly.
-Therefore, a peak is downsampled by a integer factor $ n $ so that the peak fits into 220 samples.
+Therefore, a peak is downsampled by an integer factor $ n $ so that the peak fits into 220 samples.
 Effectively, this means summing up all $ n $ samples.
-The time resolution then is $ n \cdot \SI{10}{\nano\second} $.
-Multiplying dt with the length in samples we get the length of the peak in \SI{}{\nano\second}.
+The time resolution hence is $ n \cdot \SI{10}{\nano\second} $.
+Multiplying dt with the length in samples, we get the length of the peak in \SI{}{\nano\second}.
 Peak length will in this work mostly refer to time.
 
 % risetime
 \paragraph{The risetime} of a peak is the time from the \SI{10}{\%} to the \SI{50}{\%} area quantile.
-The $ x\,\% $ area quantile being the point in the waveform at which $ x\,\% $ of the area are covered, when integrating from the beginning of the peak.
-As the name suggest, how steep the flank of the peak rises.
-While S1s have rather shorter risetimes, S2's flanks are less steep and have lower risetimes.
+The $ x\,\% $ area quantile being the point in the waveform at which $ x\,\% $ of the area is covered, when integrating from the beginning of the peak.
+As the name suggest, this field indicates the steepness of the peak's rising edge.
+While S1s have rather shorter risetimes, S2s rise less steeply and and thus have larger risetimes.
 
 % n hits
 \paragraph{N Hits} is the number of hits a peak consists of.
 A hit is an occurence above threshold and is a processing step between records and peaks.
-In later versions of strax used in \nton \emph{hits} is a data kinds of its own.
+In later versions of strax used in \nton~\emph{hits} is a data kinds of its own.
 
 % channel
 \paragraph{A channel} in the context of \gls{xebra} simply means \gls{pmt}.
 Any \emph{per channel} unit is also to be understood as \emph{per PMT}, e.g. \emph{area per channel} is the area measured in a specific \gls{pmt} and yields 8 values.
 
 \paragraph{\emph{x} and \emph{y}} is the position in the horizontal plane.
-A neural net trained on Monte Carlo data is used to determine the positions based on the light share of the \gls{pmt}s in the top array.  % TODO cite alex thesis
-Only S2 peaks are used to determine the $ x $ and $ y $ positions as they are produced in a narrow $ z $ slab between liquid interface and anode, close to the top \gls{pmt}s.
-Therefore, the lightshare of S2s are more pronounced around the interaction point compared to the rather equal illumination in the case of S1s, as they are produced at the interaction point.
+A neural net trained on Monte Carlo data is used to determine the positions based on the lightshare of the \glspl{pmt} in the top array.  % TODO cite alex thesis
+Only S2 peaks are used to determine the $ x $ and $ y $ positions as they are produced in a narrow $ z $ slab between liquid interface and anode, close to the top \glspl{pmt}.
+Therefore, the lightshare of S2s are more pronounced in \glspl{pmt} around the interaction point compared to the rather equal illumination in the case of S1s, as they are produced at the interaction point.
 
 
-\paragraph{The \emph{z} position} can only be determined with the S1 and the S2 of an event.
-As the light of an S1 reaches the \gls{pmt}s instantly and the electrons have to drive to the liquid interface before they produce any light, the drift time is used to determine the drift length.
+\paragraph{The \emph{z} position} can only be determined with the S1 and the corresponding S2 and therefore require the data kind \emph{event}.
+As the light of an S1 reaches the \glspl{pmt} instantly and the electrons have to drift to the liquid interface before they produce any light, the drift time is used to determine the drift length.
 Therefor the drift velocity has to be known, which is a property of \gls{lxe} and dependent on the drift field.
-The drift length is then the (negative) $ z $ position, $ z = -t_\mathrm{drift} \cdot v_\mathrm{drift}  $
+The drift length is then the (negative) $ z $ position, $ z = -t_\mathrm{drift} \cdot v_\mathrm{drift}  $.
 
 
 
