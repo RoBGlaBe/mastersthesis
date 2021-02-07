@@ -5,10 +5,10 @@
 \FloatBarrier
 
 
-While \gls{elt} is a vertical effect, there are two main effects altering the S2 area in the horizontal plane.
+While \gls{elt} is a vertical effect, two main effects alter the S2 area in the horizontal plane.
 As shown in sec.~\ref{sec:xebra}, the light is produced in the gas gap by proportional scintillation.
 Since the region is narrow and close to the top \glspl{pmt}, the \gls{lce} is higher directly under a \gls{pmt} and therefore describes a pattern in the x-y plane as shown in fig.~\ref{fig:lce-xy-sim-alex} from simulations.
-In the simplest case of a radial symmetric behaviour, the effect can be described in one dimension.
+In the simplest case of a radial symmetric behavior, the effect can be described in one dimension.
 As this is not the case here we use the x and y coordinate to describe the effect entirely.
 The interaction depth, however, does not influence the \gls{lce}.
 
@@ -17,42 +17,42 @@ The data does not follow the same trend as the simulation.
 This can either be due to too simplistic simulations or we cannot explain the trend just by \gls{lce}.
 Since the data does not reflect the symmetry of the \gls{tpc} setting, it is more likely that the discrepancy does not stem from \gls{lce}\footnote{symmetry gutes argument?}.
 
-Beside \gls{lce}, the other effect that influences the light measured of an S2 signal are local differences in the scintillation process.
-The number of photons produced per electron depends on the gas pressure (p), the voltage between gate and anode (V) and the extent of the gas- as well as the liquid gap ($ d_\mathrm{g}, d_\mathrm{l}$):
+Besides \gls{lce}, the other effect that influences the light measured of an S2 signal are local differences in the scintillation process.
+The number of photons produced per electron depends on the gas pressure (p), the voltage between gate and anode (V), and the extent of the gas- as well as the liquid gap ($ d_\mathrm{g}, d_\mathrm{l}$):
 
 \begin{equation}
     g_\mathrm{SE} \propto \frac{V}{1 + \nicefrac{d_\mathrm{l}}{\epsilon d_\mathrm{g}} }- bpd_g
 \end{equation}
 
-In this empirical proportinality, $ \epsilon = 1.96 $ is the \gls{lxe} relative permittivity and $ b \approx 0.8 $ is a proportionality constant most authors agree on\footnote{SE \oneton~ note need cite..}.  % TODO cite
-While the gas pressure and the voltage cannot change locally, the gap sizes can due to electrostatic sagging or buckling or mechanical stress.
-A \emph{larger distance} between the two grids lower the field strength.
+In this empirical proportionality, $ \epsilon = 1.96 $ is the \gls{lxe} relative permittivity and $ b \approx 0.8 $ is a proportionality constant most authors agree on\footnote{SE \oneton~ note need cite..}.  % TODO cite
+While the gas pressure and the voltage cannot change locally, the gap sizes can due to electrostatic sagging or buckling, or mechanical stress.
+A \emph{larger distance} between the two grids lowers the field strength.
 With a lower field, the electrons are less energetic and produce less light, on the one hand.
-However, on the other hand the scintillation length is longer, raising the probability for scattering and thus scintillation.
-This counteracts the lower light yield due the lower field and at the same time raising the peaks width due to the longer scintillation time of one electron.
-A \emph{smaller distance} between the two grids raise the field strength.
+However, on the other hand, the scintillation length is longer, raising the probability for scattering and thus scintillation.
+This counteracts the lower light yield due to the lower field and at the same time raising the peaks' width due to the longer scintillation time of one electron.
+A \emph{smaller distance} between the two grids raises the field strength.
 The higher energetic electrons produce more light in scintillation and the peak has a smaller width due to the smaller gap.
 The Krypton S2 peaks which also overlap are too broad to make notable differences in width\footnote{müsste ich belegen. stimmt das überhaupt?}.
 
-Although, the effect of \gls{lce} cannot be distinguished from scintillation inhomogeneities by data, we can correct for both at the same time.
+Although the effect of \gls{lce} cannot be distinguished from scintillation inhomogeneities by data, we can correct for both at the same time.
 These corrections can then only be applied for runs with the same fields.
-\gls{lce} is a detector parameter and does not change with different fields.
+The \gls{lce} is a detector parameter and does not change with different fields.
 We can apply the correction for \gls{lce} to all runs.
 For the scintillation, however, this is not the case.
 
 
 
 
-\emph{Pure sagging or buckling} of the electrode grids can be described by a radial symmetric $ r^2 $ trend which describes the actual $ cosh\left( r \right) $ well with some advantage with regard to the computing power.
+\emph{Pure sagging or buckling} of the electrode grids can be described by a radial symmetric $ r^2 $ trend that describes the actual $ cosh\left( r \right) $ trend sufficiently well with some advantage concerning the computing power.
 It is however possible that the center of the sagging does not coincide with the center of the \gls{tpc}.
-In this case a transformation to radii with respect to another center or a description in two dimensions must be chosen.
+In this case, a transformation to radii with respect to another center or a description in two dimensions must be chosen.
 The latter has the advantage of easy combination with other models of other effects like an additional tilt.
 TODO hier Gleichung des Modells einfügen
 
-\emph{Pure tilt} of the electrode grids is described by a two dimensional linear progression(wort ok?).
+\emph{A pure tilt} of the electrode grids is described by a two-dimensional linear progression(wort ok?).
 TODO hier Gleichung des Modells einfügen
 
-Whenever we are unable to describe the trend of our data analytically as a fit to these models a purely data driven correction is to be chosen.
+Whenever we are unable to describe the trend of our data analytically as a fit to these models a purely data-driven correction is to be chosen.
 We take the mean of the S2 area per x-y-bin.
 In each bin we want its center to be closer to each point inside the bin than to the surrounding centers.
 Ideally, we would choose round bins then but they provide overlaps or areas that are not covered.
@@ -65,14 +65,14 @@ TODO: verschiedene data driven models gegen die daten checken und beschreiben, w
 % TODO:
 Hier erklären, wie die correction vorgenommen wird? entweder fit oder direkt gebinnte daten als map speichern und beim laden interpolieren. denke hier ist die richtige stelle dafür. um es im strax kapitel zu erklären, hat man zu wenig hintergrund wissen..
 
-When we choose to correct based on a fit to a certain model $ f\left( x,y;\mathbf{p} \right) $ the correction is applied in the same manner as previously. \gls{cs2} is calculated with the lifetime corrected S2 areas ($ \mathrm{S2_\mathrm{e_\tau c}} $) and all the free parameters (\textbf{p}) the model f provides.
+When we choose to correct based on a fit to a certain model $ f\left( x,y;\mathbf{p} \right) $, the correction is applied in the same manner as previously. \gls{cs2} is calculated with the lifetime corrected S2 areas ($ \mathrm{S2_\mathrm{e_\tau c}} $) and all the free parameters (\textbf{p}) the model f provides.
 
 \begin{equation} % TODO formel nicht fertig, bisher nur kopiert aus kr sub-chap 4
     \mathrm{cS2} = \mathrm{S2_\mathrm{e_\tau c}} \cdot f\left( x,y; \mathbf{p} \right)^{-1}
     \label{eq:cs2}
 \end{equation}
 
-In the case of the purely \emph{data driven} model, however, the values and position of each bin is saved.
+In the case of the purely \emph{data-driven} model, however, the values and position of each bin are saved.
 The correction value of a certain event is retrieved by interpolating between the values of the closest bins to the event position\footnote{sketch oder mathem. ausführen?}.
 
 

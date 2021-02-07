@@ -6,7 +6,7 @@
 
 
 To free a photon or electron as a primary scintillation quantum, an average energy of $ W = \SI{13.7}{\electronvolt} $ is required.
-We therefore get a fix number of quanta $ n = n_\gamma + n_\mathrm{e} $ in the scintillation process based on the total energy deposited in an interaction.
+We, therefore, get a fixed number of quanta $ n = n_\gamma + n_\mathrm{e} $ in the scintillation process based on the total energy deposited in an interaction.
 The ratio $ \nicefrac{n_\gamma}{n_\mathrm{e}} $ varies depending on the drift field strength and energy of the interacting particle.
 We can extract the scintillation gains $ g_1 $ (primary) and $ g_2 $ (secondary) using the ratios at different energies by introducing $ n_\mathrm{\gamma} = \nicefrac{\mathrm{cS1}}{g_\mathrm{1}} $ and $ n_\mathrm{e} = \nicefrac{\mathrm{cS2}}{g_\mathrm{2}} $ to express
 
@@ -18,10 +18,10 @@ We can extract the scintillation gains $ g_1 $ (primary) and $ g_2 $ (secondary)
 $ g_1 $ and $ g_2 $ are purely detector dependent quantities that are used to compare detectors to one another.
 They measure how many \gls{pe} we detect per initial photon or electron, respectively.
 In the case of $ g_2 $, the amplification of the proportional scintillation in the gas gap, as well as the associated extraction efficiency is also contained.
-We are interessted in the comparison to the hermetic \gls{tpc}, the single phase \gls{tpc}, as well as large scale \glspl{tpc} like \nton.
+We are interested in the comparison to the hermetic \gls{tpc}, the single-phase \gls{tpc}, as well as large scale \glspl{tpc} like \nton.
 When cS1 and cS2 are corrected relative to the mean or maximum of their measured areas or the theoretically expected absolute, the meaning and values of $ g_{1,2} $ do change.
 Therefore, it is important to give this reference.
-In this work we correct the electron lifetime to the light of the interpolated number of initial electrons.
+In this work, we correct the electron lifetime to the light of the interpolated number of initial electrons.
 We correct all other effects relative to the mean of the used areas as this yields a more stable value.
 
 To extract $ g_1 $ and $ g_2 $ from measurements, we reformulate eq.~\ref{eq:doke-fit} with $ \mathit{QY} = \frac{cS2}{E} $ and $ \mathit{LY} = \frac{cS1}{E} $ to
@@ -32,7 +32,7 @@ To extract $ g_1 $ and $ g_2 $ from measurements, we reformulate eq.~\ref{eq:dok
 \end{equation}
 
 By means of this correlation, we can fit the doke plot in fig.~\ref{fig:doke} linearly with $ m = - \nicefrac{g_2}{g_1} $ and $ c = \nicefrac{g_2}{W} $.  % TODO add plot
-Although, more than one mono energetic calibration source is necessary to use this method, we can use different field configurations to obtain a good measure of the correct scintillation gains.
+Although more than one mono energetic calibration source is necessary to use this method, we can use different field configurations to obtain a good measure of the correct scintillation gains.
 
 % DOKE
 \begin{figure}
@@ -44,7 +44,7 @@ Although, more than one mono energetic calibration source is necessary to use th
 \label{fig:doke}
 \end{figure}
 
-Another way to determine the correct $ g_1 $ and $ g_2 $ from a single source with one field is to use the same approach on an event basis, rather then on a run basis.
+Another way to determine the correct $ g_1 $ and $ g_2 $ from a single source with one field is to use the same approach on an event basis, rather than on a run basis.
 We fit an ellipse contour to the Krypton population in the $ \nicefrac{\mathrm{cS2}}{E} $-$ \nicefrac{\mathrm{cS1}}{E} $ space, fig.~\ref{fig:elipse}.
 
 % ellipse fit

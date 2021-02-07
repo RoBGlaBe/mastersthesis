@@ -8,7 +8,7 @@
 Rubidium \isotope[83][37]{Rb} decays via two metastable excited states to the stable \isotope[83][36]{Kr} Krypton isotope.
 It first transitions via electron capture to \isotope[83m2]{Kr}.
 This state has a half-life of \SI{1.83}{\hour} and decays via an energy emission of \SI{32.1}{\kilo\electronvolt}, see fig.~\ref{fig:scheme_kr}.
-Under the emission of an electron from internal conversion and subsequent emission of auger electrons and small amounts of X-rays its core is left as another exited state: \isotope[83m1]{Kr}.
+Under the emission of an electron from internal conversion and subsequent emission of auger electrons and small amounts of X-rays its core is left as another excited state: \isotope[83m1]{Kr}.
 The de-excitation to the stable \isotope[83]{Kr} is mostly via internal conversion and in small amounts via gamma-rays.
 The half-life of the latter is \SI{154}{\nano\s} and the decay energy is \SI{9.4}{\kilo\electronvolt}.
 
@@ -28,13 +28,13 @@ When the flow follows the line that goes through the reservoir the gaseous \isot
 There, it disperses and is spread homogeneously within approximately a minute.
 Once it decays, the second decay takes place virtually immediately, both resulting in \gls{lxe} scintillation, respectively, see sec.~\ref{sec:Xebra}.
 Fig.~\ref{fig:waveform_kr} shows a sample waveform of this process.
-The different channels of both decays - even though the energy is the same - result in slightly different light and electron responses in the scintillation process. (TODO: scint response too slangy?)
+The different channels of both decays - even though the energy is the same - result in slightly different light- and electron-responses in the scintillation process. (TODO: scint response too slangy?)
 This is shown in fig.~\ref{fig:scint_response_nest}.
-We are not able to resolve these subtle differences, as other statistical effects in the detection process is the resolution.
+We are not able to resolve these subtle differences, as other statistical effects in the detection process are limiting the resolution.
 It will, however, contribute to the broadening of the energy resolution. (TODO: nicht richtig belegbar...)
-As the final decay product is \isotope[83]{Kr}, a stable Noble gas, it does neither react with other material, nor contribute background radiation and can thus be left in the Xenon.
-A very conservatively estimated \SI{50000}{} atoms per filling and the Avogadro constant $ \mathrm{N}_\mathrm{A} \approx 6.02\cdot10^{23}\,\mathrm{mol}^{-1} $ yields a sub femto mol level after 1000 fillings.
-At this level the macroscopic properties of Xenon are not altered by the remaining Krypton.
+As the final decay product is \isotope[83]{Kr}, a stable Noble gas, it does neither react with other material nor contribute background radiation and can thus be left in the Xenon.
+A very conservatively estimated \SI{50000}{} atoms per filling and the Avogadro constant $ \mathrm{N}_\mathrm{A} \approx 6.02\cdot10^{23}\,\mathrm{mol}^{-1} $ yields a sub femtomol level after 1000 fillings.
+At this level, the macroscopic properties of Xenon are not altered by the remaining Krypton.
 
 
 % Kr sample waveform
@@ -61,7 +61,7 @@ After a day we can thus easily take data without a noticeable amount of Krypton 
 
 % TODO the following has been written before the text above. it might need to be worked on again in order to not repeat to much.
 % also the desired rate is calculated differently. needs to be changed.
-\paragraph{A Krypton run} is a run for which we fill the \gls{tpc} with the metastable Krypton Isotope \isotope[83m2][36]{Kr} via the Rubidium source in the gassystem as described above.
+\paragraph{A Krypton run} is a run for which we fill the \gls{tpc} with the metastable Krypton Isotope \isotope[83m2][36]{Kr} via the Rubidium source in the gas system as described above.
 We aim to record a maximum number of these Krypton decays in the \SI{3}{\min} recordings.
 The signals of two or more interactions at the same time - meaning an interaction happened before or just at the same time as the previous \st~ is registered - cannot unambiguously be assigned to its correct physical counterpart.
 Therefore, we can approximate an optimal rate of interactions and accordingly activity of our Krypton source $ A_\mathrm{Kr} $ inside the \gls{tpc}.
@@ -77,13 +77,13 @@ The highest probability to have exactly one decay within the average drift time 
 Although \SI{40}{\micro\s} is a good estimate, our maximum drift time depends on the drift field and can thus vary from run to run, depending on the field we choose.
 It is also not easy to adjust how much Krypton exactly is let into the \gls{tpc} and thus the activity inside.
 This is not necessary, because of the short decay time the activity will decrease quickly.
-At the same time the probability around the maximum is rather flat so the amount of events that can be unambiguously reconstructed does not change drastically.
-On the on hand, lesser activity will lead to less decays happening at the same time, but at the same time to a lot of time in which no decay will occur.
+At the same time, the probability around the maximum is rather flat so the amount of events that can be unambiguously reconstructed does not change drastically.
+On the one hand, a lower activity leads to fewer decays at a time, but also to a lot of time in which no decay occurs.
 On the other hand, a greater activity increases overlapping events.
 This calculation assumes having overlapping events is as unappreciated as having no data in a certain time slot.
 Overlapping events can lead to mistakes in the reconstruction and are thus rather to be avoided than the other case.
-The calculation also assumes only Krypton interactions to occur, whereas we know we also have other signal happening simultaneously.
-For these reasons we choose a activities smaller than the theoretical optimum.
+The calculation also assumes only Krypton interactions to occur, whereas we know we also have other interactions happening simultaneously.
+For these reasons, we choose an activities smaller than the theoretical optimum.
 
 
 One minute after starting the filling process of Krypton for a Krypton run it reaches the inner part of the \gls{tpc}.

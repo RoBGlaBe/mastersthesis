@@ -8,22 +8,22 @@
 
 % LCE definition
 \paragraph{The \gls{lce} is defined as} the probability that a scintillation photon arrives at the photo-cathode of a \gls{pmt}.
-This quantity is a function of the photons initial position x,y and z inside the \gls{tpc}.
-For a large number of initial photons, this corresponds to the fraction of all photons arriving at a photo cathode over the total number of photons.
-The \gls{lce} cannot be measured directly, because of intrinsic \gls{pmt} efficiencies, the \gls{qe} and \gls{ce}.
+This quantity is a function of the photons' initial position x,y, and z inside the \gls{tpc}.
+For a large number of initial photons, this corresponds to the fraction of all photons arriving at a photocathode over the total number of photons.
+The \gls{lce} cannot be measured directly, because of intrinsic \gls{pmt} efficiencies - the \gls{qe} and \gls{ce}.
 Therefore, when working with measured data, it is more convenient to work with a quantity including \gls{qe} and \gls{ce}.
-To avoid ambigouities we define the \gls{de} as
+To avoid ambiguities we define the \gls{de} as
 
 
 \begin{equation}
     \mathit{DE}\left(\mathrm{x}, \mathrm{y}, \mathrm{y}\right) =  \mathit{LCE}\left(\mathrm{x}, \mathrm{y}, \mathrm{y}\right) \cdot \mathit{QE} \cdot \mathit{CE}
 \end{equation}
 
-where are vary for different \gls{pmt} models.
+where \gls{qe} and \gls{ce} vary for different \gls{pmt} models.
 They can also vary rather significantly among \glspl{pmt} of the same model.
 
 % contributors (not resolvable which contr. contributes how much to lce)
-\paragraph{There are different effects} contributing to the collective quantity \gls{lce}.
+\paragraph{Different effects} contribute to the collective quantity \gls{lce}.
 The results of these effects on the \gls{lce} are not disjunct.
 This means we cannot infer the contributions of a single effect from the measured \gls{lce} or rather \gls{de}.
 
@@ -32,9 +32,9 @@ In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with lar
 An attenuation length of $ \lambda_\mathrm{LXe} > \SI{100}{\centi\m} $ has been measured in similar setups\cite{}.  % TODO: Cite! (A.Baldini at al., NIM A 545 (2005))
 The scattering length is not experimentally determined but expected to be on the order of meters and therefore light attenuation in the liquid becomes negligible compared to losses on surfaces.
 
-\emph{The reflectivity of \gls{ptfe}} surfaces, here mainly the \gls{ptfe} reflectors, is with arround \SI{95}{\%} high for \gls{vuv} light.
+\emph{The reflectivity of \gls{ptfe}} surfaces, here mainly the \gls{ptfe} reflectors, is with around \SI{95}{\%} high for \gls{vuv} light.
 The exact value depends on the quality of the surface treatment.
-With special treatment as in \oneton~a reflectivity of \SI{99}{\%} can be achieved\cite{}. % TODO cite resp. paper
+With special treatment as done for \oneton, a reflectivity of \SI{99}{\%} can be achieved\cite{}. % TODO cite resp. paper
 Light is typically not only reflected once, but several times increasing the impact of the parameter.
 
 
@@ -44,7 +44,7 @@ This value is well approximated by the geometrical coverage of the plane by the 
 
 \emph{The optical reflectivity at the \gls{lxe} surface} depends on refractive indices of gaseous and liquid Xenon and the incident angle of the light.
 Reflected light, on the one hand, travels further until it hits the \gls{pmt} cathode when the light comes from the drift field region and eventually arrives at the bottom \gls{pmt}.
-On the other hand, it travels less far originating in the gaseous xenon and is reflected back to the top array.
+On the other hand, it travels less far when originating in the gaseous xenon and is reflected back to the top array.
 Greater travel distances have the trend to have more light absorbed from attenuation and mesh opacity.
 With $ n_1 $ and $ n_2 $ the refraction indices and $ \alpha $ and $ \beta $ the angle of incident and reflection as shown in fig.~% \ref{fig:phase_transion_sketch}.  % TODO sketch einfügen
 the reflectivity is given by \cite{}  % TODO cite demtröder 2
@@ -66,10 +66,10 @@ As $ n_\mathrm{\gls{lxe}} \approx 2 $ and $ n_\mathrm{\gls{gxe}} \approx 1 $ , m
 
 
 % z-dependence
-\paragraph{The \emph{z} dependence} of the \gls{lce} is the dominating the overall behaviour.
-With the meshes and liquid surfaces laying in the $ x-y $ plane, the respective effects have most impact on the perpendicular $ z $-direction.
-Additionally, the \gls{pmt} types, \gls{qe} and \gls{ce}, surrounding media and \gls{pmt} area coverage on the top side differ from the bottom side.
-This increases disparity and contributes to the $ z $ trend shown in fig.~\ref{fig:ce_vs_z} which shows a linear behaviour.
+\paragraph{The \emph{z} dependence} of the \gls{lce} is dominating the overall behavior.
+With the meshes and liquid surfaces laying in the $ x-y $ plane, the respective effects have the most impact on the perpendicular $ z $-direction.
+Additionally, the \gls{pmt} types, \gls{qe} and \gls{ce}, the surrounding media, and \gls{pmt} area coverage on the top side differ from the bottom side.
+This increases disparity and contributes to the $ z $ trend shown in fig.~\ref{fig:ce_vs_z} which shows a linear behavior.
 
 
 % CE vs z
@@ -100,7 +100,7 @@ This increases disparity and contributes to the $ z $ trend shown in fig.~\ref{f
 \end{figure}
 
 % correction of S1-LCE
-\paragraph{The correction of the \gls{lce}} here means correcting for the position dependent light losses based on Krypton calibration data as a first step.
+\paragraph{The correction of the \gls{lce}} here means correcting for the position-dependent light losses based on Krypton calibration data as a first step.
 Since some light is always lost, the maximal light measured does not equal the initial number of photons.
 We thus correct on a relative scale.
 The second step is converting to an absolute scale.
@@ -108,8 +108,8 @@ This step is later done using simulation data from the \gls{nest} software.  % T
 
 In the first step, we only correct based on the $ z $-position.
 The data for $ r $ shows ambiguities, which is thus not corrected.
-In fig.~\ref{fig:s1area_vs_z} we fit the S1 normalized to the mean $ \mathrm{S1_{a,rel}} = \mathrm{S1_a} \cdot \left( \overline{\mathrm{S1_a}} \right)^{-1} $ over $ z $.  % TODO Satz nochmal schreiben!!
-Since we are working on a relative scale and due to our how we switch to the absolute it's justified to correct for the mean.  % TODO hier weiter
+In fig.~\ref{fig:s1area_vs_z}, we fit the S1 normalized to the mean $ \mathrm{S1_{a,rel}} = \mathrm{S1_a} \cdot \left( \overline{\mathrm{S1_a}} \right)^{-1} $ over $ z $.  % TODO Satz nochmal schreiben!!
+Since we are working on a relative scale and due to how we switch to the absolute, it's justified to correct for the mean.  % TODO hier weiter
 The S1 area (here S1), as well as the parameters from the linear fit, slope $ m_\mathrm{opt} $ and intercept $ c_\mathrm{opt} $, are used to calculate the \gls{cs1}:
 
 \begin{equation}
