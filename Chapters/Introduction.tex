@@ -34,8 +34,8 @@ Dark Matter:(see also other thesises) \\
 * Challenges \\
 * How do we look into that \\
 * Lead up to xebra \\
-* Need understanding: dualphase \\
-* Then we can compare singlephase and hermetic to that
+* Need understanding: dual-phase \\
+* Then we can compare single-phase and hermetic to that
 
 
 \newpage
@@ -46,34 +46,38 @@ Dark Matter:(see also other thesises) \\
 
 Notes: \\
 * Xebra (is not the TPC) \\
-* Dual Phase TPC \\
-* Single Phase \\
+* Dual-Phase TPC \\
+* Single-Phase \\
 * Hermetic \\
 * DAQ
 
-\gls{xebra} is the Freiburg based \darwin~R\&D platform for small scale \glspl{tpc}.
+The \gls{xebra} is the Freiburg based \darwin~R\&D platform for small scale \glspl{tpc}.
 With \gls{xebra}, technical innovations are tested.
-One being the hermetic \gls{tpc} where the \gls{lxe} at the outside of the sensible volume of the \gls{tpc} is isolated from the sensible part to reduce background interactions that originate inside the \gls{tpc}.
-Another one is the single phase \gls{tpc} where the gas phase is abandoned and the secondary scintillation of electrons takes place in the liquid phase which requires stronger fields.
-As a benchmark, a dual phase \gls{tpc} without innovations is employed first.
-In this work, we investigate this benchmark \gls{tpc}.
+One being the hermetic \gls{tpc} where the \gls{lxe} at the outside of the sensitive volume of the \gls{tpc} is isolated from the sensitive part to reduce background interactions that originate inside the \gls{tpc}.
+Another one is the single-phase \gls{tpc} where the \gls{gxe} for the secondary scintillation is replaced with \gls{lxe}.
+This changes the secondary scintillation mechanism for which we need stronger electric fields that, among others, are achieved by thinner grid wires.
+As a benchmark detector, our dual-phase \gls{tpc} relying on well understood detection and operation principles is employed first.
+In this work, we investigate this benchmark \gls{tpc} and characterize it qualitatively.
 
 %%%%% TPC
-The working principle of a \gls{tpc} is to have a scintillation material - in this case, \gls{lxe}.
-A scintillation process via excimers as shown in fig.~\ref{fig:xe-scint-process} yields \gls{vuv} photons with a wavelength $ \lambda_\mathrm{scint} = \SI{178}{\nano\meter} $ as well as electrons.  % TODO add plot!!
+A light and charge sensitive \gls{tpc} requires a target material which is transparent to its own scintillation light and allows charge transport.
+Typical scintillation materials are liquid Argon or \gls{lxe}.
+Here, we use the latter.
+A scintillation process via excimers as shown in fig.~\ref{fig:xe-scint-process} yields \gls{vuv} photons with a wavelength $ \lambda_\mathrm{scint} = \SI{178}{\nano\meter} $ as well as electron-ion pairs.  % TODO add plot!!
 While the photons are detected instantly (S1 signal) the electrons drift towards the top of the \gls{tpc} due to the drift field applied.
 The drift field is established by electrode grids - the cathode at the bottom of the \gls{tpc}, the anode at the top, and the gate \SI{5}{\milli\m} under the anode.
 Once the electrons pass the gate, they enter the region of a stronger field.
 In the middle between gate and anode, the phase changes from \gls{lxe} to \gls{gxe}.
-The electrons arriving at the interface have a certain probability to be extracted into the gas phase, where they eventually undergo proportional scintillation.
-This effectively amplifies them to an average fixed amount of photons per electron extracted (S2 signal).
+The electrons arriving at the interface have a certain field-strength dependent probability to be extracted into the gas phase, where they eventually undergo proportional scintillation.  % TODO cite "Xu19"?
+Every extracted electron is amplified via proportional scintillation to a larger number of photons, a certain fraction of which is detected by the \glspl{pmt}.
+The number of \gls{pe} per extracted electron follows a Gaussian distribution with a mean of $ \mu \approx \SI{20}{\gls{pe}} $ and a standard deviation of $ \sigma \approx \SI{8}{\gls{pe}} $.
 The timing information between S1 and S2 signal combined with the known drift velocity that depends on the drift field is further converted to vertical position $ z $ information giving the \emph{\glsentrydesc{tpc}} its name.
 
 % XE scintillation excimers
 \begin{figure}
 \centering
 \includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/xe-scint.png}
-\caption[Xenon Scintilltion Process]{
+\caption[Xenon Scintillation Process]{
 
     }
 \label{fig:xe-scint-process}
@@ -83,10 +87,10 @@ The timing information between S1 and S2 signal combined with the known drift ve
 \paragraph{The light detection} is realized by the \glspl{pmt} that are mounted under the cathode (bottom \gls{pmt}) as well as above the anode (top \glspl{pmt}).
 We are using one single $ 3\," $ Hamamatsu R114~10-21 \gls{pmt} as the bottom \gls{pmt} and seven $ 1\," $ Hamamatsu R85~20-406 \glspl{pmt}.
 The positions of the top \glspl{pmt} are shown in fig.~\ref{fig:top-pmt-array}.  % TODO add plot
-\gls{ptfe} reflectors mark the outside of the sensible scintillation volume.
-They are supposed to redirect as much light as possible towards the \glspl{pmt}.
-The mentioned parts are held in place by a support structure out of steel.
-The choices of material are made such the intrinsic radiation and thus the background is reduced.
+\gls{ptfe} reflectors form the radial boundary of the sensitive scintillation volume.
+They are supposed to redirect as much of the isotropically emitted light as possible towards the \glspl{pmt}.
+The mentioned parts are held in place by a support structure out of \gls{ptfe} and steel.
+The choices of material and components are made to mimic optical attributes of larger detectors, where the choices are based on background minimization and low light loss.
 
 % top pmt array
 \begin{figure}
@@ -119,11 +123,11 @@ Along with metadata and timing information, this data is then saved to disk for 
 
 %%%%% GAS SYSTEM
 \paragraph{An external gas system} is used to fill the \gls{tpc} with Xenon.
-Next to pumps, and a key component of the gas system is the hot metal gas purifier or getter.
+Next to pumps, a key component of the gas system is the hot metal gas purifier or getter.
 We pass Xenon through the getter in the filling process to clean it from impurities such as water and Oxygen.
-While the experiment is running, Xenon is constantly taken out of the \gls{tpc} and lead through the getter before it is lead back inside for continuous cleaning.
+While the experiment is running, Xenon is constantly taken out of the \gls{tpc} and conducted through the getter before it is lead back inside for continuous cleaning.
 We call this process \emph{cycling}.
-Every time the \gls{gxe} is lead back, it has to be cooled to become liquid.
+Every time the \gls{gxe} is cycled, it has to be cooled to become liquid.
 As the cooling happens inside the \gls{tpc}, it has to be conducted without particle exchange.
 Therefore, a liquid nitrogen cooled metal cavity filled from the top is energetically coupled to the top of the inside of the inner cryostat, called the coldfinger.  % mention cryostat above. explain outside structure in general!!
 The inflow stream of \gls{gxe} is directed against the coldfinger cooling and liquefying the Xenon.
@@ -162,9 +166,9 @@ Examples of the monitored parameters are pressures in the \gls{tpc}, gas system 
 
 
 The \gls{strax} encloses the essential software tools to process data stored on disk by the \gls{daq}.  % TODO add github cite
-It is complemented by an experiment specific software package that uses the tools from strax.
+It is complemented by an experiment specific software package that defines the case specific usage of the tools provided by strax.
 In the case of \oneton~and \nton~the package is straxen - \emph{streaming analysis for \textsc{Xenon}}.  % TODO add github cite
-For the \gls{xebra} platform, we use \emph{straxbra}.  % TODO add github cite
+The \gls{xebra} equivalent to this, we call \emph{straxbra}.  % TODO add github cite
 
 % straxbra data structure
 \begin{figure}
@@ -210,13 +214,14 @@ To allow traceable changes to plug-ins, every plug-in can be assigned any number
 Strax options have a default value that can optionally be run-dependent\footnote{muss ich das weiter erklären?} and is by default \emph{traced}.
 This trace is an essential part of strax and is assigned to data that has been cached and stored.
 The trace is a hash that is created out of the value of every strax-option the plug-in is assigned, the current plug-in's version, and the plug-ins it requires data from.
-Like this, upon loading data of a plug-in, strax automatically knows if any dependency changed by comparing the traces and can reprocess only the necessary data.
+Like this, upon loading data of a plug-in, strax automatically reprocesses only the necessary data.
+
 
 \paragraph{A \emph{context},} used to load data, holds all the specific information about what data and how the data is loaded.
 The specifications include strax-options - when any other than the default value is used - other, constant parameters, the storage location, information about the database, and which plug-ins are loadable.
 Thereby, for different \glspl{tpc} and different analyses, we can create dedicated contexts, which is more secure than changing all the options by hand every time for several reasons.
 Naturally, the strax-options can and are supposed to change even within a context, since optimizing these parameters is an iterative process (parameter tuning).
-Additional to the dual phase context, we thus created a context for the hermetic \gls{tpc} as well as one for the single phase \gls{tpc}.
+Additional to the dual phase context, we thus created a context for the hermetic \gls{tpc} as well as one for the single-phase \gls{tpc}.
 
 %%% explain data
 In the following, we introduce the most used fields.
@@ -272,7 +277,6 @@ Therefore, a peak is downsampled by an integer factor $ n $ so that the peak fit
 Effectively, this means summing up all $ n $ samples.
 The time resolution hence is $ n \cdot \SI{10}{\nano\second} $.
 Multiplying dt with the length in samples, we get the length of the peak in \SI{}{\nano\second}.
-Peak length will in this work mostly refer to time.
 
 % risetime
 \paragraph{The risetime} of a peak is the time from the \SI{10}{\%} to the \SI{50}{\%} area quantile.
@@ -290,15 +294,22 @@ In later versions of strax used in \nton, \emph{hits} is a data kind of its own.
 Any \emph{per channel} unit is also to be understood as \emph{per PMT}, e.g. \emph{area per channel} is the area measured in a specific \gls{pmt} and yields 8 values.
 
 \paragraph{\emph{x} and \emph{y}} is the position in the horizontal plane.
-A neural net trained on Monte Carlo data is used to determine the positions based on the lightshare of the \glspl{pmt} in the top array.  % TODO cite alex thesis
+A neural net trained on Monte Carlo data is used to determine the positions based on the light-share between the \glspl{pmt} in the top array.  % TODO cite alex thesis (key: ABism)
 Only S2 peaks are used to determine the $ x $ and $ y $ positions as they are produced in a narrow $ z $ slab between liquid interface and anode, close to the top \glspl{pmt}.
-Therefore, the lightshare of S2s are more pronounced in \glspl{pmt} around the interaction point compared to the rather equal illumination in the case of S1s, as they are produced at the interaction point.
+Therefore, the light-share of S2s are more pronounced in \glspl{pmt} around the interaction point compared to the rather equal illumination in the case of S1s, as they are produced at the interaction point.
 
 
 \paragraph{The \emph{z} position} can only be determined with the S1 and the corresponding S2 and therefore require the data kind \emph{event}.
-As the light of an S1 reaches the \glspl{pmt} instantly and the electrons have to drift to the liquid interface before they produce any light, the drift time is used to determine the drift length.
-Therefore, the drift velocity has to be known, which is a property of \gls{lxe} and dependent on the drift field.
-The drift length is then the (negative) $ z $ position, $ z = -t_\mathrm{drift} \cdot v_\mathrm{drift} $.
+We can infer the $ z $ position of the event from the time difference between the prompt S1 and the later S2 signal.
+The detection time of S1 signals is the sum of photon propagation time and decay time or recombination time of the scintillating modes.
+With $ n_\mathrm{\gls{lxe}} \approx 2 $, the photon propagation time $ t_\mathrm{S1} \approx \SI{0.36}{\nano\second} $ for one driftlength. % TODO cite "Solovov04" for lxe refr. idx = 1.56
+The excimer decay has a slow ($ \tau_\mathr{S} = \SI{2.2}{\nano\second} $) and a fast component ($ \tau_\mathr{T} = \SI{34}{\nano\second} $).  % TODO cite "Kubota78" for decay time
+Scintillation photons from electron-ion recombination are produced in the time scale of the recombination time $ \tau_\mathrm{R} = \SI{45}{\nano\second} $.  % TODO cite "Hitachi83" recomb. time
+With the negligible propagation time, the detection time is in the order of a few \SI{10}{\nano\second} - independent of the interaction point.  % TODO cite again "Kubota78"
+The S2's detection time is dominated by the drift time of the electrons that is with $ v_\mathrm{drift} \approx \SI{1.8}{\milli\meter\per\micro\second} $ in the order of a few \SIrange{1}{10}{\micro\second}.  % cite Jelles Thesis? "Aalbers18"
+The detection time of S2s is thus by orders of magnitude larger than the S1's, while it is also dependant on the $ z $ position.
+We compute $ z $ via $ z = - t_\mathrm{drift} v_\mathrm{drift} $, fixing $ t_\mathrm{drift} = 0 $ to $ z = 0 $ at the gate position.
+Larger drift-times translate to positions deeper in the \gls{tpc} which correspond to negative $ z $.
 
 
 
