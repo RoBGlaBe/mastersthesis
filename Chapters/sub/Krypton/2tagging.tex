@@ -59,8 +59,9 @@ The energy ration hypothesis remains to be tested.
 % Z-Cut
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/z-cut.png}
-    \caption[Fiducial z-cut]{$ z $-position histogram of all events in example Krypton run 250.
+    \includegraphics[width=0.95\textwidth]{Figures/z-cut.png}  % {Figures/th.jpeg}
+    \caption[Fiducial z-cut]{
+        $ z $-position histogram of all events in example Krypton run 250.
     An event that does not have an S1 or S2 peak gets assigned a drift time of zero, corresponding to $ z = 0 $.
     This explains the overshoot at this point.
     The second bump is at the gate position of $ z = \SI{-2.5}{mm}$ where we have wall-events.
@@ -90,9 +91,7 @@ The position reconstructed by the neural net is only accurate within this radial
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/oterhS1_area_width_after_fid.png}
 \caption[Area-Width Histogram smaller S1 after Fid. Cut]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+    Area-Width Histogram smaller S1 after Fid. Cut
     }
 \label{fig:other_s1_area_width}
 \end{figure}
@@ -116,9 +115,7 @@ To further clean up the Krypton selection we investigate other fields.
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/oterhS1_area_hist_cut.png}
 \caption[Other S1 Area Histogram Cut]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+        Other S1 Area Histogram Cut
     }
 \label{fig:other_s1_area_cut}
 \end{figure}
@@ -129,9 +126,7 @@ To further clean up the Krypton selection we investigate other fields.
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/oterhS1_width_hist_cut.png}
 \caption[Other S1 Width Histogram Cut]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+        Other S1 Width Histogram Cut
     }
 \label{fig:other_s1_width_cut}
 \end{figure}
@@ -157,9 +152,7 @@ The remaining events are further referred to as Krypton events.
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/S1_area_width_after_fid.png}
 \caption[Area-Width Histogram of main S1 after Fid. Cut]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+        Area-Width Histogram of main S1 after Fid. Cut
     }
 \label{fig:main_s1_area_width}
 \end{figure}
@@ -167,43 +160,35 @@ The remaining events are further referred to as Krypton events.
 
 \paragraph{A homogeneous spatial-distribution} of Krypton inside the \gls{tpc} is expected.
 With the tagging of Krypton via the discussed cuts we can test this hypothesis against the data to test our selection.
-In the histogram of events over equal volume spaced r-bins, fig.~(TODO ref. r plot here) we observe counts inside the fiducial r-cut of $r_\mathrm{max} = \SI{23}{\milli\m}$ that agrees with homogeneity.
+In the histogram of events over equal volume spaced r-bins, fig.~\ref{fig:r-hist-homogen}, we observe counts inside the fiducial r-cut of $r_\mathrm{max} = \SI{23}{\milli\m}$ that agrees with homogeneity.
 The bins with the smallest r-values show higher counts and would thus not confirm homogeneity.
-However, we know that the neural net - responsible for the position reconstruction - has a tendency of projecting the position inwards. % TODO cite alex bism
+However, we know that the neural net - responsible for the position reconstruction - has a tendency of projecting the position inwards~\cite{ABism}.
 It is thus expected that we observe an overshoot in the central region.
 The overshoot around $ r = \SI{30}{\milli\m} $ is most likely due to wall-events on average reconstructed towards the center as well as real krypton events.
 
-% r-plot for homogeneity here
-% This plot is missing!!!
-% TODO: plot aus notebook speichern und hier einfügen...
+% r-plot for homogeneity
 \begin{figure}
 \centering
-\includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/r-homogen.png}
+\includegraphics[width=0.95\textwidth]{Figures/kr_r-homogen.png}  % {Figures/th.jpeg}
 \caption[Kr r-histogram Homogeneity]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+        Kr r-histogram Homogeneity
     }
 \label{fig:r-hist-homogen}
 \end{figure}
 
 Also, the projection onto the z-axis has to be checked to test homogeneity.
-The respective histogram for z is shown in fig.~(TODO ref. z plot here).
+The respective histogram for z is shown in fig.~\ref{fig:z-hist-homogen}.
 We see stronger fluctuations within the errors.
 However, the data is still in accordance with homogeneously distributed events inside the fiducial volume.
 (Größe um die Aussage zu unterstützen?)
 We can conclude that from a homogeneity point of view, we can confirm an unbiased Krypton event selection.
 
-% z-plot for homogeneity here
-% This plot is missing!!!
-% TODO: plot aus notebook speichern und hier einfügen...
+% z-plot for homogeneity
 \begin{figure}
 \centering
-\includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/z-homogen.png}
+\includegraphics[width=0.95\textwidth]{Figures/kr_z-homogen.png}  % {Figures/th.jpeg}
 \caption[Kr z-histogram Homogeneity]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+    Kr z-histogram Homogeneity
     }
 \label{fig:z-hist-homogen}
 \end{figure}
@@ -213,7 +198,7 @@ We can conclude that from a homogeneity point of view, we can confirm an unbiase
 \paragraph{The decay time} of \isotope[83m1]{Kr} is another way of testing our selection.
 The time difference $ t_\mathrm{diff} = t_{\mathrm{S}1_\mathrm{b}} - t_{\mathrm{S}1_\mathrm{a}} $ in a Krypton event measures its decay time.
 A histogram of $ t_\mathrm{diff} $ must hence follow a decaying exponential $ N \left( t \right) = N_0 \cdot \exp{\nicefrac{-t}{\tau_\mathrm{b}}} $, with $ \tau_\mathrm{b} = \SI{222.8}{\nano\s} $, the lifetime of \isotope[83m1]{Kr}.
-As we can see in fig.~(TODO ref decay time hist) a fit of the $ t_\mathrm{diff} $-hist yields a decay time parameter of XX \SI{}{\nano\s}. % TODO write number and error
+As we can see in fig.~\ref{fig:kr-decaytime} a fit of the $ t_\mathrm{diff} $-hist yields a decay time parameter of XX \SI{}{\nano\s}. % TODO write number and error
 This value is in accordance with the true decay time. % TODO in welcher accordance? präzieser wenn wert und fehler bekannt. cite paper? vllt eher bei der ersten Erwähnung
 However, there are no events with decay times lower than \SI{240}{\nano\s} and the behavior is only correctly modeled for $ t \ge \SI{330}{\nano\s} $.
 The peak finder of strax is responsible for that since it is not capable of splitting peaks that are closer than the \SI{240}{\nano\s}.
@@ -225,8 +210,19 @@ They do not survive this set of cuts.
 Instead of tagging this population with another selection or tuning or replacing our peak finder, we disregard these events.
 The remaining Krypton events are, however, a representative population.
 This selection does therefore not introduce a bias otherwise, because there is no correlation of decay time to any of the other fields.
-By integrating our exponential fit from fig.~(TODO ref decay time hist) we can estimate that our Krypton selection has an acceptance of \SI{20}{\%}.
+By integrating our exponential fit from fig.~\ref{fig:kr-decaytime} we can estimate that our Krypton selection has an acceptance of \SI{20}{\%}.
 A peak finder capable of resolving closer peaks would be capable of increasing the acceptance drastically.
+
+
+% decay time hist
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/kr_decaytime.png}
+\caption[Krypton Decay Time Histogram]{
+    Krypton Decay Time Histogram
+    }
+\label{fig:kr-decaytime}
+\end{figure}
 
 % TODO add waveforms of unseparated S1s (and compare to separated?)
 

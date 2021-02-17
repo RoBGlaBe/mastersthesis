@@ -29,7 +29,7 @@ This means we cannot infer the contributions of a single effect from the measure
 
 \emph{Light attenuation} is the loss of photons per unit length traveled in material following an exponential decay.
 In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $ and $ \mathrm{H}_2\mathrm{O} $.
-An attenuation length of $ \lambda_\mathrm{LXe} > \SI{100}{\centi\m} $ has been measured in similar setups\cite{}.  % TODO: Cite! (A.Baldini at al., NIM A 545 (2005))
+An attenuation length of $ \lambda_\mathrm{LXe} > \SI{100}{\centi\m} $ has been measured in similar setups\cite{Baldini05}.
 The scattering length is not experimentally determined but expected to be on the order of meters and therefore light attenuation in the liquid becomes negligible compared to losses on surfaces.
 
 \emph{The reflectivity of \gls{ptfe}} surfaces, here mainly the \gls{ptfe} reflectors, is with around \SI{95}{\%} high for \gls{vuv} light.
@@ -47,7 +47,7 @@ Reflected light, on the one hand, travels further until it hits the \gls{pmt} ca
 On the other hand, it travels less far when originating in the gaseous xenon and is reflected back to the top array.
 Greater travel distances have the trend to have more light absorbed from attenuation and mesh opacity.
 With $ n_1 $ and $ n_2 $ the refraction indices and $ \alpha $ and $ \beta $ the angle of incident and reflection as shown in fig.~% \ref{fig:phase_transion_sketch}.  % TODO sketch einfügen
-the reflectivity is given by \cite{}  % TODO cite demtröder 2
+the reflectivity is given by~\cite{}  % TODO cite demtröder 2
 \begin{alignat}{2}
     \label{eq:reflectivityA}
     R_\perp &= \left( \frac{ n_1 \cos{\alpha} - n_2 \cos{\beta} }{ n_1 \cos{\alpha} + n_2 \cos{\beta} } \right)^2 &
@@ -77,9 +77,7 @@ This increases disparity and contributes to the $ z $ trend shown in fig.~\ref{f
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/CE_vs_z.png}  % TODO make plot
 \caption[Collection Efficiency in z]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+        Collection Efficiency in z
     }
 \label{fig:ce_vs_z}
 \end{figure}
@@ -92,9 +90,7 @@ This increases disparity and contributes to the $ z $ trend shown in fig.~\ref{f
 \centering
     \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/CE_vs_r.png}  % TODO make plot (notebook "Analysis/corrections/First area corrections")
 \caption[Collection Efficiency in r]{
-        Sample Text.
-        Sample Text..
-        Sample Text...
+    Collection Efficiency in r
     }
 \label{fig:ce_vs_r}
 \end{figure}
@@ -109,7 +105,7 @@ This step is later done using simulation data from the \gls{nest} software.  % T
 In the first step, we only correct based on the $ z $-position.
 The data for $ r $ shows ambiguities, which is thus not corrected.
 In fig.~\ref{fig:s1area_vs_z}, we fit the S1 normalized to the mean $ \mathrm{S1_{a,rel}} = \mathrm{S1_a} \cdot \left( \overline{\mathrm{S1_a}} \right)^{-1} $ over $ z $.  % TODO Satz nochmal schreiben!!
-Since we are working on a relative scale and due to how we switch to the absolute, it's justified to correct for the mean.  % TODO hier weiter
+Since we are working on a relative scale and due to how we switch to the absolute, it's justified to correct for the mean.
 The S1 area (here S1), as well as the parameters from the linear fit, slope $ m_\mathrm{opt} $ and intercept $ c_\mathrm{opt} $, are used to calculate the \gls{cs1}:
 
 \begin{equation}
