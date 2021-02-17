@@ -102,7 +102,7 @@ The choices of material and components are made to mimic optical attributes of l
 \paragraph{A \gls{pmt}} collects photons at its photocathode.
 There, each of them liberates a photo-electron with a certain probability, the \gls{qe}, that depends on the material of the photocathode and thus on the \gls{pmt} model.
 Further, as shown in fig.~\ref{fig:pmt_sketch}, the electron is accelerated towards the first dynode, which is on higher potential than the cathode.
-The probability that the photo-electron arrives at the first dynode - this is essential for the detection - is the \gls{ce} that also depends on the \gls{pmt} model.
+The probability that the photo-electron arrives at the first dynode - this is essential for the detection - is the \gls{ce} that is characteristic for a \gls{pmt} model.
 At the first dynode, it produces secondary electrons that are then accelerated towards, and amplified at the second dynode and so forth.
 Every dynode has a defined amplification factor depending on the voltage between itself and its predecessor.
 That means that, eventually, at the anode, a current proportional to the number of incident photons can be measured.
@@ -278,11 +278,6 @@ The trace is a hash that is created out of the value of every strax-option the p
 Like this, upon loading data of a plug-in, strax automatically reprocesses only the necessary data.
 
 
-\paragraph{A \emph{context},} used to load data, holds all the specific information about what data and how the data is loaded.
-The specifications include strax-options - when any other than the default value is used - other, constant parameters, the storage location, information about the database, and which plug-ins are loadable.
-Thereby, for different \glspl{tpc} and different analyses, we can create dedicated contexts, which is more secure than changing all the options by hand every time for several reasons.
-Naturally, the strax-options can and are supposed to change even within a context, since optimizing these parameters is an iterative process (parameter tuning).
-Additional to the dual phase context, we thus created a context for the hermetic \gls{tpc} as well as one for the single-phase \gls{tpc}.
 
 %%% explain data
 In the following, we introduce the most used fields.
@@ -294,36 +289,6 @@ The waveform of a peak can be plotted as the number of \gls{pe} detected per sam
 Since we fixed the number of samples saved to 220 and the \gls{adc} samples every \SI{10}{\nano\second}, we would be limited to a peak length of \SI{2.2}{\micro\second}.
 S2 signals can extend a lot longer than that.
 Therefore, long waveforms are downsampled to a sample size of an integer multiple of \SI{10}{\nano\second} until the peak fits in less than 221 samples.
-
-\paragraph{The Area} is the integral or rather the sum of the samples of a waveform and thus the area under the curve.
-Hence, it is proportional to the amount of light seen by the \glspl{pmt} - or by one \gls{pmt} depending on what the data kind specifies (all \glspl{pmt} combined in peaks, single \glspl{pmt} in records).
-In peaks and events, we use \gls{pe} units, whereas we use $ \mathrm{ADC\mbox{-}bins} $ in (raw) records.
-\emph{Area per channel} gives the area per \glspl{pmt} and thus yields one value per \gls{pmt}.
-
-% width
-\paragraph{The Width} of a peak is the extension of the central \SI{50}{\%} area quantile.
-The center of the peak is the interpolated point where \SI{50}{\%} of the peak's area is reached.
-The central $ x\,\% $ area quantile thus starts at the point where $ \nicefrac{x}{2}\,\% $ of the area is covered when integrating from the center to the left\footnote{technisch fehlt da ein vorzeichen. macht das was?}.
-The quantile ends at the point where $ \nicefrac{x}{2}\,\% $ is covered integrating from the center to the right.
-The time the quantile spans is the central $ x\,\% $ area quantile.
-
-% aft
-\paragraph{The \gls{aft}} specifies the fraction of area the top \gls{pmt} array contributes to a peak.
-For example, \gls{aft} $ = 0 $ is a peak only seen in the bottom \gls{pmt}, whereas \gls{aft} $ = 1 $ is only seen in the top \gls{pmt}-array.
-The \gls{aft} is strongly dependent on the incident position.
-A Monte-Carlo simulation shows the trend in \gls{xebra} in fig.~\ref{fig:aft-mc}.
-The \gls{aft} can be interpreted as the probability that a photon of an interaction at this point is seen in the top \gls{pmt}-array.
-As S2 signals are produced in a thin slab they have a characteristic \gls{aft}.
-
-% AFT Monte Carlo von Alex
-\begin{figure}
-\centering
-\includegraphics[width=\figw\textwidth]{Figures/aft-mc-alex.png}  % {Figures/th.jpeg}
-    \caption[\gls{aft} in \gls{xebra} Simulated]{
-        ~\cite{ABism}.
-    }
-\label{fig:aft-mc}
-\end{figure}
 
 
 % length (samples)
@@ -344,16 +309,43 @@ Effectively, this means summing up all $ n $ samples.
 The new time resolution hence is $ n \cdot \SI{10}{\nano\second} $.
 Multiplying dt with the length in samples, we get the length of the peak in \SI{}{\nano\second}.
 
+\paragraph{The Area} is the integral or rather the sum of the samples of a waveform and thus the area under the curve.
+Hence, it is proportional to the amount of light seen by the \glspl{pmt} - or by one \gls{pmt} depending on what the data kind specifies (all \glspl{pmt} combined in peaks, single \glspl{pmt} in records).
+In peaks and events, we use \gls{pe} units, whereas we use $ \mathrm{ADC\mbox{-}bins} $ in (raw) records.
+\emph{Area per channel} gives the area per \glspl{pmt} and thus yields one value per \gls{pmt}.
+
+% aft
+\paragraph{The \gls{aft}} specifies the fraction of area the top \gls{pmt} array contributes to a peak.
+For example, \gls{aft} $ = 0 $ is a peak only seen in the bottom \gls{pmt}, whereas \gls{aft} $ = 1 $ is only seen in the top \gls{pmt}-array.
+The \gls{aft} is strongly dependent on the incident position.
+A Monte-Carlo simulation shows the trend in \gls{xebra} in fig.~\ref{fig:aft-mc}.
+The \gls{aft} can be interpreted as the probability that a photon of an interaction at this point is seen in the top \gls{pmt}-array.
+As S2 signals are produced in a thin slab they have a characteristic \gls{aft}.
+
+% AFT Monte Carlo von Alex
+\begin{figure}
+\centering
+\includegraphics[width=\figw\textwidth]{Figures/aft-mc-alex.png}  % {Figures/th.jpeg}
+    \caption[\gls{aft} in \gls{xebra} Simulated]{
+        ~\cite{ABism}.
+    }
+\label{fig:aft-mc}
+\end{figure}
+
+% width
+\paragraph{The Width} of a peak is the extension of the central \SI{50}{\%} area quantile.
+The center of the peak is the linearly interpolated point where \SI{50}{\%} of the peak's area is reached.
+The central $ x\,\% $ area quantile thus starts at the point where $ \nicefrac{x}{2}\,\% $ of the area is covered when integrating from the center to the left.
+The quantile ends at the point where $ \nicefrac{x}{2}\,\% $ is covered integrating from the center to the right.
+The time the quantile spans is the central $ x\,\% $ area quantile.
+
 % risetime
 \paragraph{The risetime} of a peak is the time from the \SI{10}{\%} to the \SI{50}{\%} area quantile.
-The $ x\,\% $ area quantile being the point in the waveform at which $ x\,\% $ of the area is covered when integrating from the beginning of the peak.
 As the name suggests, this field indicates the steepness of the peak's rising edge.
 While S1s have rather shorter risetimes, S2s rise less steeply and thus have larger risetimes.
 
 % n hits
 \paragraph{N Hits} is the number of hits a peak consists of.
-A hit is an occurrence above threshold and is a processing step between records and peaks.
-In later versions of strax used in \nton, \emph{hits} is a data kind of its own.
 
 % channel
 \paragraph{A channel} in the context of \gls{xebra} simply means \gls{pmt}.
@@ -378,7 +370,9 @@ We compute $ z $ via $ z = - t_\mathrm{drift} v_\mathrm{drift} $, fixing $ t_\ma
 Larger drift-times translate to positions deeper in the \gls{tpc} which correspond to negative $ z $.
 
 
-
-
-
 Strax: ordering of S1 and S2 peaks in an event. Wieso hab ich das reingeschrieben? Vllt steht irgendwo etwas, was hier erklärt werden soll. Ist das schon durch obige erklärungen gecovert?
+
+\paragraph{A \emph{context},} used to load data, holds all the specific information about what data and how the data is loaded.  The specifications include strax-options - when any other than the default value is used - other, constant parameters, the storage location, information about the database, and which plug-ins are loadable.  Thereby, for different \glspl{tpc} and different analyses, we can create dedicated contexts, which is more secure than changing all the options by hand every time for several reasons.  Naturally, the strax-options can and are supposed to change even within a context, since optimizing these parameters is an iterative process (parameter tuning).  Additional to the dual phase context, we thus created a context for the hermetic \gls{tpc} as well as one for the single-phase \gls{tpc}.
+
+
+
