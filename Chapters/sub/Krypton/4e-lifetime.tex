@@ -18,13 +18,25 @@ $ \tau $ is called the \emph{electron lifetime}.
 We can improve (larger $ \tau $) the electron lifetime by reducing the number of impurities inside the \gls{lxe} by cycling through the getter as described in sec.~\ref{sec:Xebra}. % TODO Referenz auf getter/gassystem. DONE, aber falls die kapitel unterteilung nochmal verfeiernt wird, muss ich auch hier genauer refferenzieren.
 Thereby, fewer electrons are lost while they drift.
 
+
+% S2 area vs t
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/s2-vs-t.png}
+    \caption[S2 over Drifttime Fit]{
+        S2 over Drifttime Fit
+    }
+    \label{fig:s2-vs-t}
+\end{figure}
+
+
 Electron lifetime has a large impact on the quality of our data.
 The fewer electrons are in an S2 signal, the more some fields' errors are dominated statistically, as the $ x-y$ position and the S2 area.
 The relative width of the S2s' area distribution gets larger when more electrons are lost.
 With low lifetimes below XX, electron-clouds originating towards the bottom of the \gls{tpc} can become so small that they are not recognized as S2s anymore.  % TODO add lifetime threshold  --> vllt mit einem plot wie von patrick elt vs. run-nr von kr runs --> dann auch plot und ref hinzufügen
 These peaks can thus not be reconstructed into an event and are lost for most analysis purposes.
 % lone hits!!
-Impurities that capture an electron can be photoionized by light from an S1 or S2 releasing an electron as described in sec.~\ref{sec:se-source}.  % ref auf sec:single_electrons
+Impurities that capture an electron can be photoionized by light from an S1 or S2 releasing an electron as described in sec.~\ref{ssec:se-source}.  % ref auf sec:single_electrons
 With smaller electron lifetimes we thus also observe higher \gls{se} rates and therefore have a higher probability of coinciding \glspl{se}.
 These mimic S2s from low energy interactions, e.g. the dark matter sector - another reason to invest effort into the purification of \gls{lxe} in large-scale experiments with ambitious science goals.
 

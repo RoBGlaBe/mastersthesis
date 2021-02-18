@@ -6,16 +6,36 @@
 
 
 While \gls{elt} is a vertical effect, two main effects alter the S2 area in the horizontal plane.
-As shown in sec.~\ref{sec:xebra}, the light is produced in the gas gap by proportional scintillation.
+As shown in sec.~\ref{sec:Xebra}, the light is produced in the gas gap by proportional scintillation.
 Since the region is narrow and close to the top \glspl{pmt}, the \gls{lce} is higher directly under a \gls{pmt} and therefore describes a pattern in the x-y plane as shown in fig.~\ref{fig:lce-xy-sim-alex} from simulations.
 In the simplest case of a radial symmetric behavior, the effect can be described in one dimension.
 As this is not the case here we use the x and y coordinate to describe the effect entirely.
 The interaction depth, however, does not influence the \gls{lce}.
 
+% simulated lce in x-y plane of top pmts
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/xy-lce-sim.png}
+    \caption[Simulated LCE in x-y plane of Top PMT-array]{
+        Simulated LCE in x-y plane of Top PMT-array~\cite{ABism}.
+    }
+    \label{fig:lce-xy-sim-alex}
+\end{figure}
+
 We compare predictions of the simulation to our Krypton data in fig.~\ref{fig:S2-lce-x-y-krypton}.  % TODO add plot
 The data does not follow the same trend as the simulation.
 This can either be due to too simplistic simulations or we cannot explain the trend just by \gls{lce}.
 Since the data does not reflect the symmetry of the \gls{tpc} setting, it is more likely that the discrepancy does not stem from \gls{lce}\footnote{symmetry gutes argument?}.
+
+% kr S2 lce in x-y plane top pmts
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/th.jpeg}  % {Figures/xy-lce-krS2.png}
+    \caption[LCE of Kr S2s in x-y plane of Top PMT-array]{
+        LCE of Kr S2s in x-y plane of Top PMT-array.
+    }
+    \label{fig:S2-lce-x-y-krypton}
+\end{figure}
 
 Besides \gls{lce}, the other effect that influences the light measured of an S2 signal are local differences in the scintillation process.
 The number of photons produced per electron depends on the gas pressure (p), the voltage between gate and anode (V), and the extent of the gas- as well as the liquid gap ($ d_\mathrm{g}, d_\mathrm{l}$):

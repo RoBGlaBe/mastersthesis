@@ -61,8 +61,40 @@ We choose the representative groups \emph{background}, \emph{\glspl{se}}, and \e
 The representative regions are indicated in fig.~\ref{fig:se-area-hist} by the different background colors spanning from \numrange{0}{7} (background, green), \numrange{15}{30} (\gls{se}, red) and \numrange{40}{100}$ \,\mathit{PE} $ (tail, orange).
 Furthermore, we compare other fields of the representatives to each other to find one where the backgrounds is well separable from the other two.
 The peak length, risetime, and number of hits make for possible cuts.
-The respective histograms and cuts are shown in fig.~\ref{fig:len-cut-se},~\ref{fig:len-cut-se} and \ref{fig:len-cut-se}.
+The respective histograms and cuts are shown in fig.~\ref{fig:len-cut-se},~\ref{fig:hit-cut-se} and \ref{fig:riset-cut-se}.
 We fit all the resulting populations in an area histogram with % the model $ f_\mathrm{SE}\left( \ar \right) $
+
+% se len cut
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se_cut_length.png}  % {Figures/th.jpeg}
+    \caption[Length Histogramm and Cut for SEs]{
+        Length Histogramm and Cut for SEs
+    }
+    \label{fig:len-cut-se}
+\end{figure}
+
+
+% se n-hits cut
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se_cut_n_hits.png}  % {Figures/th.jpeg}
+    \caption[N-Hits Histogramm and Cut for SEs]{
+        N-Hits Histogramm and Cut for SEs
+    }
+    \label{fig:hit-cut-se}
+\end{figure}
+
+
+% se risetime cut
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se_cut_risetime.png}  % {Figures/th.jpeg}
+    \caption[Risetime Histogramm and Cut for SEs]{
+        Risetime Histogramm and Cut for SEs
+    }
+    \label{fig:riset-cut-se}
+\end{figure}
 
 
 % f_\mathrm{SE}\left( \ar \right) =
@@ -81,6 +113,15 @@ Our background cut hence is XXX.  % TODO cut value einfügen
 We use the different results to estimate the systematic uncertainties.
 The resulting fit parameter value is $ g_\mathrm{SE} = X \pm X_\mathrm{stat} \pm X_\mathrm{sys} $.  % TODO add value of g_{se}
 
+% area hist fit for g_se
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/se-area-fits.png}
+    \caption[Area Histogram Fit of SEs]{
+        Area Histogram Fit of SEs
+    }
+    \label{fig:se-area-fits}
+\end{figure}
 
 With the same approach, we also investigate runs at different $ E_\mathrm{amp} $.
 We compare the behavior to the one of \oneton~in fig.~\ref{fig:seg-vs-field}.
@@ -95,11 +136,11 @@ With $ g_\mathrm{SE, bot} = XX $ at $ E_\mathrm{amp} = \left( XX \pm XX \right) 
 \begin{figure}
     \centering
     \includegraphics[width=\figw\textwidth]{Figures/se_gain_vs_field.png}  % {Figures/th.jpeg}
-    \caption[\oneton comparison of Amplification Gain vs. Fieldstrength]{
+    \caption[\oneton~comparison of Amplification Gain vs. Fieldstrength]{
         $ g_\mathrm{SE} $ vs. $ E_\mathrm{amp} $
     }
-\end{figure}
     \label{fig:seg-vs-field}
+\end{figure}
 
 
 Another issue we are facing lies in an earlier processing step of peaks.
@@ -115,6 +156,7 @@ Both effects reduce the value of $ g_\mathrm{SE} $ and the parameter is conseque
     \caption[Single Electrons Waveforms]{
         Single Electron Waveforms
     }
+    \label{fig:waveforms-se}
 \end{figure}
 
 
