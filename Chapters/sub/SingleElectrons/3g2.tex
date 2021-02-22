@@ -1,13 +1,115 @@
 
 \FloatBarrier
-\subsection{Amplification Gain Determination}
+\subsection{Spatial Gain Dependence}
 \label{ssec:g2}
 \FloatBarrier
 
-nicht sicher, wann genau ich den cut machen soll von tagging zu g2, deshalb ist bisher alles in tagging.
+We fit all the resulting populations in an area histogram with % the model $ f_\mathrm{SE}\left( \ar \right) $
+
+% se len cut
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se_cut_length.png}  % {Figures/th.jpeg}
+    \caption[Length Histogramm and Cut for SEs]{
+        Length Histogramm and Cut for SEs
+    }
+    \label{fig:len-cut-se}
+\end{figure}
+
+
+% se n-hits cut
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se_cut_n_hits.png}  % {Figures/th.jpeg}
+    \caption[N-Hits Histogramm and Cut for SEs]{
+        N-Hits Histogramm and Cut for SEs
+    }
+    \label{fig:hit-cut-se}
+\end{figure}
+
+
+% se risetime cut
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se_cut_risetime.png}  % {Figures/th.jpeg}
+    \caption[Risetime Histogramm and Cut for SEs]{
+        Risetime Histogramm and Cut for SEs
+    }
+    \label{fig:riset-cut-se}
+\end{figure}
+
+
+% f_\mathrm{SE}\left( \ar \right) =
+\begin{align}
+    &\sum_{n} G \left(  \ar; n \cdot g_\mathrm{SE}, \sqrt{n} \cdot \sigma_\mathrm{SE}, A_n \right) +
+    G_\mathrm{bg} \left( \ar;  \mu_\mathrm{bg}, \sigma_\mathrm{bg}, A_\mathrm{bg} \right), \\
+    &\mathrm{where~} G \left( x;  \mu, \sigma, A \right) = A \cdot \exp{ \left\{ \frac{-\left( x - \mu \right)^2}{2\cdot\sigma^2} \right\} }
+    \label{eq:se-fit-model}
+\end{align}
+
+
+is a Gaussian function, for $ n $ being the number of simultaneously detected electrons (here \numrange{1}{4}).
+The parameter estimates of $ g_\mathrm{SE} $ by the fits in fig.~\ref{fig:se-area-fits} are hardly influenced by the different background cuts.
+As the parameter is stable, we intend to reduce the background as much as possible for other analyses.
+Our background cut hence is XXX.  % TODO cut value einfügen
+We use the different results to estimate the systematic uncertainties.
+The resulting fit parameter value is $ g_\mathrm{SE} = X \pm X_\mathrm{stat} \pm X_\mathrm{sys} $.  % TODO add value of g_{se}
+
+% area hist fit for g_se
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se-area-fits.png}  % {Figures/th.jpeg}  % TODO redo plot
+    \caption[Area Histogram Fit of SEs]{
+        Area Histogram Fit of SEs
+    }
+    \label{fig:se-area-fits}
+\end{figure}
+
+With the same approach, we also investigate runs at different $ E_\mathrm{amp} $.
+We compare the behavior to the one of \oneton~in fig.~\ref{fig:seg-vs-field}.
+Although the curves are parallel, we note a systematically worse light response of \gls{xebra}.  % TODO rephrase. we dont have a curve for xebra... just points
+This can be explained by the different \gls{pmt} models of the top \gls{pmt} array, where the ones in \oneton~have the higher \glspl{qe} and \glspl{ce}.
+The leveling of the liquid level can be conducted more precisely in a larger \gls{tpc} as well as better \gls{ptfe} reflectors are used in \oneton~ which increases the \gls{lce}.
+We can overcome these differences by comparing the signal seen in the bottom \glspl{pmt}, since we use the same \gls{pmt} model there as in \oneton.
+With $ g_\mathrm{SE, bot} = XX $ at $ E_\mathrm{amp} = \left( XX \pm XX \right) \SI{}{\kilo\volt\per\centi\meter} $, we are in a comparable regime to \oneton~within XXXX.  % TODO fill in blanks
+
+
+% g_se vs amp field
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/se_gain_vs_field.png}  % {Figures/th.jpeg}
+    \caption[\oneton~comparison of Amplification Gain vs. Fieldstrength]{
+        $ g_\mathrm{SE} $ vs. $ E_\mathrm{amp} $
+    }
+    \label{fig:seg-vs-field}
+\end{figure}
+
+
+Another issue we are facing lies in an earlier processing step of \emph{peaks}, the data kind used for this analysis.
+In the waveform example in fig.~\ref{fig:waveforms-se}, we, on the one hand, note a frequent occurrence of samples with negative values and on the other hand a waveform that has seemingly arbitrarily split into two peaks.
+The first issue can likely be traced back to the baseline reconstruction.
+The second issue can likely be solved by refining the rules for peak splitting and peak merging.
+Optimization of both these issues are possible, they are, however, out of the scope of this work.
+While the first issue is responsible for an underestimate of nearly all peaks, the second can split up one \gls{se} with the full area into two which then share the total area of one physical \gls{se}.
+Both effects reduce the value of $ g_\mathrm{SE} $ and the parameter is consequently underestimated.
+
+
+% SE waveform problems
+\begin{figure}
+    \centering
+    \includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/se_waveforms.png}
+    \caption[Single Electrons Waveforms]{
+        Single Electron Waveforms
+    }
+    \label{fig:waveforms-se}
+\end{figure}
+
 
 
 
 It would be desirable to be able to resolve $ g_\mathrm{SE} $ spatially as a function of $ x $ and $ y $.
 We would then be able to confirm a uniform amplification and to account for the irregularities.
-As the spacial resolution is low for small signals the position reconstruction is too imprecise in a small scale \gls{tpc} as \gls{xebra} to get a meaningful result.\footnote{auf alex thesis verweisen ohne weitere daten zu zeigen? haben wir nicht wirklich gecheckt, sondern uns auf darryls aussage verlassen}.
+As the spacial resolution is low for small signals~\cite{ABism} - the neural net is trained for $ > 100\,\mathrm{PE} $ - the position reconstruction is too imprecise in a small scale \gls{tpc} as \gls{xebra} to get a meaningful result.\footnote{auf alex thesis verweisen ohne weitere daten zu zeigen? haben wir nicht wirklich gecheckt, sondern uns auf darryls aussage verlassen}.
+
+
+

@@ -1,29 +1,30 @@
 
 \FloatBarrier
-\subsection{Data Selection}
+\subsection{Single Electron Peak Selection}
 \label{ssec:tagging}
 \FloatBarrier
 
 
-We discuss our data selection cuts and \gls{se} selection here.
+We discuss our peak selection cuts and \gls{se} selection here based on the example run 163.
+We aim for a high sample purity with some compromise towards a large sample size.
+The latter can be further improved by analyzing more data, e.g., longer runs.
 Further reference to our \gls{se} population will be based on the selection discussed here.
 
-\paragraph{After S2 Selection:} Most \gls{se} signals are expected within one drift length after a large S2 peak.
-We therefore first select larger S2 peaks and further select every peak within one drift length after such an S2.
-In case another large S2 peak occurs before the window of the previous S2 closes we open a new window at that point without selecting that S2 as a potential \gls{se}.
-
-% \paragraph{Two Channels Cut:} We also demand that at least two \glspl{pmt} contribute to the peak.
-% A peak from just one \gls{pmt} is very likely to stem from a dark count or noise.
+\paragraph{Time after S2 Selection:} The longest drift of an electron occurs when it emerges just above the cathode.
+Most \glspl{se} are thus expected within one drift length after large S2s, as photoionization by S2 light yields most \glspl{se}.
+We therefore select all peaks in the window of one drift length after every large S2 peak in the run.
+A large S2 in such a window closes the window early and the newly found S2 opens another window as usual.
 
 \paragraph{Two Channels Cut:} By introducing a cut based on the field \emph{n channels}, we select peaks with a specific number of \glspl{pmt} contributing to it.
-We demand at least two contributing \glspl{pmt} and thereby get rid of a lot of dark counts as they occur randomly and thus often not in coincidence.
+We demand at least two contributing \glspl{pmt} and thereby suppress dark counts as their coincidence rate is low.
 Real \glspl{se} are large enough to be seen by at least two \glspl{pmt} most of the time and are therefore not affected by the cut.
 
-\paragraph{\gls{aft} cut:} As S2 photons are produced in a narrow z-range close to the top \glspl{pmt}, they have a certain probability to be detected by the top rather than the bottom \gls{pmt}.
+\paragraph{\gls{aft} cut:} Although the meaning of \glspl{se} and S2s differ, \glspl{se} are produced via the same scintillation process as S2s and thus share some essential properties, like the specific \gls{aft}.
+As S2 photons are produced in a narrow z-range close to the top \glspl{pmt}, they have a certain probability to be detected by the top rather than the bottom \gls{pmt}.
 The result is a S2-specific \gls{aft}, $ \mathit{AFT}_\mathrm{S2} $.
-We can see in fig.~\ref{fig:se-aft} that here $ \mathit{AFT}_\mathrm{S2} \approx 0.35 $.
+We can see in fig.~\ref{fig:se-aft} that in the \gls{xebra} dual-phase \gls{tpc} $ \mathit{AFT}_\mathrm{S2} \approx 0.35 $.
 However, the smaller the signal, the more the value is dominated by statistical fluctuations.
-As small S2s, \gls{se}, therefore, have a wide spread of \glspl{aft}.
+\glspl{se} in that sense behave like small S2s and have therefore a wide spread of \glspl{aft}.
 Cutting on the contours given by $ a + \nicefrac{b}{\sqrt{\mathit{area}}} $ does not improve our \gls{se} population significantly, but would rather help with larger S2s.
 We get better results with a flat \gls{aft} cut $ \mathit{AFT}_\mathrm{min} = 0.05 $ and $ \mathit{AFT}_\mathrm{max} = 0.95 $ cutting bigger population clearly not being \glspl{se}.
 
@@ -38,12 +39,11 @@ We get better results with a flat \gls{aft} cut $ \mathit{AFT}_\mathrm{min} = 0.
 \end{figure}
 
 % TODO weiter oben reinschreiben, welche areas wir erwarten & welches feld wir nutzen
-TODO AB HIER INS G2 KAPITEL?
 The area histogram up to \SI{100}{\mathit{PE}} with all the previous cuts applied, fig.~\ref{fig:se-area-hist}, shows one broader population at just above \SI{20}{\mathit{PE}} with a long tail.
 We identify this as our \gls{se} population where we find simultaneous occurrences of multiple electrons in the tail.
-Another slightly overlapping population at areas smaller than \SI{10}{\mathit{PE}} is background.
+Another slightly overlapping population at areas smaller than \SI{10}{\mathit{PE}} is considered background, originating, e.g., from coincident dark counts.
 Before fitting the population to extract the mean as the \emph{amplification gain} $ g_\mathrm{SE} $, we want to make sure that the background population does not influence the result of the fit.
-We can check this by reducing the background and compare the fit results.
+We can check this by reducing the background using more stringent cuts with higher \gls{se} purity but lower tagging efficiency and compare the fit results.
 A stable value hints towards a low impact of the population on the fit.
 
 % SE area hist
@@ -57,106 +57,15 @@ A stable value hints towards a low impact of the population on the fit.
 \end{figure}
 
 
-We choose the representative groups \emph{background}, \emph{\glspl{se}}, and \emph{tail} based on areas.
+We choose the reference regimes \emph{background}, \emph{\glspl{se}}, and \emph{tail} based on areas.
 The representative regions are indicated in fig.~\ref{fig:se-area-hist} by the different background colors spanning from \numrange{0}{7} (background, green), \numrange{15}{30} (\gls{se}, red) and \numrange{40}{100}$ \,\mathit{PE} $ (tail, orange).
-Furthermore, we compare other fields of the representatives to each other to find one where the backgrounds is well separable from the other two.
-The peak length, risetime, and number of hits make for possible cuts.
+Furthermore, we compare other dimensions of the reference regimes to each other to find one where the backgrounds is well separable from the other two.
+We peak length, risetime, and number of hits to show different behavior in the different reference regimes and thus make for possible cuts.
 The respective histograms and cuts are shown in fig.~\ref{fig:len-cut-se},~\ref{fig:hit-cut-se} and \ref{fig:riset-cut-se}.
-We fit all the resulting populations in an area histogram with % the model $ f_\mathrm{SE}\left( \ar \right) $
-
-% se len cut
-\begin{figure}
-    \centering
-    \includegraphics[width=\figw\textwidth]{Figures/se_cut_length.png}  % {Figures/th.jpeg}
-    \caption[Length Histogramm and Cut for SEs]{
-        Length Histogramm and Cut for SEs
-    }
-    \label{fig:len-cut-se}
-\end{figure}
 
 
-% se n-hits cut
-\begin{figure}
-    \centering
-    \includegraphics[width=\figw\textwidth]{Figures/se_cut_n_hits.png}  % {Figures/th.jpeg}
-    \caption[N-Hits Histogramm and Cut for SEs]{
-        N-Hits Histogramm and Cut for SEs
-    }
-    \label{fig:hit-cut-se}
-\end{figure}
+%  TODO add table as proposed in Fabians corrections
 
 
-% se risetime cut
-\begin{figure}
-    \centering
-    \includegraphics[width=\figw\textwidth]{Figures/se_cut_risetime.png}  % {Figures/th.jpeg}
-    \caption[Risetime Histogramm and Cut for SEs]{
-        Risetime Histogramm and Cut for SEs
-    }
-    \label{fig:riset-cut-se}
-\end{figure}
-
-
-% f_\mathrm{SE}\left( \ar \right) =
-\begin{align}
-    &\sum_{n} G \left(  \ar; n \cdot g_\mathrm{SE}, \sqrt{n} \cdot \sigma_\mathrm{SE}, A_n \right) +
-    G_\mathrm{bg} \left( \ar;  \mu_\mathrm{bg}, \sigma_\mathrm{bg}, A_\mathrm{bg} \right), \\
-    &\mathrm{where~} G \left( x;  \mu, \sigma, A \right) = A \cdot \exp{ \left\{ \frac{-\left( x - \mu \right)^2}{2\cdot\sigma^2} \right\} }
-    \label{eq:se-fit-model}
-\end{align}
-
-
-is a Gaussian function, for n from \numrange{1}{4}.
-The parameter estimates of $ g_\mathrm{SE} $ by the fits in fig.~\ref{fig:se-area-fits} are hardly influenced by the different background cuts.
-As the parameter is stable, we intend to reduce the background as much as possible for other analyses.
-Our background cut hence is XXX.  % TODO cut value einfügen
-We use the different results to estimate the systematic uncertainties.
-The resulting fit parameter value is $ g_\mathrm{SE} = X \pm X_\mathrm{stat} \pm X_\mathrm{sys} $.  % TODO add value of g_{se}
-
-% area hist fit for g_se
-\begin{figure}
-    \centering
-    \includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/se-area-fits.png}
-    \caption[Area Histogram Fit of SEs]{
-        Area Histogram Fit of SEs
-    }
-    \label{fig:se-area-fits}
-\end{figure}
-
-With the same approach, we also investigate runs at different $ E_\mathrm{amp} $.
-We compare the behavior to the one of \oneton~in fig.~\ref{fig:seg-vs-field}.
-Although the curves are parallel, we note a systematically worse light response of \gls{xebra}.
-This can be explained by the different \gls{pmt} models of the top \gls{pmt} array, where the ones in \oneton have the higher \glspl{qe} and \glspl{ce}.
-Also, large efforts have been invested in \oneton, that are not feasible for \gls{xebra}, to achieve high light yields\footnote{am besten irgendwie anders verpacken?}.
-We can overcome these differences by comparing the signal seen in the bottom \glspl{pmt}, since we use the same \gls{pmt} model there as in \oneton~and effectively go against light loss due to the shorter \gls{tpc}.
-With $ g_\mathrm{SE, bot} = XX $ at $ E_\mathrm{amp} = \left( XX \pm XX \right) \SI{}{\kilo\volt\per\centi\meter} $, we are in a comparable regime to \oneton~within XXXX.  % TODO fill in blanks
-
-
-% g_se vs amp field
-\begin{figure}
-    \centering
-    \includegraphics[width=\figw\textwidth]{Figures/se_gain_vs_field.png}  % {Figures/th.jpeg}
-    \caption[\oneton~comparison of Amplification Gain vs. Fieldstrength]{
-        $ g_\mathrm{SE} $ vs. $ E_\mathrm{amp} $
-    }
-    \label{fig:seg-vs-field}
-\end{figure}
-
-
-Another issue we are facing lies in an earlier processing step of peaks.
-In the waveform example in fig.~\ref{fig:waveforms-se}, we, on the one hand, note a frequent occurrence of samples with negative values and on the other hand a waveform that has seemingly arbitrarily split into two peaks.
-While the first issue is responsible for an underestimate of nearly all peaks, the second can split up one \gls{se} with the full area into two which then share the total area of one physical \gls{se}.
-Both effects reduce the value of $ g_\mathrm{SE} $ and the parameter is consequently underestimated.
-
-
-% SE waveform problems
-\begin{figure}
-    \centering
-    \includegraphics[width=\figw\textwidth]{Figures/th.jpeg}  % {Figures/se_waveforms.png}
-    \caption[Single Electrons Waveforms]{
-        Single Electron Waveforms
-    }
-    \label{fig:waveforms-se}
-\end{figure}
 
 

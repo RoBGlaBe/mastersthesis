@@ -1,15 +1,16 @@
 
 \FloatBarrier
-\subsection{\isotope[83][36]{Kr} Singal Production}
+\subsection{\isotope[83][36]{Kr} Signal Production}
 \label{ssec:source}
 \FloatBarrier
 
 
-Rubidium \isotope[83][37]{Rb} decays via two metastable excited states to the stable \isotope[83][36]{Kr} Krypton isotope.
-It first transitions via electron capture to \isotope[83m2]{Kr}.
+The Rubidium isotope \isotope[83][37]{Rb} decays via two metastable excited states to the stable \isotope[83][36]{Kr} Krypton isotope.
+It first transitions via electron capture $ \tau = \SI{86.2}{\day} $ to \isotope[83m]{Kr}.
 This state has a half-life of \SI{1.83}{\hour} and decays via an energy emission of \SI{32.1}{\kilo\electronvolt}, see fig.~\ref{fig:scheme_kr}.
-Under the emission of an electron from internal conversion and subsequent emission of auger electrons and small amounts of X-rays its core is left as another excited state: \isotope[83m1]{Kr}.
-The de-excitation to the stable \isotope[83]{Kr} is mostly via internal conversion and in small amounts via gamma-rays.
+% Under the emission of an electron from internal conversion and subsequent emission of auger electrons and small amounts of X-rays its core is left as another excited state: \isotope[83m1]{Kr}.
+It further decays to another excited state of \isotope[83]{Kr}.
+The de-excitation to the \isotope[83]{Kr} ground state is mostly via internal conversion and with a small probability via gamma-rays.
 The half-life of the latter is \SI{154}{\nano\s} and the decay energy is \SI{9.4}{\kilo\electronvolt}.
 
 
@@ -25,15 +26,17 @@ The half-life of the latter is \SI{154}{\nano\s} and the decay energy is \SI{9.4
 
 % want kr inside tpc
 The solid Rubidium source is placed in a reservoir inside the gas system.
-The flow can be directed through the reservoir or past it without contact.
+The Xenon flow can be directed through the reservoir or past it without contact.
 When the flow follows the line that goes through the reservoir the gaseous \isotope[83m2]{Kr}, stemming from the Rubidium decay, is flushed along with the Xenon into the \gls{tpc}.
-There, it disperses and is spread homogeneously within approximately a minute.
-Once it decays, the second decay takes place virtually immediately, both resulting in \gls{lxe} scintillation, respectively, see sec.~\ref{sec:Xebra}.
+There, it disperses and distributes homogeneously within approximately a minute.
+Once it decays, the second decay follows promptly, both resulting in \gls{lxe} scintillation, respectively, see sec.~\ref{sec:Xebra}.
 Fig.~\ref{fig:waveform_kr} shows a sample waveform of this process.
-The different channels of both decays - even though the energy is the same - result in slightly different light- and electron-responses in the scintillation process.\footnote{TODO: scint response too slangy?}
-This is shown in fig.~\ref{fig:scint_response_nest}.
-We are not able to resolve these subtle differences, as other statistical effects in the detection process are limiting the resolution.
-It will, however, contribute to the broadening of the energy resolution.\footnote{TODO: nicht richtig belegbar...}
+With different drift field strengths the ratio of the scintillation quanta changes while the total number stays the same.
+The stronger field separates the electrons from the respective ions more efficiently and thus supresses recombination.
+Therefore, the light yield decreases with drift field strength while the charge yield increases.
+Also the different decay branches of both Krypton decays - even though the energy is the same - result in slightly different light- and electron-responses in the scintillation process.
+We are, however, not able to resolve the small differences in light- and charge yield cause by the different decay branches with our setup.
+It will, however, contribute to the broadening of the energy resolution as predicted by the \gls{nest}~\cite{Szydagis13} model.
 As the final decay product is \isotope[83]{Kr}, a stable Noble gas, it does neither react with other material nor contribute background radiation and can thus be left in the Xenon.
 A very conservatively estimated \SI{50000}{} atoms per filling and the Avogadro constant $ \mathrm{N}_\mathrm{A} \approx 6.02\cdot10^{23}\,\mathrm{mol}^{-1} $ yields a sub femtomol level after 1000 fillings.
 At this level, the macroscopic properties of Xenon are not altered by the remaining Krypton.
@@ -50,15 +53,15 @@ At this level, the macroscopic properties of Xenon are not altered by the remain
 \end{figure}
 
 
-% Nest scint response
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\textwidth]{Figures/nest_scint_response.png}  % {Figures/th.jpeg}
-    \caption[Nest scint response]{
-        Nest scint response\cite{Szydagis13}.
-    } % TODO write subbing
-    \label{fig:scint_response_nest}
-\end{figure}
+% % Nest scint response
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.95\textwidth]{Figures/nest_scint_response.png}  % {Figures/th.jpeg}
+%     \caption[Nest scint response]{
+%         Nest scint response.\cite{Szydagis13}
+%     } % TODO write subbing
+%     \label{fig:scint_response_nest}
+% \end{figure}
 
 
 With the \SI{50000}{} initial radioactive nuclei of Krypton, after 7 half-lives less than 400 nuclei that have not decayed are left.
@@ -67,7 +70,7 @@ After a day we can thus easily take data without a noticeable amount of Krypton 
 
 % TODO the following has been written before the text above. it might need to be worked on again in order to not repeat to much.
 % also the desired rate is calculated differently. needs to be changed.
-\paragraph{A Krypton run} is a run for which we fill the \gls{tpc} with the metastable Krypton Isotope \isotope[83m2][36]{Kr} via the Rubidium source in the gas system as described above.
+\paragraph{A Krypton run} is a \gls{daq} time for which we fill the \gls{tpc} with the metastable Krypton Isotope \isotope[83m2][36]{Kr} via the Rubidium source in the gas system as described above.
 We aim to record a maximum number of these Krypton decays in the \SI{3}{\min} recordings.
 The signals of two or more interactions at the same time - meaning an interaction happened before or just at the same time as the previous \st~ is registered - cannot unambiguously be assigned to its correct physical counterpart.
 Therefore, we can approximate an optimal rate of interactions and accordingly activity of our Krypton source $ A_\mathrm{Kr} $ inside the \gls{tpc}.
