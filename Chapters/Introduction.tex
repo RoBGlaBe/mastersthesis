@@ -1,35 +1,22 @@
 \chapter{Introduction}
 \label{chap:Intro}
 
-Intro Chap.-Intro
-
-\FloatBarrier
-\section{Dark Matter}
-\label{sec:DarkMatter}
-\FloatBarrier
-
-Dark Matter:(see also other thesises) \\
-* Evidence for DM \\
-* direct detection
-
-
-\newpage
-\FloatBarrier
-\section{Darwin}
-\label{sec:Darwin}
-\FloatBarrier
-
-* Xenon evolution from 100 to nT to Darwin \\
-* Why Darwin \\
-* Why ultimate
-
-%%% R&D
-* What changes wrt XENONnT have to be made \\
-* Challenges \\
-* How do we look into that \\
-* Lead up to xebra \\
-* Need understanding: dual-phase \\
-* Then we can compare single-phase and hermetic to that
+~\\[-1cm]
+Dark Matter makes up \SI{25}{\%} of the energy content of the entire Universe~\cite{?}.
+There is plenty of astronomical evidence for Dark Matter from the rotational curves of galaxies~\cite{?}, over the collision of the bullet cluster~\cite{?} to the \gls{cmb}~\cite{?}.
+As what kind of particle(s) Dark Matter is realized is not know to this day, as all the evidence is based on observation of gravitational effects.
+One promising candidate is the \gls{wimp}~\cite{?}.
+We can search for \glspl{wimp} and other Dark Matter candidates via three different detection principles: production, indirect detection, and direct detection.
+Production is the creation of a Dark Matter particle via inelastic scattering of Standard Model particles and is typically conducted in collider Experiments such as ATLAS and CMS at the LHC~\cite{?}.
+Indirect detection requires observing the annihilation of two Dark Matter particles into Standard Model particles, whereas direct detection looks at the scattering of a Dark Matter particle off of a Standard Model particle.
+For the latter the \gls{tpc} with noble liquid gas target material has become the most popular and promising detector type.
+The reason is their high sensitivity and potential to operate with low background.
+While the most stringent limit so far are set by the findings of the first generation of large scale \gls{lxe} \gls{tpc} experiments \oneton, LUX, and PandaX-II, the second generation experiments \nton, LZ, and PandaX-4T are in commissioning.
+More efforts are invested to back up the findings of the first generation or to set more stringent limits even after the second generation with the planned next-generation experiment DARWIN~\cite{letter of intent..}.
+To increase the likeliness of interaction of Dark Matter with the detector, the target mass is increased gradually with the experiment generations.
+Also, novelties to detector parts and processes are investigated to further increase the performance of next-generation noble liquid gas \glspl{tpc}.
+Some of these promising new techniques are studied with the \gls{xebra} that can accommodate one small scale \gls{tpc} with $ \approx \SI{0.8}{\kilogram} $ \gls{lxe} target.
+Sophisticated data analysis is the key to understanding the performance of detectors based on established and novel technologies alike.
 
 
 \newpage
@@ -44,7 +31,7 @@ TODO intro sentence  % TODO intro sentence
 \label{sec:Xebra}
 \FloatBarrier
 
-\paragraph{The \gls{xebra}} is the Freiburg based \darwin~R\&D platform for small scale \glspl{tpc}.  % TODO check whether this is the first use of gls{xebra}. if not drop the "The" in the beginning
+\gls{xebra} is the Freiburg based \darwin~R\&D platform for small scale \glspl{tpc}.  % TODO check whether this is the first use of gls{xebra}. if not drop the "The" in the beginning
 With \gls{xebra}, technical innovations are tested.
 One being the hermetic \gls{tpc} where the \gls{lxe} at the outside of the sensitive volume of the \gls{tpc} is isolated from the sensitive part to reduce background interactions that originate inside the \gls{tpc}.
 Another one is the single-phase \gls{tpc} where the \gls{gxe} for the secondary scintillation is replaced with \gls{lxe}.
@@ -206,13 +193,6 @@ The heater is set to stabilize the temperature based on the temperature at the c
 \label{sec:Strax}
 \FloatBarrier
 
-* DAQ \\
-* Straxbra / Strax \\
-* Tuning of parameters \\
-* Hermetic Context \\
-* Tiny analysis?
-
-
 
 The \gls{strax}~\cite{strax} encloses the essential software tools to process data stored on disk by the \gls{daq}.  % TODO check if citation looks good
 It is complemented by an experiment specific software package that defines the case specific usage of the tools provided by strax.
@@ -372,7 +352,7 @@ We compute $ z $ via $ z = - t_\mathrm{drift} v_\mathrm{drift} $, fixing $ t_\ma
 Larger drift-times translate to positions deeper in the \gls{tpc} which correspond to negative $ z $.
 
 
-Strax: ordering of S1 and S2 peaks in an event. Wieso hab ich das reingeschrieben? Vllt steht irgendwo etwas, was hier erklärt werden soll. Ist das schon durch obige erklärungen gecovert?
+% Strax: ordering of S1 and S2 peaks in an event. Wieso hab ich das reingeschrieben? Vllt steht irgendwo etwas, was hier erklärt werden soll. Ist das schon durch obige erklärungen gecovert?
 
 \paragraph{A \emph{context},} used to load data, holds all the specific information about what data and how the data is loaded.  The specifications include strax-options - when any other than the default value is used - other, constant parameters, the storage location, information about the database, and which plug-ins are loadable.  Thereby, for different \glspl{tpc} and different analyses, we can create dedicated contexts, which is more secure than changing all the options by hand every time for several reasons.  Naturally, the strax-options can and are supposed to change even within a context, since optimizing these parameters is an iterative process (parameter tuning).  Additional to the dual phase context, we thus created a context for the hermetic \gls{tpc} as well as one for the single-phase \gls{tpc}.
 

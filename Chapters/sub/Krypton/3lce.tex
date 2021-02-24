@@ -8,7 +8,7 @@
 
 % LCE definition
 \paragraph{The \gls{lce} is defined as} the probability that a scintillation photon arrives at the photo-cathode of a \gls{pmt}.
-This quantity is a function of the photons' initial position x,y, and z inside the \gls{tpc}.
+This quantity is a function of the photons' initial position x,y, and z inside the \gls{tpc} with a second order dependence being the purity.
 For a large number of initial photons, this corresponds to the fraction of all photons arriving at a photocathode over the total number of photons.
 The \gls{lce} cannot be measured directly, because of intrinsic \gls{pmt} efficiencies - the \gls{qe} and \gls{ce}.
 Therefore, when working with measured data, it is more convenient to work with a quantity including \gls{qe} and \gls{ce}.
@@ -16,58 +16,43 @@ To avoid ambiguities we define the \gls{de} as
 
 
 \begin{equation}
-    \mathit{DE}\left(\mathrm{x}, \mathrm{y}, \mathrm{y}\right) =  \mathit{LCE}\left(\mathrm{x}, \mathrm{y}, \mathrm{y}\right) \cdot \mathit{QE} \cdot \mathit{CE}
+    \mathit{DE}\left(\mathrm{x}, \mathrm{y}, \mathrm{z}\right) =  \mathit{LCE}\left(\mathrm{x}, \mathrm{y}, \mathrm{z}\right) \cdot \mathit{QE} \cdot \mathit{CE}
 \end{equation}
 
 where \gls{qe} and \gls{ce} vary for different \gls{pmt} models.
-They can also vary rather significantly among \glspl{pmt} of the same model.
+They can also vary rather significantly among \glspl{pmt} of the same model due to the fabrication process.
 
 % contributors (not resolvable which contr. contributes how much to lce)
-\paragraph{Different effects} contribute to the collective quantity \gls{lce}.
+Different effects contribute to the collective quantity \gls{lce}.
 The results of these effects on the \gls{lce} are not disjunct.
 This means we cannot infer the contributions of a single effect from the measured \gls{lce} or rather \gls{de}.
 
 \emph{Light attenuation} is the loss of photons per unit length traveled in material following an exponential decay.
-In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $ and $ \mathrm{H}_2\mathrm{O} $.
-An attenuation length of $ \lambda_\mathrm{LXe} > \SI{100}{\centi\m} $ has been measured in similar setups\cite{Baldini05}.
-The scattering length is not experimentally determined but expected to be on the order of meters and therefore light attenuation in the liquid becomes negligible compared to losses on surfaces.
+In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $, $ \mathrm{H}_2\mathrm{O} $ and others.
+An attenuation length of $ \lambda_\mathrm{LXe} > \SI{100}{\centi\m} $ has been measured in similar setups~\cite{Baldini05}.
+The scattering length in \gls{xebra} is not experimentally determined but expected to be on the order of meters and therefore light attenuation in the liquid becomes negligible compared to losses on surfaces.
 
-\emph{The reflectivity of \gls{ptfe}} surfaces, here mainly the \gls{ptfe} reflectors, is with around \SI{95}{\%} high for \gls{vuv} light.
-The exact value depends on the quality of the surface treatment.
-With special treatment as done for \oneton, a reflectivity of \SI{99}{\%} can be achieved\cite{?}. % TODO cite resp. paper
+\emph{The reflectivity of \gls{ptfe}} surfaces is with around \SI{95}{\%} high for \gls{vuv} light.
+The exact value depends on the quality of the surface treatment and no precise value for the dual-phase \gls{tpc} is known.
+With special treatment, as done for \oneton, a reflectivity of \SI{99}{\%} can be achieved\cite{?}. % TODO cite resp. paper
 Light is typically not only reflected once, but several times increasing the impact of the parameter.
 
 
 \emph{The mesh's optical opacity} ($ O $) indicates which fraction of the light is lost on the transit through one of the electrode grids.
-This value is well approximated by the geometrical coverage of the plane by the grid and thus makes up $ O = \SI{5}{\%} $.
+This value is well approximated by the geometrical coverage of the plane by the grid and thus makes up $ O \approx \SI{5}{\%} $.
 
 
 \emph{The optical reflectivity at the \gls{lxe} surface} depends on refractive indices of gaseous and liquid Xenon and the incident angle of the light.
-Reflected light, on the one hand, travels further until it hits the \gls{pmt} cathode when the light comes from the drift field region and eventually arrives at the bottom \gls{pmt}.
-On the other hand, it travels less far when originating in the gaseous xenon and is reflected back to the top array.
-Greater travel distances have the trend to have more light absorbed from attenuation and mesh opacity.
-With $ n_1 $ and $ n_2 $ the refraction indices and $ \alpha $ and $ \beta $ the angle of incident and reflection as shown in fig.~% \ref{fig:phase_transion_sketch}.  % TODO sketch einfügen
-the reflectivity is given by~\cite{?}\footnote{hab mir hier aufgeschrieben, den demtröder zu citen, bin aber nicht mal überzeugt, dass die gleichungen überhaupt rein sollen..}  % TODO cite demtröder 2
-\begin{alignat}{2}
-    \label{eq:reflectivityA}
-    R_\perp &= \left( \frac{ n_1 \cos{\alpha} - n_2 \cos{\beta} }{ n_1 \cos{\alpha} + n_2 \cos{\beta} } \right)^2 &
-            &=  \left( \frac{ \sin{\left( \alpha-\beta \right)}}{ \sin{\left( \alpha+\beta \right)} } \right)^2 \\
-    R_\parallel &= \left( \frac{ n_2 \cos{\alpha} - n_1 \cos{\beta} }{ n_2 \cos{\alpha} + n_1 \cos{\beta} } \right)^2 &
-                &=  \left( \frac{ \tan{\left( \alpha-\beta \right)}}{ \tan{\left( \alpha+\beta \right)} } \right)^2,
-    \label{eq:reflectivityB}
-\end{alignat}
-where $ \beta $ is given via Snellius as $ \beta = \arcsin{\nicefrac{n_1}{n_2} \sin{\alpha} } $.
-And the refraction indices $ n_1 $, $ n_2 $ are $ n_\mathrm{LXe} = XX \approx 2 $ and $ n_\mathrm{GXe} = XX \approx 1 $, depending on the light's direction through the surface.
+Reflected light travels further and thus has the tendency to be absorbed more likely due to, e.g., attenuation and mesh opacity.
 
-\emph{The reflectivity of \gls{pmt} quartz window} reduces the light collected. With the refraction index of $ n_\mathrm{quartz} = 1.56 $ the amount of light lost is larger in the gas phase than in the liquid phase. The reflectivity is calculated with eq.~(\ref{eq:reflectivityA}, \ref{eq:reflectivityB}) depending on the incident angle and the materials refraction indices.
-\emph{The quartz window of the \glspl{pmt}} introduce another obstacle for photons.
-It has a refraction index of $ n_\mathrm{qw} = 1.56 $ and thus reflects incoming photons.
-As $ n_\mathrm{\gls{lxe}} \approx 2 $ and $ n_\mathrm{\gls{gxe}} \approx 1 $ , more photons are reflected at the quartz-windows of the top \glspl{pmt}, as they are surrounded by \gls{gxe}.
+\emph{The reflectivity of \gls{pmt} quartz window} reduces the light collected.
+With the refraction index of $ n_\mathrm{quartz} = 1.56 $ the amount of light lost is larger in the gas phase than in the liquid phase.
+As $ n_\mathrm{\gls{lxe}} \approx n_\mathrm{quartz} $ and $ n_\mathrm{\gls{gxe}} \approx 1 $, more photons are reflected at the quartz-windows of the top \glspl{pmt}, as they are surrounded by \gls{gxe}.
 
 
 % z-dependence
 \paragraph{The \emph{z} dependence} of the \gls{lce} is dominating the overall behavior.
-With the meshes and liquid surfaces laying in the $ x-y $ plane, the respective effects have the most impact on the perpendicular $ z $-direction.
+With the meshes and liquid surfaces laying in the $ x\mbox{-}y $ plane, the respective effects have the most impact on the perpendicular $ z $-direction.
 Additionally, the \gls{pmt} types, \gls{qe} and \gls{ce}, the surrounding media, and \gls{pmt} area coverage on the top side differ from the bottom side.
 This increases disparity and contributes to the $ z $ trend shown in fig.~\ref{fig:ce_vs_z} which shows a linear behavior.
 
@@ -96,11 +81,11 @@ This increases disparity and contributes to the $ z $ trend shown in fig.~\ref{f
 \end{figure}
 
 % correction of S1-LCE
-\paragraph{The correction of the \gls{lce}} here means correcting for the position-dependent light losses based on Krypton calibration data as a first step.
+The correction of the \gls{lce} here means correcting for the position-dependent light losses based on Krypton calibration data as a first step.
 Since some light is always lost, the maximal light measured does not equal the initial number of photons.
 We thus correct on a relative scale.
 The second step is converting to an absolute scale.
-This step is later done using simulation data from the \gls{nest} software~\cite{?}.  % TODO cite
+% This step is later done using simulation data from the \gls{nest} software~\cite{?}.  % TODO cite
 
 In the first step, we only correct based on the $ z $-position.
 The data for $ r $ shows ambiguities, which is thus not corrected.

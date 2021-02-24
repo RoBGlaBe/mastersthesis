@@ -1,15 +1,15 @@
 
 \FloatBarrier
-\subsection{Data Selection}
+\subsection{Event Selection}
 \label{ssec:tagging}
 \FloatBarrier
 
 
 
-We can calibrate the \gls{xebra} \gls{tpc} using a homogeneously distributed monoenergetic signal, as we have in the Krypton runs we recorded.
-The data has to be cleaned from these runs from any signal that does not originate in the decay of the metastable Krypton we filled in.
-Apart from Krypton decays, we find data from other background sources, dark counts, noise, and others that we will discuss, in Krypton runs.
-The goal is to reduce any non-signal contributions to a minimum while keeping as much signal as possible and without biasing the data by tagging a non-representative subset of the signal.
+We can perform an energy calibration on the \gls{xebra} dual-phase \gls{tpc} using a homogeneously distributed, monoenergetic signal, as we have in Krypton runs.
+The data of such a run has to be downselected by removing any signal that does not originate in the decay of the metastable Krypton we filled in.
+Apart from Krypton decays, we find data from other background sources, dark counts, noise, and others that we will discuss.
+The goal is to reduce any non-Krypton-signal contributions to a minimum while keeping as much signal as possible and without biasing the data by tagging a non-representative subset of the signal.
 Although we will show that we can only tag a subset of our signal with a decay time of \SI{300}{\nano\s} and greater, this subset is representative in any other concern.
 We will show that we can achieve a rejection of \dots and acceptance of \dots.  % TODO fill in rejection and acceptance
 To illustrate the selection of data of this kind we choose run 250 as an example.
@@ -23,18 +23,18 @@ Following this convention, we will name the \gls{s1b}, the \gls{s2a}, and the \g
 We start our event selection by using the striking feature of the two consecutive decays in one event.
 
 
-\paragraph{The two decays cut} firstly demands two S1 peaks in the event.
+\paragraph{The two decays cut} firstly demands at least two S1 peaks in the event.
 We cannot demand the same for S2 peaks, since \gls{s2a} and \gls{s2b} overlap in the vast majority of events, because of the greater intrinsic width of S2 signals and the short \gls{tpc} depth.
-We thus see the two S2 signals as one combined S2 peak and cannot extract information about just one of them.
-This is why we can secondly only demand one S2 instead of two.
+We thus regularly see the two S2 signals as one combined S2 peak and can only occasionally extract information about just one of them.
+This is why we can secondly only demand a a minimum of one S2 instead of two.
 A potential cut, therefore, is $n_\mathrm{peaks} \ge 3$ (sec.~\ref{sec:Strax}).
 There are, however, two drawbacks compared to the cut we use instead.
 First, we are not guaranteed two S1s and one S2, but just three peaks in total.
 Theoretically, three S2 signals would satisfy the condition.
-And second, a peak integrates to a negative or zero area can still count as a peak that contributes to $ n_\mathrm{peaks} $.
+And second, a peak integrating to a negative or zero area can still count as a peak that contributes to $ n_\mathrm{peaks} $.
 If on the other hand, no \gls{s1b} is present in an event its area will be set to zero.
 Both drawbacks can be avoided by exploiting that non-present peaks have zero area.
-The cut condition we use demands the areas of all, \gls{s1a}, \gls{s1b}, and \gls{s2a} to be positive.
+The cut condition we use demands the areas of all, \gls{s1a}, \gls{s1b}, and \gls{s2a} to be strictly positive.
 
 This cut rejects \SI{58.1}{\%} of \emph{all} events. % while the acceptance should be \SI{100}{\%} at first glance.
 % However, as we will show, due to the current peak finder in strax, \gls{s1a} and \gls{s1b} are separable if they are at least \SI{300}{\nano\s} apart.
@@ -49,12 +49,12 @@ We base this cut on the time difference of \gls{s1a} and \gls{s1b}.
 Since the index order is based on the area of the respective peak, we have to make sure the larger peak is detected first.
 For this, we define the time difference between them as $t_\mathrm{diff} = t_{\mathrm{S}1_\mathrm{b}} - t_{\mathrm{S}1_\mathrm{a}}$.
 We demand that $t_\mathrm{diff}$ is positive.
-It is worth noting that $t_\mathrm{diff}$ is the decay time $\tau_\mathrm{b}$ of \isotope[83m1]{Kr}. % ('later' ok? sounds like temp ordering)
+It is worth noting that $t_\mathrm{diff}$ follows the decay time statistics $\tau_\mathrm{b}$ of \isotope[83m1]{Kr}. % ('later' ok? sounds like temp ordering)
 
 We purposely do not demand a proportion of $ \nicefrac{32}{9} $ between the areas of the two S1s - the proportion of their decay energies.
 This condition requires stronger assumptions.
 Therefore, we do not enforce this condition here but remove such misreconstruction later by other means.
-The energy ration hypothesis remains to be tested.
+The energy ratio hypothesis remains to be tested.
 
 % Z-Cut
 \begin{figure}[H]
@@ -73,17 +73,17 @@ The energy ration hypothesis remains to be tested.
     \label{fig:fid-z-cut}
 \end{figure}
 
-\paragraph{The fiducial volume cut} rejects all events whose positions have been reconstructed into a specific volume in the center of the drift volume.
-\emph{Fiducialization} is the self-shielding property of liquid Xenon.
-In large-scale \glspl{tpc} like \nton, this cut is supposed to cut background $\alpha$ and $\beta$ decays from radioactive contamination of the electrodes or the PTFE reflectors, further referred to as \emph{wall-events}.
-In experiments with science goals, these volumes are selected very carefully to minimize the background while achieving maximum exposure to reach higher statistics or alternatively stronger exclusion limits~\cite{?}.  % TODO cite
+\paragraph{The fiducial volume cut} rejects all events whose positions have been reconstructed outside a specific volume in the center of the drift volume.
+% \emph{Fiducialization} is the self-shielding property of liquid Xenon.
+In large-scale \glspl{tpc} like \nton, this cut is supposed to cut background $\alpha$ and $\beta$ decays from radioactive contamination of the electrodes or the PTFE reflectors, further referred to as \emph{wall-events}, as well as suppress low energetic $ \gamma $-events.
+In experiments for rare events searches, these volumes are selected very carefully to minimize the background while achieving maximum exposure to reach higher statistics or alternatively stronger exclusion limits~\cite{?}.  % TODO cite
 These fiducial volumes are typically described by higher-order polynomials based on Monte-Carlo simulations~\cite{?}. %TODO cite paper that shows fid vol cut with polynomials (xenon1t?)
-This kind of effort cannot be justified for the goals of this analysis.
-Therefore, the description is not optimized for high exposure, but only for background exclusion.
-At the same time, this justifies easier modeling of the fiducial volume.
+In small \glspl{tpc} like the ones used in \gls{xebra} there is no benefit from this precise exclusion.
+Our fiducial volume cut has also not to be optimized for high exposure, but rather for background exclusion and the accuracy limits of the position reconstruction.
+This justifies a more simplistic modeling of the fiducial volume.
 We define a cylindrical volume by a maximal and minimal value for the height $z$ and a maximal radius $r_\mathrm{max} = \SI{23}{\milli\m}$.
-The $z$ cut of $ z_\mathrm{min} = \SI{-68}{mm} $ and $ z_\mathrm{max} = \SI{-8}{mm} $ is chosen based on data, as shown in fig.~\ref{fig:fid-z-cut} and has only the goal of just mentioned background exclusion. We have further restrictions for the radius.
-The position reconstructed by the neural net is only accurate within this radial limit of $r_\mathrm{max}$\cite{ABism}.
+The latter bound is mentioned by the reliability of position reconstruction~\cite{ABism} and the effect on the complete Krypton selection is shown in fig.~\ref{fig:r-hist-homogen}.
+The $z$ cut of $ z_\mathrm{min} = \SI{-68}{mm} $ and $ z_\mathrm{max} = \SI{-8}{mm} $ is chosen based on data, as shown in fig.~\ref{fig:fid-z-cut} and selects the region of linear drifttime-distance relation.
 
 
 % Area-Width after fid.
@@ -98,16 +98,15 @@ The position reconstructed by the neural net is only accurate within this radial
 
 
 \paragraph{The false smaller S1 pairing cut} removes events with apparent misclassification of the \gls{s1b} peaks.
-Besides the existence and time order, we did not define any restrictions based on the \gls{s1b} peak.
+Besides the existence and time order, we did not define any restrictions based on the \gls{s1b} peak so far.
 This allows the pairing of coincident S1s of any kind, as long as they have the correct time ordering.
 In fig.~\ref{fig:other_s1_area_width} we see the second-largest S1 area-width histogram of events that satisfy all previous selection criteria.
 Although, we expect a single population due to the mono-energetic decay of Krypton we see two separate populations in the plot.
-One population has both lower width and lower areas than the other.
-The width (sec.~\ref{sec:Strax}) of about \SI{10}{\nano\s} corresponds to waveforms that have most of their area in one sample which is not what we expect from real S1s.
-Also, the area of \numrange{3}{20}$\,\mathrm{PE}$ is less than what we expect from simulations.
-Both statements disqualify this population which we thus exclude with the following cuts based on figs.~\ref{fig:other_s1_area_cut},~\ref{fig:other_s1_width_cut}.
-With the slightly conservative cuts at $ \mathrm{area}_\mathrm{S1b} = 30\,\mathrm{PE}$ and $ \mathrm{width}_\mathrm{S1b} = \SI{24}{\nano\s} $ of the second-largest S1 we remove most mismatches.
-To further clean up the Krypton selection we investigate other fields.
+The population in the bottom left of fig.~\ref{fig:other_s1_area_width} has both lower width and lower areas than the other.
+The width (sec.~\ref{sec:Strax}) of about \SI{10}{\nano\s} corresponds to waveforms that have most of their area in one sample which is not what we expect from real S1s, as the scintillating decay has a longer lifetime as discussed in~\ref{sec:Strax}.
+Also, the area of \numrange{3}{20}$\,\mathrm{PE}$ is distinctively less than the expected S1 by a \SI{9}{\kilo\electronvolt} energy deposition from electrons or photons.
+Both statements disqualify this population which we thus exclude with the following cuts based on figs.~\ref{fig:other_s1_area_cut}~and~\ref{fig:other_s1_width_cut}.
+With the slightly conservative cuts at $ \mathrm{area}_\mathrm{S1b} = 30\,\mathrm{PE}$ and $ \mathrm{width}_\mathrm{S1b} = \SI{24}{\nano\s} $ of the second-largest S1 we remove mostly mismatches.
 
 
 % Area Hist Cut
@@ -158,11 +157,12 @@ The remaining events are further referred to as Krypton events.
 
 \paragraph{A homogeneous spatial-distribution} of Krypton inside the \gls{tpc} is expected.
 With the tagging of Krypton via the discussed cuts we can test this hypothesis against the data to test our selection.
+A non-removed population from external sources would here result in an non-uniform overshoot inside the \SI{23}{\milli\meter} radius region.
 In the histogram of events over equal volume spaced r-bins, fig.~\ref{fig:r-hist-homogen}, we observe counts inside the fiducial $ r $-cut of $r_\mathrm{max} = \SI{23}{\milli\m}$ that agrees with homogeneity.
-The bins with the smallest r-values show higher counts and would thus not confirm homogeneity.
-However, we know that the neural net - responsible for the position reconstruction - has a tendency of projecting the position inwards~\cite{ABism}.
+The bins with the smallest $ r $-values show higher counts and thus suggests a deviation from uniformity.
+However, we know that the neural net - utilized for the position reconstruction - has a tendency of projecting the position inwards~\cite{ABism}.
 It is thus expected that we observe an overshoot in the central region.
-The overshoot around $ r = \SI{30}{\milli\m} $ is most likely due to wall-events on average reconstructed towards the center as well as real krypton events.
+The overshoot around $ r = \SI{30}{\milli\m} $ is due to a know tendency from the neural net that projects the position towards that radius if the interaction originates somewhere outside $ r_\mathrm{max} $.
 
 % r-plot for homogeneity
 \begin{figure}
@@ -176,10 +176,9 @@ The overshoot around $ r = \SI{30}{\milli\m} $ is most likely due to wall-events
 
 Also, the projection onto the z-axis has to be checked to test homogeneity.
 The respective histogram for z is shown in fig.~\ref{fig:z-hist-homogen}.
-We see stronger fluctuations within the errors.
+We see stronger fluctuations within the statistical uncertainties.
 However, the data is still in accordance with homogeneously distributed events inside the fiducial volume.
-(Größe um die Aussage zu unterstützen?)
-We can conclude that from a homogeneity point of view, we can confirm an unbiased Krypton event selection.
+We can conclude that the data is in agreement with the assumption.
 
 % z-plot for homogeneity
 \begin{figure}
@@ -194,10 +193,10 @@ We can conclude that from a homogeneity point of view, we can confirm an unbiase
 
 
 \paragraph{The decay time} of \isotope[83m1]{Kr} is another way of testing our selection.
-The time difference $ t_\mathrm{diff} = t_{\mathrm{S}1_\mathrm{b}} - t_{\mathrm{S}1_\mathrm{a}} $ in a Krypton event measures its decay time.
-A histogram of $ t_\mathrm{diff} $ must hence follow a decaying exponential $ N \left( t \right) = N_0 \cdot \exp{\nicefrac{-t}{\tau_\mathrm{b}}} $, with $ \tau_\mathrm{b} = \SI{222.8}{\nano\s} $, the lifetime of \isotope[83m1]{Kr}.
-As we can see in fig.~\ref{fig:kr-decaytime} a fit of the $ t_\mathrm{diff} $-hist yields a decay time parameter of XX \SI{}{\nano\s}. % TODO write number and error
-This value is in accordance with the true decay time. % TODO in welcher accordance? präzieser wenn wert und fehler bekannt. cite paper? vllt eher bei der ersten Erwähnung
+The time difference $ t_\mathrm{diff} = t_{\mathrm{S}1_\mathrm{b}} - t_{\mathrm{S}1_\mathrm{a}} $ in a Krypton event follows its decay time.
+A histogram of $ t_\mathrm{diff} $ must hence follow a decaying exponential $ N \left( t \right) = N_0 \cdot \exp{\nicefrac{-t}{\tau_\mathrm{b}}} $, with $ \tau_\mathrm{b} = \SI{222.8}{\nano\s} $, the lifetime of \isotope[83m1]{Kr}, corresponding to an halflife of $ T_{\nicefrac{1}{2}} = 154.4\,\mathrm{ns} $.
+As we can see in fig.~\ref{fig:kr-decaytime} a fit of the histogram of $ t_\mathrm{diff} $ yields a decay time parameter of $ \tau_\mathrm{b} = (220 \pm 5)\,\mathrm{ns} $.
+This value is in a one accordance within one standard deviation with the literature value of the lifetime~\cite{?}.  % cite same paper as the scheme?
 However, there are no events with decay times lower than \SI{240}{\nano\s} and the behavior is only correctly modeled for $ t \ge \SI{330}{\nano\s} $.
 The peak finder of strax is responsible for that since it is not capable of splitting peaks that are closer than the \SI{240}{\nano\s}.
 From this value up to \SI{330}{\nano\s} only some peaks can be split.
