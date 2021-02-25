@@ -26,6 +26,8 @@ They can also vary rather significantly among \glspl{pmt} of the same model due 
 Different effects contribute to the collective quantity \gls{lce}.
 The results of these effects on the \gls{lce} are not disjunct.
 This means we cannot infer the contributions of a single effect from the measured \gls{lce} or rather \gls{de}.
+With dedicated measurements regarding, e.g., the purity, limits for some of the influences to the \gls{de} could be set.
+In the following we discuss some contributors.
 
 \emph{Light attenuation} is the loss of photons per unit length traveled in material following an exponential decay.
 In \gls{lxe}, the attenuation length $ \lambda_\mathrm{LXe} $ decreases with larger residual $ \mathrm{O}_2 $, $ \mathrm{H}_2\mathrm{O} $ and others.
@@ -88,7 +90,7 @@ The second step is converting to an absolute scale.
 % This step is later done using simulation data from the \gls{nest} software~\cite{?}.  % TODO cite
 
 In the first step, we only correct based on the $ z $-position.
-The data for $ r $ shows ambiguities, which is thus not corrected.
+The data for $ r $ shows ambiguities and is thus not corrected.
 In fig.~\ref{fig:s1area_vs_z}, we fit the S1 normalized to the mean $ \mathrm{S1_{a,rel}} = \mathrm{S1_a} \cdot \left( \overline{\mathrm{S1_a}} \right)^{-1} $ over $ z $.  % TODO Satz nochmal schreiben!!
 Since we are working on a relative scale and due to how we switch to the absolute, it's justified to correct for the mean.
 The S1 area (here S1), as well as the parameters from the linear fit, slope $ m_\mathrm{opt} $ and intercept $ c_\mathrm{opt} $, are used to calculate the \gls{cs1}:

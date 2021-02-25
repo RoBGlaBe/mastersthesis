@@ -11,7 +11,11 @@ We fit all the resulting populations in an area histogram with % the model $ f_\
     \centering
     \includegraphics[width=\figw\textwidth]{Figures/se_cut_length.png}  % {Figures/th.jpeg}
     \caption[Length Histogramm and Cut for SEs]{
-        Length Histogramm and Cut for SEs
+        Length Histogram of the previously defined reference regimes.
+        The different reference regimes populate different length zones.
+        This is used to introduce a cut to separate the background from the other two populations.
+        The tail regime corresponds to coinciding few-electron signals and is thus later used to constrain the fit of the \gls{se} population.
+        We therefore purposefully do not cut the tail but only define a minimal-length cut for the background indicated by the vertial blue line at \SI{350}{\nano\second}.
     }
     \label{fig:len-cut-se}
 \end{figure}
@@ -22,7 +26,11 @@ We fit all the resulting populations in an area histogram with % the model $ f_\
     \centering
     \includegraphics[width=\figw\textwidth]{Figures/se_cut_n_hits.png}  % {Figures/th.jpeg}
     \caption[N-Hits Histogramm and Cut for SEs]{
-        N-Hits Histogramm and Cut for SEs
+        N-Hits Histogram of the previously defined reference regimes.
+        The different reference regimes populate different length zones.
+        This is used to introduce a cut to separate the background from the other two populations.
+        The tail regime corresponds to coinciding few-electron signals and is thus later used to constrain the fit of the \gls{se} population.
+        We therefore purposefully do not cut the tail but only define a minimal-n-hits cut for the background indicated by the vertial blue line at $ 5\,\mathrm{hits} $.
     }
     \label{fig:hit-cut-se}
 \end{figure}
@@ -33,7 +41,11 @@ We fit all the resulting populations in an area histogram with % the model $ f_\
     \centering
     \includegraphics[width=\figw\textwidth]{Figures/se_cut_risetime.png}  % {Figures/th.jpeg}
     \caption[Risetime Histogramm and Cut for SEs]{
-        Risetime Histogramm and Cut for SEs
+        Risetime Histogram of the previously defined reference regimes.
+        The different reference regimes populate different length zones.
+        This is used to introduce a cut to separate the background from the other two populations.
+        The tail regime corresponds to coinciding few-electron signals and is thus later used to constrain the fit of the \gls{se} population.
+        We therefore purposefully do not cut the tail but only define a minimal-risetime cut for the background indicated by the vertial blue line at \SI{35}{\nano\second}.
     }
     \label{fig:riset-cut-se}
 \end{figure}
@@ -48,30 +60,34 @@ We fit all the resulting populations in an area histogram with % the model $ f_\
 \end{align}
 
 
-is a Gaussian function, for $ n $ being the number of simultaneously detected electrons (here \numrange{1}{4}).
+is a Gaussian function, with $ n $ being the number of simultaneously detected electrons (here \numrange{1}{4}).
 The parameter estimates of $ g_\mathrm{SE} $ by the fits in fig.~\ref{fig:se-area-fits} are hardly influenced by the different background cuts.
 As the parameter is stable, we intend to reduce the background as much as possible for other analyses.
-Our background cut hence is XXX.  % TODO cut value einfügen
-We use the different results to estimate the systematic uncertainties.
-The resulting fit parameter value is $ g_\mathrm{SE} = X \pm X_\mathrm{stat} \pm X_\mathrm{sys} $.  % TODO add value of g_{se}
+Our background cut hence is the n-hits cut, fig.~\ref{fig:hit-cut-se}.
+The resulting fit parameter value is $ g_\mathrm{SE} = (22.11 \pm 0.05)\,\mathrm{PE} $.
+The parameter is stable within $ 0.3\,\%_\mathrm{rel} $ in variation of the last background cut.
+
 
 % area hist fit for g_se
 \begin{figure}
     \centering
     \includegraphics[width=\figw\textwidth]{Figures/se-area-fits.png}  % {Figures/th.jpeg}  % TODO redo plot
     \caption[Area Histogram Fit of SEs]{
-        Area Histogram Fit of SEs
+        Area histogram of the final \gls{se} population.
+        The histogram includes the best fit of eq.~\ref{eq:se-fit-model} to the data between the two red lines indicating the fit window.
+        A solid, orange line shows the best fit.
+        The contributing Gaussian functions are shown separately as non-solid lines.
     }
     \label{fig:se-area-fits}
 \end{figure}
 
 With the same approach, we also investigate runs at different $ E_\mathrm{amp} $.
 We compare the behavior to the one of \oneton~in fig.~\ref{fig:seg-vs-field}.
-Although the curves are parallel, we note a systematically worse light response of \gls{xebra}.  % TODO rephrase. we dont have a curve for xebra... just points
+We note a systematically inferior light response of \gls{xebra}.  % TODO rephrase. we dont have a curve for xebra... just points
 This can be explained by the different \gls{pmt} models of the top \gls{pmt} array, where the ones in \oneton~have the higher \glspl{qe} and \glspl{ce}.
 The leveling of the liquid level can be conducted more precisely in a larger \gls{tpc} as well as better \gls{ptfe} reflectors are used in \oneton~ which increases the \gls{lce}.
-We can overcome these differences by comparing the signal seen in the bottom \glspl{pmt}, since we use the same \gls{pmt} model there as in \oneton.
-With $ g_\mathrm{SE, bot} = XX $ at $ E_\mathrm{amp} = \left( XX \pm XX \right) \SI{}{\kilo\volt\per\centi\meter} $, we are in a comparable regime to \oneton~within XXXX.  % TODO fill in blanks
+% We measure $ g_\mathrm{SE, bot} = \,\mathrm{PE} $ at $ E_\mathrm{amp} \approx \SI{10.7}{\kilo\volt\per\centi\meter} $.
+% We expect the signal seen in the bottom \gls{pmt} to be more comparable as we are using the better performing \gls{pmt} model and have a $ 100\,\% $ \gls{pmt} coverage at the bottom.
 
 
 % g_se vs amp field
@@ -80,6 +96,7 @@ With $ g_\mathrm{SE, bot} = XX $ at $ E_\mathrm{amp} = \left( XX \pm XX \right) 
     \includegraphics[width=\figw\textwidth]{Figures/se_gain_vs_field.png}  % {Figures/th.jpeg}
     \caption[\oneton~comparison of Amplification Gain vs. Fieldstrength]{
         $ g_\mathrm{SE} $ vs. $ E_\mathrm{amp} $
+        % mention cite!!
     }
     \label{fig:seg-vs-field}
 \end{figure}

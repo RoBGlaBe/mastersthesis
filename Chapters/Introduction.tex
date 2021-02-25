@@ -1,20 +1,21 @@
 \chapter{Introduction}
 \label{chap:Intro}
 
-~\\[-1cm]
+~\\[-1.5cm]
 Dark Matter makes up \SI{25}{\%} of the energy content of the entire Universe~\cite{?}.
 There is plenty of astronomical evidence for Dark Matter from the rotational curves of galaxies~\cite{?}, over the collision of the bullet cluster~\cite{?} to the \gls{cmb}~\cite{?}.
-As what kind of particle(s) Dark Matter is realized is not know to this day, as all the evidence is based on observation of gravitational effects.
+It is not known to this day as what kind of particle(s) Dark Matter is realized, as all the evidence is based on observation of gravitational effects.
 One promising candidate is the \gls{wimp}~\cite{?}.
 We can search for \glspl{wimp} and other Dark Matter candidates via three different detection principles: production, indirect detection, and direct detection.
 Production is the creation of a Dark Matter particle via inelastic scattering of Standard Model particles and is typically conducted in collider Experiments such as ATLAS and CMS at the LHC~\cite{?}.
-Indirect detection requires observing the annihilation of two Dark Matter particles into Standard Model particles, whereas direct detection looks at the scattering of a Dark Matter particle off of a Standard Model particle.
-For the latter the \gls{tpc} with noble liquid gas target material has become the most popular and promising detector type.
-The reason is their high sensitivity and potential to operate with low background.
-While the most stringent limit so far are set by the findings of the first generation of large scale \gls{lxe} \gls{tpc} experiments \oneton, LUX, and PandaX-II, the second generation experiments \nton, LZ, and PandaX-4T are in commissioning.
+Indirect detection requires observing the annihilation of two Dark Matter particles into Standard Model particles and is searched for with ground and orbit based telescopes.
+Direct detection requires the scattering of a Dark Matter particle off of a Standard Model particle.
+For this channel the \gls{tpc} with noble liquid gas target material has become the most popular and successful detector type.
+The reason is their high sensitivity to small energy depositions of a dew keV and the potential to instrument large target masses.
+While the most stringent limit so far are set by the findings of the first generation of ton scale \gls{lxe} \gls{tpc} experiments \oneton, LUX, and PandaX-II, the second generation experiments \nton, LZ, and PandaX-4T are in commissioning.
 More efforts are invested to back up the findings of the first generation or to set more stringent limits even after the second generation with the planned next-generation experiment DARWIN~\cite{letter of intent..}.
-To increase the likeliness of interaction of Dark Matter with the detector, the target mass is increased gradually with the experiment generations.
-Also, novelties to detector parts and processes are investigated to further increase the performance of next-generation noble liquid gas \glspl{tpc}.
+To increase the probability of interaction of Dark Matter with the detector, the target mass is increased gradually with the experiment generations.
+Also, novel detector parts and processes are investigated to further increase the performance of next-generation noble liquid gas \glspl{tpc}.
 Some of these promising new techniques are studied with the \gls{xebra} that can accommodate one small scale \gls{tpc} with $ \approx \SI{0.8}{\kilogram} $ \gls{lxe} target.
 Sophisticated data analysis is the key to understanding the performance of detectors based on established and novel technologies alike.
 
@@ -24,7 +25,9 @@ Sophisticated data analysis is the key to understanding the performance of detec
 \chapter{Signals in the XeBRA dual-phase TPC}
 \label{chap:signals}
 
-TODO intro sentence  % TODO intro sentence
+The principles of a \gls{tpc}, signal production, signal detection, as well as \gls{daq}, and further processing via \gls{strax} are discussed in this chapter.
+These are necessary for understanding the subsequent analysis about the calibration of the \gls{tpc}.
+
 
 \FloatBarrier
 \section{Xebra}
@@ -35,7 +38,7 @@ TODO intro sentence  % TODO intro sentence
 With \gls{xebra}, technical innovations are tested.
 One being the hermetic \gls{tpc} where the \gls{lxe} at the outside of the sensitive volume of the \gls{tpc} is isolated from the sensitive part to reduce background interactions that originate inside the \gls{tpc}.
 Another one is the single-phase \gls{tpc} where the \gls{gxe} for the secondary scintillation is replaced with \gls{lxe}.
-This changes the secondary scintillation mechanism for which we need stronger electric fields that, among others, are achieved by thinner grid wires.
+This changes the secondary scintillation mechanism for which we need stronger electric fields that, among others, are achieved by thinner electrode-grid wires.
 As a benchmark detector, our dual-phase \gls{tpc} relying on well understood detection and operation principles is employed first.
 In this work, we investigate this benchmark \gls{tpc} and characterize it qualitatively.
 
@@ -43,12 +46,12 @@ In this work, we investigate this benchmark \gls{tpc} and characterize it qualit
 A light and charge sensitive \gls{tpc} requires a target material which is transparent to its own scintillation light and allows charge transport.
 Typical scintillation materials are liquid Argon or \gls{lxe}.
 Here, we use the latter.
-Via scintillation photons, as well as electron-ion pairs are created.
+Via scintillation, photons as well as electron-ion pairs are created.
 While the photons yield the prompt S1 signal, the electrons drift towards the top of the \gls{tpc} due to the drift field applied.
 Towards the top of the \gls{tpc}, the electrons enter the region of a stronger field where also the liquid surface of the Xenon lies.
 The electrons are extracted through the surface into the gas phase where they produce photons that form the S2 signal.
 The timing information between S1 and S2 signal combined with the known drift velocity that depends on the drift field is further converted to vertical position $ z $ information giving the \emph{\glsentrydesc{tpc}} its name.
-An detailed description of the mentioned processes follows.
+A detailed description of the mentioned processes follows.
 
 % XE scintillation excimers
 \begin{figure}
@@ -111,11 +114,11 @@ A homogeneous field is required in the drift region and then a second, stronger,
 The cathode ($ \SI{-5.5}{\kilo\volt} $) is above the bottom \gls{pmt}.
 The gate ($ \SI{-2}{\kilo\volt} $), separating the two field regions, is installed \SI{74}{\milli\m} above the cathode.
 Therefore, the field strength in the drift region between the cathode and the gate is $ E_\mathrm{drift} = \SI{500}{\volt\per\centi\m} $.
-Another \SI{5}{\milli\m} higher, the anode (run dependent from $ \SIrange{1}{2.5}{\kilo\volt} $) is installed.
-The liquid level of Xenon is place right in the middle between gate and anode with a distance of \SI{2.5}{\milli\m} to each of them.
+Another \SI{5}{\milli\m} higher, the anode (run-dependent from $ \SIrange{1}{2.5}{\kilo\volt} $) is installed.
+The liquid level of Xenon is placed right in the middle between gate and anode with a distance of \SI{2.5}{\milli\m} to each of them.
 To protect the top \glspl{pmt}, another electrode is placed as a screen between the anode and the top \glspl{pmt} that is on the same potential as the \glspl{pmt}' photocathodes.
 As solid electrodes do not allow transmission of photons and electrons, they are realized as hexagonal, etched meshes.
-The meshes produce the same far-field, whereas in the near-field the electrons are focused towards the center of a mesh hexagons and the field is not as homogeneous which is negligible regarding drifttimes.
+The meshes produce the same far-field, whereas in the near-field the electrons are focused towards the center of a mesh hexagons and the field is not as homogeneous which is negligible regarding drift times.
 The electrons that got separated from their ions drift towards and through the gate.
 With a higher drift velocity they drift towards the anode.
 At the \gls{lxe} interface they have a field-dependent probability, the extraction efficiency, to be extracted into the gas phase~\cite{Xu19}.
@@ -159,7 +162,7 @@ In this case we want to trigger, whenever the \gls{led} is triggered to ensure w
 \paragraph{A \gls{led} calibration} is performed to translate $ \mathrm{ADC\mbox{-}units} $ to the number of \gls{pe} measured.
 In the \gls{adc}'s external trigger mode, the light signal of a \gls{led} is conducted.
 The \gls{led} is biased such that the probability to detect a \gls{pe} is about \SI{10}{\%}.
-Then the signal, next to distinguishable noise, is dominated by single \gls{pe} signal, whereas the occurrence of multiple \gls{pe} is significantly smaller.
+Then the signal, next to distinguishable noise, is dominated by single \gls{pe} signals, whereas the occurrence of multiple \gls{pe} is significantly smaller.
 In this case we can determine the mean number of $ \mathrm{ADC\mbox{-}bins} $ one \gls{pe} produces in this \gls{pmt}, the \emph{gain}.
 We use the gain to translate from $ \mathrm{ADC\mbox{-}bins} $ to the physically meaningful unit \gls{pe}.
 
@@ -168,14 +171,14 @@ We use the gain to translate from $ \mathrm{ADC\mbox{-}bins} $ to the physically
 %%%%% GAS SYSTEM
 \paragraph{Xenon purification and liquefaction} is realized by a gas-system that is used to fill the inner cryostat and the \gls{tpc} with \gls{lxe}.
 Next to pumps, a key component of the gas system is the hot metal gas purifier, or getter.
-Electronegative parts in the Xenon are bound to the heated-up Zirconium plate in the getter and thus remove.
-We pass Xenon through the getter in the filling process to clean it from residual water and Oxygen.
+Electronegative parts in the Xenon are bound to the heated-up Zirconium plate in the getter and are thus remove.
+We pass Xenon through the getter in the filling process to clean it of residual water and Oxygen.
 While the experiment is running, Xenon is constantly taken out of the \gls{tpc} and conducted through the getter before it is lead back inside for continuous cleaning.
 We call this process \emph{cycling}.
 Every time the \gls{gxe} is cycled, it has to be cooled to become liquid.
 A heat-exchanger is used to transfer energy from the inflow stream of \gls{gxe} to the outflow stream of \gls{lxe}.
 Two thirds of the cooling-power required are provided by the heat-exchanger.
-Further, active cooling takes place \emph{inside} the \gls{tpc}, and thus has to be conducted without particle exchange.
+Furthermore, active cooling takes place \emph{inside} the \gls{tpc}, and thus has to be conducted without particle exchange.
 Therefore, a liquid nitrogen cooled metal cavity filled from the top is energetically coupled to the top of the inside of the inner cryostat, called the coldfinger.  % mention cryostat above. explain outside structure in general!!
 The inflow stream of \gls{gxe} is directed against the coldfinger cooling and liquefying the Xenon.
 
@@ -212,7 +215,7 @@ The \gls{xebra} equivalent to this, we call \emph{straxbra}.  % TODO add github 
 
 Starting at the lowest level \emph{raw records}, the data processing structure in straxbra follows a hierarchical order as shown in fig.~\ref{fig:data-structure}.
 We call \emph{events}, \emph{peaks}, \emph{records}, and \emph{raw records} the \emph{data kinds} (colors in fig.~\ref{fig:data-structure}).
-In a processing sense they events require peaks, peaks require records and records require raw records.
+In a processing sense events require peaks, peaks require records and records require raw records.
 Each data kind describes different physical entities.
 
 \emph{A record} is built from a \emph{raw record} and in straxbra only small corrections are applied to receive a record.
@@ -225,7 +228,7 @@ Eventually, peaks are grouped to form events that, in a physical sense, correspo
 When peaks are detected within about one maximal drift length, they can be correlated, i.e. belong to the same interaction.
 An event usually contains at least one S1 and one S2 which lets us reconstruct again more information e.g. the $ z $ position.
 
-Data kinds are usually constituted of several, separately loadable parts e.g. \emph{peak~positions}, \emph{peak~classification}; see fig.~\ref{fig:data-structure}.
+Data kinds are usually comprised of several, separately loadable parts e.g. \emph{peak~positions}, \emph{peak~classification}; see fig.~\ref{fig:data-structure}.
 All these parts are built by so-called \emph{plug-ins} which are realized as python classes that inherit from the strax class \emph{plugin}.
 The processing instructions of the data are specified in the plug-ins.
 Every plug-in can provide several \emph{fields} holding information about every entry (e.g. about every peak).
@@ -333,7 +336,7 @@ While S1s have rather shorter risetimes, S2s rise less steeply and thus have lar
 \paragraph{A channel} in the context of \gls{xebra} simply means \gls{pmt}.
 Any \emph{per channel} unit is also to be understood as \emph{per PMT}, e.g. \emph{area per channel} is the area measured in a specific \gls{pmt} and yields 8 values.
 
-\paragraph{\emph{x} and \emph{y}} is the position in the horizontal plane.
+\paragraph{\emph{x} and \emph{y}} denote the interaction positions in the horizontal plane.
 A neural net trained on Monte Carlo data is used to determine the positions based on the light-share between the \glspl{pmt} in the top array~\cite{ABism}.
 Only S2 peaks are used to determine the $ x $ and $ y $ positions as they are produced in a narrow $ z $ slab between liquid interface and anode, close to the top \glspl{pmt}.
 Therefore, the light-share of S2s are more pronounced in \glspl{pmt} around the interaction point compared to the rather equal illumination in the case of S1s, as they are produced at the interaction point.
@@ -346,10 +349,10 @@ With $ n_\mathrm{\gls{lxe}} = 1.56 $~\cite{Solovov04}, the photon propagation ti
 The excimer decay has a slow ($ \tau_\mathrm{S} = \SI{2.2}{\nano\second} $) and a fast component ($ \tau_\mathrm{T} = \SI{34}{\nano\second} $)~\cite{Kubota78}.
 Scintillation photons from electron-ion recombination are produced in the time scale of the recombination time $ \tau_\mathrm{R} = \SI{45}{\nano\second} $~\cite{Hitachi83}.
 With the negligible propagation time, the detection time is in the order of a few \SI{10}{\nano\second} - independent of the interaction point.
-The S2's detection time is dominated by the drift time of the electrons that is with $ v_\mathrm{drift} \approx \SI{1.8}{\milli\meter\per\micro\second} $ in the order of a few \SIrange{1}{10}{\micro\second}~\cite{Aalbers18}.
-The detection time of S2s is thus by orders of magnitude larger than the S1's, while it is also dependant on the $ z $ position.
+The S2's detection time is dominated by the drift time of the electrons, which, at $ v_\mathrm{drift} \approx \SI{1.8}{\milli\meter\per\micro\second} $ is in the order of a few \SIrange{1}{10}{\micro\second}~\cite{Aalbers18}.
+The detection time of S2s is thus by orders of magnitude larger than the one of S1s, while it is also dependant on the $ z $ position.
 We compute $ z $ via $ z = - t_\mathrm{drift} v_\mathrm{drift} $, fixing $ t_\mathrm{drift} = 0 $ to $ z = 0 $ at the gate position.
-Larger drift-times translate to positions deeper in the \gls{tpc} which correspond to negative $ z $.
+Larger drift times translate to positions deeper in the \gls{tpc} which correspond to negative $ z $.
 
 
 % Strax: ordering of S1 and S2 peaks in an event. Wieso hab ich das reingeschrieben? Vllt steht irgendwo etwas, was hier erklärt werden soll. Ist das schon durch obige erklärungen gecovert?

@@ -35,10 +35,10 @@ With different drift field strengths the ratio of the scintillation quanta chang
 The stronger field separates the electrons from the respective ions more efficiently and thus supresses recombination.
 Therefore, the light yield decreases with drift field strength while the charge yield increases.
 Also the different decay branches of both Krypton decays - even though the energy is the same - result in slightly different light- and electron-responses in the scintillation process.
-We are, however, not able to resolve the small differences in light- and charge yield cause by the different decay branches with our setup.
+We are, however, not able to resolve the small differences in light- and charge yield caused by the different decay branches with our setup.
 It will, however, contribute to the broadening of the energy resolution as predicted by the \gls{nest}~\cite{Szydagis13} model.
 As the final decay product is \isotope[83]{Kr}, a stable Noble gas, it does neither react with other material nor contribute background radiation and can thus be left in the Xenon.
-A very conservatively estimated \SI{50000}{} atoms per filling and the Avogadro constant $ \mathrm{N}_\mathrm{A} \approx 6.02\cdot10^{23}\,\mathrm{mol}^{-1} $ yields a sub femtomol level after 1000 fillings.
+A conservatively estimated $ 2.5\cdot10^{6} $ atoms per filling and the Avogadro constant $ \mathrm{N}_\mathrm{A} \approx 6.02\cdot10^{23}\,\mathrm{mol}^{-1} $ yields a femtomol level after 1000 fillings.
 At this level, the macroscopic properties of Xenon are not altered by the remaining Krypton.
 
 
@@ -53,51 +53,40 @@ At this level, the macroscopic properties of Xenon are not altered by the remain
 \end{figure}
 
 
-% % Nest scint response
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.95\textwidth]{Figures/nest_scint_response.png}  % {Figures/th.jpeg}
-%     \caption[Nest scint response]{
-%         Nest scint response.\cite{Szydagis13}
-%     } % TODO write subbing
-%     \label{fig:scint_response_nest}
-% \end{figure}
+% Nest scint response
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/nest_scint_response.png}  % {Figures/th.jpeg}
+    \caption[Nest scint response]{
+        Nest scint response.\cite{Szydagis13}
+    } % TODO write subbing
+    \label{fig:scint_response_nest}
+\end{figure}
 
 
-With the \SI{50000}{} initial radioactive nuclei of Krypton, after 7 half-lives less than 400 nuclei that have not decayed are left.
+With the $ 2.5\cdot10^{6} $ initial radioactive nuclei of Krypton, after 7 half-lives less than 2500 nuclei that have not decayed are left.
 This corresponds to a sub-percent level after less than \SI{13}{\hour}.
 After a day we can thus easily take data without a noticeable amount of Krypton decays occurring.
 
 % TODO the following has been written before the text above. it might need to be worked on again in order to not repeat to much.
 % also the desired rate is calculated differently. needs to be changed.
-\paragraph{A Krypton run} is a \gls{daq} time for which we fill the \gls{tpc} with the metastable Krypton Isotope \isotope[83m2][36]{Kr} via the Rubidium source in the gas system as described above.
-We aim to record a maximum number of these Krypton decays in the \SI{3}{\min} recordings.
-The signals of two or more interactions at the same time - meaning an interaction happened before or just at the same time as the previous \st~ is registered - cannot unambiguously be assigned to its correct physical counterpart.
-Therefore, we can approximate an optimal rate of interactions and accordingly activity of our Krypton source $ A_\mathrm{Kr} $ inside the \gls{tpc}.
-To do that we demand the probability of exactly one decay within a given time window to be maximal.
-With the Krypton being distributed homogeneously within the \gls{tpc} the average \st~ drift time is half the maximum drift time of about $ \SI{20}{\micro\s}$.
-Thus the optimal activity of Krypton can be calculated using Poissonian statistics with $\lambda = \SI{20}{\micro\s} \cdot A_\mathrm{Kr}$ and $ k = 1 $:
+\paragraph{A Krypton run} is a \gls{daq} time for which we fill the \gls{tpc} with the metastable Krypton Isotope \isotope[83m][36]{Kr} via the Rubidium source in the gas system as described above.
+The amount of Krypton filled into the \gls{tpc} and thus the activity, cannot be controlled precisely.
+This is however not necessary as the activity decreases quickly due to the short decay time.
+The signals of two or more interactions at the same time - meaning an interaction happened before or just at the same time as the previous \st~is registered - cannot unambiguously be assigned to its correct physical counterpart.
+As we have not investigated how efficient these events can be removed, we want to keep their occurrence small compared to the occurrences of single interactions.
+We aim for a maximum of about $ 1\,\% $ of the events being in coincidence.
 
-\begin{equation}
-    P_{\lambda}\left(k\right) =  \frac{\lambda^k}{\exp^{-\lambda}}
-\end{equation}
 
-The highest probability to have exactly one decay within the average drift time of \SI{20}{\micro\s} is exactly \SI{50}{\kilo\becquerel}.
-Although \SI{40}{\micro\s} is a good estimate, our maximum drift time depends on the drift field and can thus vary from run to run, depending on the field we choose.
-It is also not easy to adjust how much Krypton exactly is let into the \gls{tpc} and thus the activity inside.
-This is not necessary, because of the short decay time the activity will decrease quickly.
-At the same time, the probability around the maximum is rather flat so the amount of events that can be unambiguously reconstructed does not change drastically.
-On the one hand, a lower activity leads to fewer decays at a time, but also to a lot of time in which no decay occurs.
-On the other hand, a greater activity increases overlapping events.
-This calculation assumes having overlapping events is as unappreciated as having no data in a certain time slot.
-Overlapping events can lead to mistakes in the reconstruction and are thus rather to be avoided than the other case.
-The calculation also assumes only Krypton interactions to occur, whereas we know we also have other interactions happening simultaneously.
-For these reasons, we choose an activities smaller than the theoretical optimum.
-
+%
+% \begin{equation}
+%     P_{\lambda}\left(k\right) =  \frac{\lambda^k}{\exp^{-\lambda}}
+% \end{equation}
+%
 
 One minute after starting the filling process of Krypton for a Krypton run it reaches the inner part of the \gls{tpc}.
-We allow the Krypton to disperse in the liquid Xenon for five minutes to ensure that is distributed homogeneously inside the \gls{tpc}.
-That this is enough time to ensure a homogeneous distribution will be shown in subsection~\ref{ssec:tagging}.
+We allow the Krypton to disperse in the liquid Xenon for five minutes to ensure that it is distributed homogeneously inside the \gls{tpc}.
+The homogeneity of the distribution is shown in subsection~\ref{ssec:tagging}.
 
 
 

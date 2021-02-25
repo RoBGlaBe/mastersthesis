@@ -52,7 +52,8 @@ We demand that $t_\mathrm{diff}$ is positive.
 It is worth noting that $t_\mathrm{diff}$ follows the decay time statistics $\tau_\mathrm{b}$ of \isotope[83m1]{Kr}. % ('later' ok? sounds like temp ordering)
 
 We purposely do not demand a proportion of $ \nicefrac{32}{9} $ between the areas of the two S1s - the proportion of their decay energies.
-This condition requires stronger assumptions.
+While in the statistical mean, the energy ratio can be translated to a fixed ratio in mean S1 size, this condition is not strictly fulfilled on a per event basis, due to variations of charge- and light-yield response, fig.~\ref{fig:scint_response_nest}.
+If applied, this would result in an acceptence loss with little gain on the sample purity.
 Therefore, we do not enforce this condition here but remove such misreconstruction later by other means.
 The energy ratio hypothesis remains to be tested.
 
@@ -79,11 +80,11 @@ In large-scale \glspl{tpc} like \nton, this cut is supposed to cut background $\
 In experiments for rare events searches, these volumes are selected very carefully to minimize the background while achieving maximum exposure to reach higher statistics or alternatively stronger exclusion limits~\cite{?}.  % TODO cite
 These fiducial volumes are typically described by higher-order polynomials based on Monte-Carlo simulations~\cite{?}. %TODO cite paper that shows fid vol cut with polynomials (xenon1t?)
 In small \glspl{tpc} like the ones used in \gls{xebra} there is no benefit from this precise exclusion.
-Our fiducial volume cut has also not to be optimized for high exposure, but rather for background exclusion and the accuracy limits of the position reconstruction.
+Our fiducial volume cut also does not have to be optimized for high exposure, but rather for background exclusion and the accuracy limits of the position reconstruction.
 This justifies a more simplistic modeling of the fiducial volume.
 We define a cylindrical volume by a maximal and minimal value for the height $z$ and a maximal radius $r_\mathrm{max} = \SI{23}{\milli\m}$.
 The latter bound is mentioned by the reliability of position reconstruction~\cite{ABism} and the effect on the complete Krypton selection is shown in fig.~\ref{fig:r-hist-homogen}.
-The $z$ cut of $ z_\mathrm{min} = \SI{-68}{mm} $ and $ z_\mathrm{max} = \SI{-8}{mm} $ is chosen based on data, as shown in fig.~\ref{fig:fid-z-cut} and selects the region of linear drifttime-distance relation.
+The $z$ cut of $ z_\mathrm{min} = \SI{-68}{mm} $ and $ z_\mathrm{max} = \SI{-8}{mm} $ is chosen based on data, as shown in fig.~\ref{fig:fid-z-cut} and selects the region of linear drift time-distance relation.
 
 
 % Area-Width after fid.
@@ -113,8 +114,8 @@ With the slightly conservative cuts at $ \mathrm{area}_\mathrm{S1b} = 30\,\mathr
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/oterhS1_area_hist_cut.png}  % {Figures/th.jpeg}
-\caption[Other S1 Area Histogram Cut]{
-        Other S1 Area Histogram Cut
+    \caption[$ \mathrm{S1}_\mathrm{b} $ Area Histogram Cut]{
+        $ \mathrm{S1}_\mathrm{b} $ Area Histogram Cut
     }
 \label{fig:other_s1_area_cut}
 \end{figure}
@@ -124,8 +125,8 @@ With the slightly conservative cuts at $ \mathrm{area}_\mathrm{S1b} = 30\,\mathr
 \begin{figure}
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/oterhS1_width_hist_cut.png}  % {Figures/th.jpeg}
-\caption[Other S1 Width Histogram Cut]{
-        Other S1 Width Histogram Cut
+\caption[$ \mathrm{S1}_\mathrm{b} $ Width Histogram Cut]{
+        $ \mathrm{S1}_\mathrm{b} $ Width Histogram Cut
     }
 \label{fig:other_s1_width_cut}
 \end{figure}
@@ -157,9 +158,9 @@ The remaining events are further referred to as Krypton events.
 
 \paragraph{A homogeneous spatial-distribution} of Krypton inside the \gls{tpc} is expected.
 With the tagging of Krypton via the discussed cuts we can test this hypothesis against the data to test our selection.
-A non-removed population from external sources would here result in an non-uniform overshoot inside the \SI{23}{\milli\meter} radius region.
+Here, a non-removed population from external sources would result in an non-uniform overshoot inside the \SI{23}{\milli\meter} radius region.
 In the histogram of events over equal volume spaced r-bins, fig.~\ref{fig:r-hist-homogen}, we observe counts inside the fiducial $ r $-cut of $r_\mathrm{max} = \SI{23}{\milli\m}$ that agrees with homogeneity.
-The bins with the smallest $ r $-values show higher counts and thus suggests a deviation from uniformity.
+The bins with the smallest $ r $-values show higher counts and thus suggest a deviation from uniformity.
 However, we know that the neural net - utilized for the position reconstruction - has a tendency of projecting the position inwards~\cite{ABism}.
 It is thus expected that we observe an overshoot in the central region.
 The overshoot around $ r = \SI{30}{\milli\m} $ is due to a know tendency from the neural net that projects the position towards that radius if the interaction originates somewhere outside $ r_\mathrm{max} $.
@@ -204,11 +205,12 @@ If the two S1 peaks cannot be split, they are combined by strax to a single peak
 The further apart the two unseparated peaks, the larger is the computed width.
 This population of events with unseparated S1s is the larger widths arm of the \gls{s1a} population in fig.~\footnote{TODO ref auf main s1 area widths, oder wenn nicht zu sehen, diesen satz ändern oder löschen}.
 They do not survive this set of cuts.
-Instead of tagging this population with another selection or tuning or replacing our peak finder, we disregard these events.
-The remaining Krypton events are, however, a representative population.
-This selection does therefore not introduce a bias otherwise, because there is no correlation of decay time to any of the other fields.
+Instead of tagging this population with another selection, tuning or replacing our peak finder, we exclusively investigate the selectable subset.
+The decay time is random and does thus no favor any interaction positions.
+However, the selection influences the charge- and light-yield response, as the field at the interaction point changes locally due to the electron cloud of the previous decay~\cite{Baudis2013}.
+This influence increases with smaller decay times.
 By integrating our exponential fit from fig.~\ref{fig:kr-decaytime} we can estimate that our Krypton selection has an acceptance of \SI{20}{\%}.
-A peak finder capable of resolving closer peaks would be capable of increasing the acceptance drastically.
+A peak finder capable of resolving closer peaks would be capable of increasing the acceptance drastically as is demonstrated in \cite{PMeinhardt}.
 
 
 % decay time hist

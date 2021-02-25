@@ -17,7 +17,8 @@ A large S2 in such a window closes the window early and the newly found S2 opens
 
 \paragraph{Two Channels Cut:} By introducing a cut based on the field \emph{n channels}, we select peaks with a specific number of \glspl{pmt} contributing to it.
 We demand at least two contributing \glspl{pmt} and thereby suppress dark counts as their coincidence rate is low.
-Real \glspl{se} are large enough to be seen by at least two \glspl{pmt} most of the time and are therefore not affected by the cut.
+Real \glspl{se} are large enough to be seen by at least two \glspl{pmt} most of the time, as the scintillation light is emitted isotropically.
+They are therefore not affected by the cut.
 
 \paragraph{\gls{aft} cut:} Although the meaning of \glspl{se} and S2s differ, \glspl{se} are produced via the same scintillation process as S2s and thus share some essential properties, like the specific \gls{aft}.
 As S2 photons are produced in a narrow z-range close to the top \glspl{pmt}, they have a certain probability to be detected by the top rather than the bottom \gls{pmt}.
@@ -33,7 +34,12 @@ We get better results with a flat \gls{aft} cut $ \mathit{AFT}_\mathrm{min} = 0.
     \centering
     \includegraphics[width=\figw\textwidth]{Figures/se_aft.png}  % {Figures/th.jpeg}
     \caption[AFT vs Area Single Electrons]{
-        Single Electron AFT vs Area.
+        2D-histogram of peaks binned linearly in \gls{aft} and logarithmically in area of a preselected \gls{se} population to introduce a cut based on \gls{aft}.
+        The S2-specific \gls{aft} of $ \approx 0.35 $ for this \gls{tpc} unfolds for larger areas, while in the lower area regime of \gls{se} statistical fluctuations dominate the value, as indicated by the black, dotted line.
+        Introducing a cut at the black line does not improve the population significantly.
+        An \gls{aft} of 1 corresponds to a peak only seen by the \glspl{pmt} in the top array, whereas a \gls{aft} of 0 means that only the bottom \gls{pmt} detected the peak.
+        We remove the larger population at 0 and the peaks with unphysical negative values by introducing a cut at the lower blue line at $ \mathit{AFT}_\mathrm{min} = 0.05 $.
+        The upper blue line at $ \mathit{AFT}_\mathrm{max} = 0.95 $ introduces the upper \gls{aft} cut, removing the population at 1 and the unphysical values $ > 1 $.
     }
     \label{fig:se-aft}
 \end{figure}
@@ -51,7 +57,12 @@ A stable value hints towards a low impact of the population on the fit.
     \centering
     \includegraphics[width=\figw\textwidth]{Figures/se_area_hist.png}  % {Figures/th.jpeg}
     \caption[Histogram Area Single Electrons and Background]{
-        Single Electron AFT vs Area.
+        Area histogram of our single electron population where the peak at $ 22\,\mathrm{PE} $ correspond to the alleged \glspl{se}.
+        The tail is formed by coinciding few-electron peaks and the narrow peak on the left side at $ \approx 2\,\mathrm{PE} $ is considered background.
+        Based on the area we define reference regimes indicated by the background colors.
+        % That the background population peaks at $ \approx 2\,\mathrm{PE} $ suggests that it consists of 2 coinciding photons or dark counts.
+        % In this figure peaks with only one contributing channel is excluded as are \gls{aft} values of 1 and 0.
+        % This means that from the coinciding photons/dark counts from the background population one is seen by one top \gls{pmt} and one by the bottom \gls{pmt}.
     }
     \label{fig:se-area-hist}
 \end{figure}
@@ -60,7 +71,7 @@ A stable value hints towards a low impact of the population on the fit.
 We choose the reference regimes \emph{background}, \emph{\glspl{se}}, and \emph{tail} based on areas.
 The representative regions are indicated in fig.~\ref{fig:se-area-hist} by the different background colors spanning from \numrange{0}{7} (background, green), \numrange{15}{30} (\gls{se}, red) and \numrange{40}{100}$ \,\mathit{PE} $ (tail, orange).
 Furthermore, we compare other dimensions of the reference regimes to each other to find one where the backgrounds is well separable from the other two.
-We peak length, risetime, and number of hits to show different behavior in the different reference regimes and thus make for possible cuts.
+We choose peak length, risetime, and number of hits which show different behavior in the different reference regimes and thus make for possible cuts.
 The respective histograms and cuts are shown in fig.~\ref{fig:len-cut-se},~\ref{fig:hit-cut-se} and \ref{fig:riset-cut-se}.
 
 
